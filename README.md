@@ -4,3 +4,5 @@
 如果您是Twisted新手, [Twisted 文档](http://twistedmatrix.com/documents/current/core/howto/index.html)也是不错的选择
 
 http://blog.sina.com.cn/s/blog_704b6af70100py9n.html
+
+https://github.com/luocheng/twisted-intro-cn
