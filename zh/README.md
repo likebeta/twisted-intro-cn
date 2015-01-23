@@ -14,6 +14,7 @@
 
 + [「Twisted与异步编程入门」@gitbook][gitbook]
 + [「Twisted与异步编程入门」@github][github]
++ [「Twisted官方文档」@twistedmatrix][twistedmatrix]
 
 
 [Dave]: http://krondo.com/blog/?page_id=1327
@@ -22,3 +23,4 @@
 [likebeta]: http://www.ixxoo.me
 [gitbook]: http://likebeta.gitbooks.io/twisted-intro-cn
 [github]: https://github.com/likebeta/twisted-intro-cn/blob/gh-pages/zh/SUMMARY.md
+[twistedmatrix]: http://twistedmatrix.com/documents/current/core/howto/index.html
