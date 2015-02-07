@@ -16,6 +16,11 @@
 + [「Twisted与异步编程入门」@github][github]
 + [「Twisted官方文档」@twistedmatrix][twistedmatrix]
 
+### 代码
+
++ [本书源码](https://github.com/likebeta/twisted-intro-cn)
++ [示例代码](https://github.com/jdavisp3/twisted-intro)
+
 
 [Dave]: http://krondo.com/blog/?page_id=1327
 [杨晓伟]: http://blog.sina.com.cn/s/blog_704b6af70100py9n.html
