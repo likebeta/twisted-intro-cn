@@ -1,0 +1,37 @@
+{
+    "title": "Twisted与异步编程入门",
+    "author": "likebeta",
+    "description": "Twisted与异步编程入门",
+    "language": "zh-hans",
+    "plugins": [
+        "highlight",
+        "-search",
+        "search-pro",
+        "-lunr",
+        "github",
+        "livereload",
+        "back-to-top-button",
+        "code",
+        "splitter",
+        "-sharing",
+        "-sharing-plus",
+        "tbfed-pagefooter"
+    ],
+    "pluginsConfig": {
+        "tbfed-pagefooter": {
+            "modify_label": "修订时间：",
+            "modify_format": "YYYY-MM-DD HH:mm:ss"
+        },
+        "search-pro": {
+            "cutWordLib": "nodejieba"
+        },
+        "github": {
+            "url": "https://github.com/likebeta"
+        }
+    },
+    "links": {
+        "sidebar": {
+            "代码仓库": "https://github.com/likebeta/twisted-intro-cn"
+        }
+    }
+}
