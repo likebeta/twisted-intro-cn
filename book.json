@@ -4,17 +4,17 @@
     "description": "Twisted与异步编程入门",
     "language": "zh-hans",
     "plugins": [
-        "highlight",
-        "-search",
-        "search-pro",
         "-lunr",
+        "-search",
+        "-sharing",
+        "-sharing-plus",
+        "-livereload",
+        "highlight",
+        "search-pro",
         "github",
-        "livereload",
         "back-to-top-button",
         "code",
         "splitter",
-        "-sharing",
-        "-sharing-plus",
         "tbfed-pagefooter"
     ],
     "pluginsConfig": {
