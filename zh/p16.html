@@ -1,0 +1,837 @@
+
+<!DOCTYPE HTML>
+<html lang="zh" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Twisted 进程守护 · Twisted与异步编程入门</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="likebeta">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="p17.html" />
+    
+    
+    <link rel="prev" href="p15.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="輸入並搜尋" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://github.com/likebeta/twisted-intro-cn" target="_blank" class="custom-link">代码仓库</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="p01.html">
+            
+                <a href="p01.html">
+            
+                    
+                    Twisted 理论基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="p02.html">
+            
+                <a href="p02.html">
+            
+                    
+                    异步编程模式与Reactor初探
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="p03.html">
+            
+                <a href="p03.html">
+            
+                    
+                    初识Twisted
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="p04.html">
+            
+                <a href="p04.html">
+            
+                    
+                    由twisted支持的客户端
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="p05.html">
+            
+                <a href="p05.html">
+            
+                    
+                    由Twisted扶持的客户端
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="p06.html">
+            
+                <a href="p06.html">
+            
+                    
+                    更加"抽象"的运用Twisted
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="p07.html">
+            
+                <a href="p07.html">
+            
+                    
+                    小插曲，Deferred
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="p08.html">
+            
+                <a href="p08.html">
+            
+                    
+                    使用Deferred的诗歌下载客户端
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="p09.html">
+            
+                <a href="p09.html">
+            
+                    
+                    第二个小插曲，deferred
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="p10.html">
+            
+                <a href="p10.html">
+            
+                    
+                    增强defer功能的客户端
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="p11.html">
+            
+                <a href="p11.html">
+            
+                    
+                    改进诗歌下载服务器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="p12.html">
+            
+                <a href="p12.html">
+            
+                    
+                    改进诗歌下载服务器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="p13.html">
+            
+                <a href="p13.html">
+            
+                    
+                    使用Deferred新功能实现新客户端
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="p14.html">
+            
+                <a href="p14.html">
+            
+                    
+                    Deferred用于同步环境
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="p15.html">
+            
+                <a href="p15.html">
+            
+                    
+                    测试诗歌
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.17" data-path="p16.html">
+            
+                <a href="p16.html">
+            
+                    
+                    Twisted 进程守护
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="p17.html">
+            
+                <a href="p17.html">
+            
+                    
+                    构造"回调"的另一种方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="p18.html">
+            
+                <a href="p18.html">
+            
+                    
+                    Deferreds 全貌
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" data-path="p19.html">
+            
+                <a href="p19.html">
+            
+                    
+                    取消之前的意图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.21" data-path="p20.html">
+            
+                <a href="p20.html">
+            
+                    
+                    轮子内的轮子: Twisted和Erlang
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22" data-path="p21.html">
+            
+                <a href="p21.html">
+            
+                    
+                    惰性不是迟缓: Twisted和Haskell
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.23" data-path="p22.html">
+            
+                <a href="p22.html">
+            
+                    
+                    结束
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本書使用 GitBook 釋出
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Twisted 进程守护</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h3 id="&#x7B80;&#x4ECB;">&#x7B80;&#x4ECB;</h3>
+<p>&#x76EE;&#x524D;&#x6211;&#x4EEC;&#x6240;&#x5199;&#x7684;&#x670D;&#x52A1;&#x5668;&#x4EC5;&#x4EC5;&#x8FD0;&#x884C;&#x5728;&#x7EC8;&#x7AEF;&#x7A97;&#x53E3;&#xFF0C;&#x7ED3;&#x679C;&#x901A;&#x8FC7; <code>print</code> &#x8BED;&#x53E5;&#x8F93;&#x51FA;&#x5230;&#x5C4F;&#x5E55;.&#x8FD9;&#x5BF9;&#x4E8E;&#x5F00;&#x53D1;&#x6765;&#x8BF4;&#x5DF2;&#x7ECF;&#x8DB3;&#x591F;&#xFF0C;&#x4F46;&#x5BF9;&#x4E8E;&#x4EA7;&#x54C1;&#x7EA7;&#x7684;&#x90E8;&#x7F72;&#x8FD8;&#x8FDC;&#x8FDC;&#x4E0D;&#x591F;. &#x5065;&#x58EE;&#x7684;&#x4EA7;&#x54C1;&#x7EA7;&#x670D;&#x52A1;&#x5668;&#x5E94;&#x8BE5;&#xFF1A;</p>
+<ol>
+<li>&#x8FD0;&#x884C;&#x4E00;&#x4E2A; <a href="http://en.wikipedia.org/wiki/Daemon_%28computer_software%29" target="_blank">daemon</a> &#x8FDB;&#x7A0B;,&#x8FD9;&#x4E2A;&#x8FDB;&#x7A0B;&#x4E0D;&#x4E0E;&#x4EFB;&#x4F55;&#x7EC8;&#x7AEF;&#x6216;&#x7528;&#x6237;&#x4F1A;&#x8BDD;&#x76F8;&#x5173;.&#x56E0;&#x4E3A;&#x6CA1;&#x6709;&#x4EBA;&#x613F;&#x610F;&#x5F53;&#x67D0;&#x7528;&#x6237;&#x767B;&#x51FA;&#x65F6;&#x670D;&#x52A1;&#x81EA;&#x52A8;&#x5173;&#x95ED;.</li>
+<li>&#x5C06;&#x8C03;&#x8BD5;&#x548C;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x53D1;&#x9001;&#x5230;&#x4E00;&#x7CFB;&#x5217;&#x6EDA;&#x8F6C;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;, &#x6216;&#x8005; <a href="http://en.wikipedia.org/wiki/Syslog" target="_blank">syslog</a> &#x670D;&#x52A1;.</li>
+<li>&#x653E;&#x5F03;&#x8FC7;&#x9AD8;&#x7684;&#x6743;&#x9650;,&#x6BD4;&#x5982;,&#x5728;&#x8FD0;&#x884C;&#x524D;&#x5207;&#x6362;&#x5230;&#x8F83;&#x4F4E;&#x6743;&#x9650;.</li>
+<li>&#x4FDD;&#x5B58;&#x5B83;&#x7684; <a href="http://en.wikipedia.org/wiki/Process_ID" target="_blank">pid</a> &#x6587;&#x4EF6;&#x4EE5;&#x4FBF;&#x7BA1;&#x7406;&#x5458;&#x65B9;&#x4FBF;&#x5730;&#x5411; daemon <a href="http://en.wikipedia.org/wiki/Kill%28%29" target="_blank">&#x53D1;&#x9001;&#x4FE1;&#x53F7;</a>. </li>
+</ol>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5229;&#x7528;Twisted&#x63D0;&#x4F9B;&#x7684; <code>twistd</code> &#x811A;&#x672C;&#x83B7;&#x5F97;&#x6240;&#x6709;&#x4EE5;&#x4E0A;&#x529F;&#x80FD;. &#x4F46;&#x662F;&#x9996;&#x5148;&#x9700;&#x8981;&#x7A0D;&#x7A0D;&#x4FEE;&#x6539;&#x6211;&#x4EEC;&#x7684;&#x4EE3;&#x7801;.    </p>
+<h3 id="iservice">IService</h3>
+<p><a href="http://twistedmatrix.com/trac/browser/tags/releases/twisted-10.0.0/twisted/application/service.py#L87" target="_blank">IService</a> &#x63A5;&#x53E3;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A;&#x53EF;&#x4EE5;&#x542F;&#x52A8;&#x6216;&#x505C;&#x6B62;&#x7684;&#x547D;&#x540D;&#x670D;&#x52A1;. &#x8FD9;&#x4E2A;&#x670D;&#x52A1;&#x7A76;&#x7ADF;&#x505A;&#x4E86;&#x4E9B;&#x4EC0;&#x4E48;? &#x7B54;&#x6848;&#x662F;&#x4EFB;&#x4F55;&#x4F60;&#x559C;&#x6B22;&#x7684;&#x4E8B;&#x60C5;&#x2014;&#x2014;&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x53EA;&#x9700;&#x8981;&#x81EA;&#x63D0;&#x4F9B;&#x7684;&#x4E00;&#x4E9B;&#x901A;&#x7528;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;,&#x65E0;&#x987B;&#x7528;&#x6237;&#x5B9A;&#x4E49;&#x7279;&#x5B9A;&#x7684;&#x51FD;&#x6570;.</p>
+<p>&#x8FD9;&#x8FB9;&#x6709;&#x4E24;&#x4E2A;&#x9700;&#x8981;&#x7684;&#x5C5E;&#x6027;: <code>name</code> &#x548C; <code>running</code>.&#x5176;&#x4E2D; <code>name</code> &#x5C5E;&#x6027;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;,&#x5982; &quot;<code>fastpoetry</code>&quot;,&#x6216;&#x8005; <code>None</code> &#x5982;&#x679C;&#x4F60;&#x4E0D;&#x60F3;&#x7ED9;&#x8FD9;&#x4E2A;&#x670D;&#x52A1;&#x8D77;&#x540D;&#x5B57;. <code>running</code> &#x5C5E;&#x6027;&#x662F; <strong>Boolean</strong> &#x53D8;&#x91CF;,&#x5982;&#x679C;&#x670D;&#x52A1;&#x6210;&#x529F;&#x542F;&#x52A8;,&#x503C;&#x4E3A; <code>True</code>.</p>
+<p>&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x53EA;&#x6D89;&#x53CA; <code>IService</code> &#x7684;&#x67D0;&#x4E9B;&#x65B9;&#x6CD5;, &#x8DF3;&#x8FC7;&#x90A3;&#x4E9B;&#x5F88;&#x663E;&#x800C;&#x6613;&#x89C1;&#x7684;&#x6216;&#x8005;&#x5728;&#x7B80;&#x5355;&#x7684;Twisted&#x7A0B;&#x5E8F;&#x4E2D;&#x7528;&#x4E0D;&#x5230;&#x7684;&#x9AD8;&#x7EA7;&#x65B9;&#x6CD5;. <a href="http://twistedmatrix.com/trac/browser/tags/releases/twisted-10.0.0/twisted/application/service.py#L130" target="_blank">startService</a> &#x548C; <a href="http://twistedmatrix.com/trac/browser/tags/releases/twisted-10.0.0/twisted/application/service.py#L135" target="_blank">stopService</a> &#x662F; <code>IService</code> &#x7684;&#x4E24;&#x4E2A;&#x5173;&#x952E;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">startService</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    Start the service.
+    &quot;&quot;&quot;</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">stopService</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    Stop the service.
+
+    @rtype: L{Deferred}
+    @return: a L{Deferred} which is triggered when the service has
+        finished shutting down. If shutting down is immediate, a
+        value can be returned (usually, C{None}).
+    &quot;&quot;&quot;</span>
+</code></pre>
+<p>&#x540C;&#x6837;,&#x8FD9;&#x4E9B;&#x65B9;&#x6CD5;&#x505A;&#x4EC0;&#x4E48;&#x53D6;&#x51B3;&#x4E8E;&#x670D;&#x52A1;&#x7684;&#x9700;&#x6C42;,&#x6BD4;&#x5982; <code>startService</code> &#x53EF;&#x80FD;&#x4F1A;:</p>
+<ul>
+<li>&#x52A0;&#x8F7D;&#x914D;&#x7F6E;&#x6570;&#x636E;,&#x6216;</li>
+<li>&#x521D;&#x59CB;&#x5316;&#x6570;&#x636E;&#x5E93;,&#x6216;</li>
+<li>&#x5F00;&#x59CB;&#x76D1;&#x542C;&#x67D0;&#x7AEF;&#x53E3;,&#x6216;</li>
+<li>&#x4EC0;&#x4E48;&#x4E5F;&#x4E0D;&#x505A;.</li>
+</ul>
+<p><code>stopService</code> &#x53EF;&#x80FD;&#x4F1A;:</p>
+<ul>
+<li>&#x50A8;&#x5B58;&#x72B6;&#x6001;,&#x6216;</li>
+<li>&#x5173;&#x95ED;&#x6253;&#x5F00;&#x7684;&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;,&#x6216;</li>
+<li>&#x505C;&#x6B62;&#x76D1;&#x542C;&#x67D0;&#x7AEF;&#x53E3;,&#x6216;</li>
+<li>&#x4EC0;&#x4E48;&#x4E5F;&#x4E0D;&#x505A;.</li>
+</ul>
+<p>&#x5F53;&#x6211;&#x4EEC;&#x5199;&#x81EA;&#x5B9A;&#x4E49;&#x670D;&#x52A1;&#x65F6;, &#x8981;&#x6070;&#x5F53;&#x5730;&#x5B9E;&#x73B0;&#x8FD9;&#x4E9B;&#x65B9;&#x6CD5;.&#x5BF9;&#x4E8E;&#x4E00;&#x4E9B;&#x901A;&#x7528;&#x7684;&#x884C;&#x4E3A;,&#x6BD4;&#x5982;&#x76D1;&#x542C;&#x67D0;&#x7AEF;&#x53E3;,Twisted&#x63D0;&#x4F9B;&#x4E86;&#x73B0;&#x6210;&#x7684;&#x670D;&#x52A1;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;. </p>
+<p>&#x6CE8;&#x610F; <code>stopService</code> &#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x5730;&#x8FD4;&#x56DE; <code>deferred</code>,&#x8981;&#x6C42;&#x5F53;&#x670D;&#x52A1;&#x5B8C;&#x5168;&#x5173;&#x95ED;&#x65F6;&#x88AB;&#x6FC0;&#x53D1;.&#x8FD9;&#x5141;&#x8BB8;&#x6211;&#x4EEC;&#x7684;&#x670D;&#x52A1;&#x5728;&#x7ED3;&#x675F;&#x4E4B;&#x540E;&#x4E0E;&#x6574;&#x4E2A;&#x7A0B;&#x5E8F;&#x7EC8;&#x6B62;&#x4E4B;&#x524D;&#x5B8C;&#x6210;&#x6E05;&#x7406;&#x5DE5;&#x4F5C;.&#x5982;&#x679C;&#x4F60;&#x9700;&#x8981;&#x670D;&#x52A1;&#x7ACB;&#x5373;&#x5173;&#x95ED;,&#x53EF;&#x4EE5;&#x4EC5;&#x4EC5;&#x8FD4;&#x56DE; <code>None</code> &#x800C;&#x4E0D;&#x662F; <code>deferred</code>.</p>
+<p>&#x670D;&#x52A1;&#x53EF;&#x4EE5;&#x88AB;&#x7EC4;&#x7EC7;&#x6210;&#x96C6;&#x5408;&#x4EE5;&#x4FBF;&#x4E00;&#x8D77;&#x542F;&#x52A8;&#x548C;&#x505C;&#x6B62;.&#x4E0B;&#x9762;&#x6765;&#x770B;&#x770B;&#x8FD9;&#x91CC;&#x6700;&#x540E;&#x4E00;&#x4E2A; <code>IService</code> &#x65B9;&#x6CD5;: <a href="http://twistedmatrix.com/trac/browser/tags/releases/twisted-10.0.0/twisted/application/service.py#L107" target="_blank">setServiceParent</a>,&#x5B83;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#x5230;&#x96C6;&#x5408;:</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">setServiceParent</span><span class="hljs-params">(parent)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    Set the parent of the service.
+    @type parent: L{IServiceCollection}
+        @raise RuntimeError: Raised if the service already has a parent
+        or if the service has a name and the parent already has a child 
+    by that name.
+    &quot;&quot;&quot;</span>
+</code></pre>
+<p>&#x4EFB;&#x4F55;&#x670D;&#x52A1;&#x90FD;&#x53EF;&#x4EE5;&#x6709;&#x53CC;&#x4EB2;,&#x8FD9;&#x610F;&#x5473;&#x7740;&#x670D;&#x52A1;&#x53EF;&#x4EE5;&#x88AB;&#x7EC4;&#x7EC7;&#x4E3A;&#x5C42;&#x7EA7;&#x7ED3;&#x6784;.&#x8FD9;&#x628A;&#x6211;&#x4EEC;&#x5F15;&#x5411;&#x4E86;&#x4ECA;&#x5929;&#x8BA8;&#x8BBA;&#x7684;&#x53E6;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;.</p>
+<h3 id="iservicecollection">IServiceCollection</h3>
+<p><a href="http://twistedmatrix.com/trac/browser/tags/releases/twisted-10.0.0/twisted/application/service.py#L203" target="_blank">IServiceCollection</a> &#x63A5;&#x53E3;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x5B83;&#x53EF;&#x5305;&#x542B;&#x82E5;&#x5E72;&#x4E2A; <code>IService</code> &#x5BF9;&#x8C61;.&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#x96C6;&#x5408;&#x4EC5;&#x4EC5;&#x662F;&#x4E00;&#x4E2A;&#x666E;&#x901A;&#x7684;&#x7C7B;&#x5BB9;&#x5668;,&#x5177;&#x6709;&#x4EE5;&#x4E0B;&#x65B9;&#x6CD5;:</p>
+<ul>
+<li>&#x901A;&#x8FC7;&#x540D;&#x5B57;&#x67E5;&#x627E;&#x67D0;&#x670D;&#x52A1;(<a href="http://twistedmatrix.com/trac/browser/tags/releases/twisted-10.0.0/twisted/application/service.py#L212" target="_blank">getServiceNamed</a>)</li>
+<li>&#x904D;&#x5386;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x670D;&#x52A1;(<a href="http://twistedmatrix.com/trac/browser/tags/releases/twisted-10.0.0/twisted/application/service.py#L222" target="_blank"><strong>iter</strong></a>)</li>
+<li>&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#x5230;&#x96C6;&#x5408;(<a href="http://twistedmatrix.com/trac/browser/tags/releases/twisted-10.0.0/twisted/application/service.py#L227" target="_blank">addService</a>)</li>
+<li>&#x4ECE;&#x96C6;&#x5408;&#x4E2D;&#x79FB;&#x9664;&#x4E00;&#x4E2A;&#x670D;&#x52A1;(<a href="http://twistedmatrix.com/trac/browser/tags/releases/twisted-10.0.0/twisted/application/service.py#L236" target="_blank">removeService</a>)</li>
+</ul>
+<h3 id="application">Application</h3>
+<p>&#x4E00;&#x4E2A;Twisted <code>Application</code> &#x4E0D;&#x662F;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;&#x63A5;&#x53E3;&#x5B9A;&#x4E49;&#x7684;.&#x76F8;&#x53CD;, <code>Application</code> &#x5BF9;&#x8C61;&#x9700;&#x8981;&#x5B9E;&#x73B0; <code>IService</code> &#x548C; <code>IServiceCollection</code> &#x63A5;&#x53E3;&#x4EE5;&#x53CA;&#x4E00;&#x4E9B;&#x6211;&#x4EEC;&#x672A;&#x66FE;&#x6D89;&#x53CA;&#x7684;&#x63A5;&#x53E3;.</p>
+<p><code>Application</code> &#x662F;&#x4E00;&#x4E2A;&#x4EE3;&#x8868;&#x4F60;&#x6574;&#x4E2A;Twisted&#x5E94;&#x7528;&#x7684;&#x6700;&#x9876;&#x5C42;&#x7684;&#x670D;&#x52A1;. &#x5728;&#x4F60; <code>daemon</code> &#x4E2D;&#x7684;&#x6240;&#x6709;&#x5176;&#x4ED6;&#x670D;&#x52A1;&#x5C06;&#x662F;&#x8FD9;&#x4E2A; <code>Application</code> &#x5BF9;&#x8C61;&#x7684;&#x513F;&#x5B50;(&#x751A;&#x81F3;&#x5B59;&#x5B50;,&#x7B49;&#x7B49;.).</p>
+<p>&#x5176;&#x5B9E;&#x9700;&#x8981;&#x4F60;&#x81EA;&#x5DF1;&#x5B9E;&#x73B0; <code>Application</code> &#x7684;&#x673A;&#x4F1A;&#x5F88;&#x5C0F;,Twisted&#x5DF2;&#x7ECF;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x5F53;&#x4E0B;&#x5E38;&#x7528;&#x7684;&#x5B9E;&#x73B0;. </p>
+<h3 id="twisted-logging">Twisted Logging</h3>
+<p>Twisted&#x5728;&#x5176;&#x6A21;&#x5757; <a href="http://twistedmatrix.com/trac/browser/tags/releases/twisted-10.0.0/twisted/python/log.py" target="_blank">twistd.python.log</a> &#x4E2D;&#x5305;&#x542B;&#x4E86;&#x5176;&#x81EA;&#x8EAB;&#x7684;&#x65E5;&#x5FD7;&#x67B6;&#x6784;.&#x7531;&#x4E8E;&#x5199;&#x65E5;&#x5FD7;&#x7684;&#x57FA;&#x672C; <strong>API</strong> &#x975E;&#x5E38;&#x7B80;&#x5355;, &#x6211;&#x4EEC;&#x4EC5;&#x4EC5;&#x4ECB;&#x7ECD;&#x4E00;&#x4E2A;&#x5C0F;&#x4F8B;&#x5B50;&#xFF1A; <a href="https://github.com/jdavisp3/twisted-intro/blob/master/basic-twisted/log.py" target="_blank">basic-twisted/log.py</a>,&#x5982;&#x679C;&#x4F60;&#x611F;&#x5174;&#x8DA3;&#x66F4;&#x591A;&#x7EC6;&#x8282;&#x53EF;&#x4EE5;&#x6D4F;&#x89C8;Twisted&#x6A21;&#x5757;.</p>
+<p>&#x6211;&#x4EEC;&#x4E5F;&#x4E0D;&#x8BE6;&#x7EC6;&#x4ECB;&#x7ECD;&#x5B89;&#x88C5;&#x65E5;&#x5FD7;&#x5904;&#x7406;&#x7A0B;&#x5E8F;&#x7684; <strong>API</strong>,&#x56E0;&#x4E3A; <code>twistd</code> &#x811A;&#x672C;&#x4F1A;&#x5E2E;&#x6211;&#x4EEC;&#x505A;.</p>
+<h3 id="fastpoetry-20">FastPoetry 2.0</h3>
+<p>&#x597D;&#x5427;,&#x8BA9;&#x6211;&#x4EEC;&#x770B;&#x770B;&#x4EE3;&#x7801;.&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x5C06;&#x5FEB;&#x8BD7;&#x670D;&#x52A1;&#x5668;&#x5347;&#x7EA7;&#x4E3A;&#x4F7F;&#x7528; <code>twistd</code>. &#x6E90;&#x7801;&#x5728; <a href="https://github.com/jdavisp3/twisted-intro/blob/master/twisted-server-3/fastpoetry.py#L1" target="_blank">twisted-server-3/fastpoetry.py</a>. &#x9996;&#x5148;&#x6211;&#x4EEC;&#x6709;&#x4E86; <a href="https://github.com/jdavisp3/twisted-intro/blob/master/twisted-server-3/fastpoetry.py#L9" target="_blank">&#x8BD7;&#x6B4C;&#x534F;&#x8BAE;</a>:</p>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PoetryProtocol</span><span class="hljs-params">(Protocol)</span>:</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">connectionMade</span><span class="hljs-params">(self)</span>:</span>
+        poem = self.factory.service.poem
+        log.msg(<span class="hljs-string">&apos;sending %d bytes of poetry to %s&apos;</span>
+                 % (len(poem), self.transport.getPeer()))
+        self.transport.write(poem)
+        self.transport.loseConnection()
+</code></pre>
+<p>&#x6CE8;&#x610F;&#x6CA1;&#x6709;&#x4F7F;&#x7528; <code>print</code> &#x8BED;&#x53E5;,&#x800C;&#x662F;&#x4F7F;&#x7528; <code>twisted.python.log.msg</code> &#x51FD;&#x6570;&#x53BB;&#x8BB0;&#x5F55;&#x6BCF;&#x4E2A;&#x65B0;&#x8FDE;&#x63A5;.</p>
+<p>&#x8FD9;&#x91CC;&#x662F; <a href="https://github.com/jdavisp3/twisted-intro/blob/master/twisted-server-3/fastpoetry.py#L19" target="_blank">&#x5DE5;&#x5382;&#x7C7B;</a>:</p>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PoetryFactory</span><span class="hljs-params">(ServerFactory)</span>:</span>
+
+    protocol = PoetryProtocol
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, service)</span>:</span>
+        self.service = service
+</code></pre>
+<p>&#x6B63;&#x5982;&#x4F60;&#x770B;&#x5230;&#x7684;&#xFF0C;&#x8BD7;&#x4E0D;&#x518D;&#x50A8;&#x5B58;&#x5728;&#x5DE5;&#x5382;&#x4E2D;&#xFF0C;&#x800C;&#x662F;&#x50A8;&#x5B58;&#x5728;&#x4E00;&#x4E2A;&#x88AB;&#x5DE5;&#x5382;&#x5F15;&#x7528;&#x7684;&#x670D;&#x52A1;&#x5BF9;&#x8C61;&#x4E0A;&#x3002;&#x6CE8;&#x610F;&#x8FD9;&#x8FB9;&#x534F;&#x8BAE;&#x662F;&#x5982;&#x4F55;&#x901A;&#x8FC7;&#x5DE5;&#x5382;&#x4ECE;&#x670D;&#x52A1;&#x83B7;&#x5F97;&#x8BD7;&#x6B4C;.&#x6700;&#x540E;,&#x770B;&#x4E00;&#x4E0B; <a href="https://github.com/jdavisp3/twisted-intro/blob/master/twisted-server-3/fastpoetry.py#L27" target="_blank">&#x670D;&#x52A1;&#x7C7B;</a>:</p>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PoetryService</span><span class="hljs-params">(service.Service)</span>:</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, poetry_file)</span>:</span>
+        self.poetry_file = poetry_file
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">startService</span><span class="hljs-params">(self)</span>:</span>
+        service.Service.startService(self)
+        self.poem = open(self.poetry_file).read()
+        log.msg(<span class="hljs-string">&apos;loaded a poem from: %s&apos;</span> % (self.poetry_file,))
+</code></pre>
+<p>&#x5C31;&#x50CF;&#x8BB8;&#x591A;&#x5176;&#x4ED6;&#x63A5;&#x53E3;&#x7C7B;&#x4E00;&#x6837;,Twisted&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x57FA;&#x7C7B;&#x4F9B;&#x81EA;&#x5B9A;&#x4E49;&#x5B9E;&#x73B0;,&#x540C;&#x65F6;&#x5177;&#x6709;&#x65B9;&#x4FBF;&#x7684;&#x9ED8;&#x8BA4;&#x884C;&#x4E3A;.</p>
+<p>&#x6211;&#x4EEC;&#x4F7F;&#x7528; <a href="http://twistedmatrix.com/trac/browser/tags/releases/twisted-10.0.0/twisted/application/service.py#L154" target="_blank">twisted.application.service.Service</a> &#x7C7B;&#x5B9E;&#x73B0; <code>PoetryService</code>.</p>
+<p>&#x8FD9;&#x4E2A;&#x57FA;&#x7C7B;&#x63D0;&#x4F9B;&#x4E86;&#x6240;&#x6709;&#x5FC5;&#x8981;&#x65B9;&#x6CD5;&#x7684;&#x9ED8;&#x8BA4;&#x5B9E;&#x73B0;,&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x8981;&#x5B9E;&#x73B0;&#x4E2A;&#x6027;&#x5316;&#x7684;&#x884C;&#x4E3A;.&#x5728;&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;,&#x6211;&#x4EEC;&#x53EA;&#x91CD;&#x8F7D;&#x4E86; <code>startService</code> &#x65B9;&#x6CD5;&#x6765;&#x52A0;&#x8F7D;&#x8BD7;&#x6B4C;&#x6587;&#x4EF6;.&#x6CE8;:&#x6211;&#x4EEC;&#x4ECD;&#x7136;&#x8C03;&#x7528;&#x4E86;&#x76F8;&#x5E94;&#x7684;&#x57FA;&#x7C7B;&#x65B9;&#x6CD5;(&#x5B83;&#x4E3A;&#x6211;&#x4EEC;&#x8BBE;&#x7F6E; <code>running</code> &#x5C5E;&#x6027;).</p>
+<p>&#x53E6;&#x5916;&#x503C;&#x5F97;&#x4E00;&#x63D0;&#x7684;&#x662F;&#xFF1A; <code>PoetryService</code> &#x5BF9;&#x8C61;&#x4E0D;&#x77E5;&#x9053;&#x5173;&#x4E8E; <code>PoetryProtocol</code> &#x7684;&#x4EFB;&#x4F55;&#x7EC6;&#x8282;.&#x8FD9;&#x91CC;&#x670D;&#x52A1;&#x7684;&#x4EFB;&#x52A1;&#x4EC5;&#x4EC5;&#x662F;&#x52A0;&#x8F7D;&#x8BD7;&#x6B4C;&#x4EE5;&#x53CA;&#x4E3A;&#x5176;&#x4ED6;&#x9700;&#x8981;&#x8BD7;&#x6B4C;&#x7684;&#x5BF9;&#x8C61;&#x63D0;&#x4F9B;&#x63A5;&#x53E3;.&#x4E5F;&#x5C31;&#x662F;&#x8BF4;, <code>PoetryService</code> &#x53EA;&#x5173;&#x5FC3;&#x63D0;&#x4F9B;&#x8BD7;&#x6B4C;&#x7684;&#x66F4;&#x9AD8;&#x5C42;&#x7684;&#x7EC6;&#x8282;,&#x800C;&#x4E0D;&#x662F;&#x5173;&#x5FC3;&#x8BF8;&#x5982;&#x901A;&#x8FC7; <strong>TCP</strong> &#x8FDE;&#x63A5;&#x53D1;&#x9001;&#x8BD7;&#x6B4C;&#x8FD9;&#x6837;&#x7684;&#x66F4;&#x5E95;&#x5C42;&#x7684;&#x7EC6;&#x8282;.&#x6240;&#x4EE5;&#x540C;&#x6837;&#x7684;&#x670D;&#x52A1;&#x53EF;&#x4EE5;&#x88AB;&#x53E6;&#x5916;&#x7684;&#x534F;&#x8BAE;&#x4F7F;&#x7528;,&#x5982; <strong>UDP</strong> &#x6216; <strong>XML-RPC</strong>.&#x867D;&#x7136;&#x5BF9;&#x4E8E;&#x7B80;&#x5355;&#x7684;&#x670D;&#x52A1;&#x597D;&#x5904;&#x4E0D;&#x5927;,&#x4F46;&#x4F60;&#x53EF;&#x4EE5;&#x60F3;&#x8C61;&#x5176;&#x5728;&#x66F4;&#x5B9E;&#x9645;&#x670D;&#x52A1;&#x5B9E;&#x73B0;&#x4E2D;&#x7684;&#x4F18;&#x52BF;.</p>
+<p>&#x5982;&#x679C;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x5178;&#x578B;&#x7684;Twisted&#x7A0B;&#x5E8F;,&#x5230;&#x76EE;&#x524D;&#x6211;&#x4EEC;&#x770B;&#x5230;&#x7684;&#x4EE3;&#x7801;&#x90FD;&#x4E0D;&#x8BE5;&#x51FA;&#x73B0;&#x5728;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x91CC;.&#x5B83;&#x4EEC;&#x5E94;&#x8BE5;&#x5728;&#x4E00;&#x4E9B;&#x6A21;&#x5757;&#x5F53;&#x4E2D;(&#x4E5F;&#x8BB8;&#x662F; <code>fastpoetry</code> &#x548C; <code>fastpoetry.service</code>).&#x4F46;&#x662F;,&#x9075;&#x5FAA;&#x6211;&#x4EEC;&#x7684;&#x60EF;&#x4F8B;&#x4F1A;&#x4F7F;&#x8FD9;&#x4E9B;&#x4F8B;&#x5B50;&#x81EA;&#x5305;&#x542B;,&#x4E5F;&#x5C31;&#x662F;&#x5728;&#x4E00;&#x4E2A;&#x811A;&#x672C;&#x4E2D;&#x5305;&#x542B;&#x4E86;&#x6240;&#x6709;&#x4E1C;&#x897F;.</p>
+<h3 id="twisted-tac-files">Twisted tac files</h3>
+<p>&#x8FD9;&#x4E2A;&#x811A;&#x672C;&#x7684;&#x5176;&#x4F59;&#x90E8;&#x5206;&#x5305;&#x542B;&#x901A;&#x5E38;&#x4F5C;&#x4E3A;&#x5B8C;&#x6574;&#x5185;&#x5BB9;&#x7684; <code>Twisted tac</code> &#x6587;&#x4EF6;. <code>tac</code> &#x6587;&#x4EF6;&#x662F;&#x4E00;&#x4E2A; <code>Twisted Application Configuration</code> &#x6587;&#x4EF6;,&#x5B83;&#x544A;&#x8BC9; <code>twistd</code> &#x600E;&#x6837;&#x53BB;&#x6784;&#x5EFA;&#x4E00;&#x4E2A;&#x5E94;&#x7528;.&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;,&#x5B83;&#x8D1F;&#x8D23;&#x9009;&#x62E9;&#x8BBE;&#x7F6E;(&#x5982;&#x7AEF;&#x53E3;,&#x8BD7;&#x6B4C;&#x6587;&#x4EF6;&#x4F4D;&#x7F6E;&#x7B49;)&#x6765;&#x4EE5;&#x4E00;&#x79CD;&#x7279;&#x5B9A;&#x7684;&#x65B9;&#x5F0F;&#x8FD0;&#x884C;&#x8FD9;&#x4E2A;&#x5E94;&#x7528;.&#x6362;&#x53E5;&#x8BDD;&#x8BF4;, <code>tac</code> &#x4EE3;&#x8868;&#x6211;&#x4EEC;&#x670D;&#x52A1;&#x7684;&#x4E00;&#x4E2A;&#x7279;&#x5B9A;&#x90E8;&#x7F72;(&#x5728;&#x8FD9;&#x4E2A;&#x7AEF;&#x53E3;&#x670D;&#x52A1;&#x8FD9;&#x9996;&#x8BD7;),&#x800C;&#x4E0D;&#x662F;&#x542F;&#x52A8;&#x4EFB;&#x4F55;&#x8BD7;&#x6B4C;&#x670D;&#x52A1;&#x7684;&#x4E00;&#x822C;&#x811A;&#x672C;.</p>
+<p>&#x5982;&#x679C;&#x6211;&#x4EEC;&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x57DF;&#x8FD0;&#x884C;&#x591A;&#x4E2A;&#x8BD7;&#x6B4C;&#x670D;&#x52A1;,&#x6211;&#x4EEC;&#x5C06;&#x4E3A;&#x6BCF;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#x51C6;&#x5907;&#x4E00;&#x4E2A; <code>tac</code> &#x6587;&#x4EF6;(&#x56E0;&#x6B64;&#x4F60;&#x53EF;&#x4EE5;&#x660E;&#x767D;&#x4E3A;&#x4EC0;&#x4E48; <code>tac</code> &#x6587;&#x4EF6;&#x901A;&#x5E38;&#x4E0D;&#x5305;&#x542B;&#x4EFB;&#x4F55;&#x4E00;&#x822C;&#x76EE;&#x7684;&#x7684;&#x4EE3;&#x7801;).&#x5728;&#x6211;&#x4EEC;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;, <code>tac</code> &#x6587;&#x4EF6;&#x88AB;&#x914D;&#x7F6E;&#x4E3A;&#x4F7F; <a href="https://github.com/jdavisp3/twisted-intro/blob/master/poetry/ecstasy.txt" target="_blank">poetry/ecstasy.txt</a> &#x8FD0;&#x884C;&#x5728;&#x56DE;&#x73AF;&#x63A5;&#x53E3;&#x7684;10000&#x53F7;&#x7AEF;&#x53E3;:</p>
+<pre><code class="lang-python"><span class="hljs-comment"># configuration parameters</span>
+port = <span class="hljs-number">10000</span>
+iface = <span class="hljs-string">&apos;localhost&apos;</span>
+poetry_file = <span class="hljs-string">&apos;poetry/ecstasy.txt&apos;</span>
+</code></pre>
+<p>&#x6CE8;&#x610F; <code>twistd</code> &#x5E76;&#x4E0D;&#x77E5;&#x9053;&#x8FD9;&#x4E9B;&#x7279;&#x5B9A;&#x53D8;&#x91CF;,&#x6211;&#x4EEC;&#x4EC5;&#x4EC5;&#x5C06;&#x8FD9;&#x4E9B;&#x914D;&#x7F6E;&#x503C;&#x7EDF;&#x4E00;&#x7684;&#x653E;&#x5728;&#x8FD9;&#x91CC;.&#x4E8B;&#x5B9E;&#x4E0A;, <code>twistd</code> &#x53EA;&#x5173;&#x5FC3;&#x6574;&#x4E2A;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;,&#x6211;&#x4EEC;&#x5373;&#x5C06;&#x770B;&#x5230;.&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x5F00;&#x59CB;&#x5EFA;&#x7ACB;&#x6211;&#x4EEC;&#x7684;&#x5E94;&#x7528;:</p>
+<pre><code class="lang-python"><span class="hljs-comment"># this will hold the services that combine to form the poetry server</span>
+top_service = service.MultiService()
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x7684;&#x8BD7;&#x6B4C;&#x670D;&#x52A1;&#x5668;&#x5C06;&#x5305;&#x542B;&#x4E24;&#x4E2A;&#x670D;&#x52A1;, &#x4E0A;&#x6587;&#x5B9A;&#x4E49;&#x7684; <code>PoetryService</code>,&#x548C;&#x4E00;&#x4E2A;Twisted&#x7684;&#x5185;&#x7F6E;&#x670D;&#x52A1;,&#x5B83;&#x5C06;&#x5EFA;&#x7ACB;&#x670D;&#x52A1;&#x6211;&#x4EEC;&#x8BD7;&#x6B4C;&#x7684;&#x76D1;&#x542C;&#x5957;&#x63A5;&#x5B57;.&#x7531;&#x4E8E;&#x8FD9;&#x4E24;&#x4E2A;&#x670D;&#x52A1;&#x660E;&#x663E;&#x7684;&#x76F8;&#x5173;,&#x6211;&#x4EEC;&#x7528; <code>MultiService</code>(&#x4E00;&#x4E2A;&#x5B9E;&#x73B0; <code>IServiceCollection</code> &#x548C; <code>IService</code> &#x7684;&#x7C7B;) &#x5C06;&#x5B83;&#x4EEC;&#x7EC4;&#x7EC7;&#x5728;&#x4E00;&#x8D77;.</p>
+<p>&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#x96C6;&#x5408;, <code>MultiService</code> &#x628A;&#x6211;&#x4EEC;&#x7684;&#x8BD7;&#x6B4C;&#x670D;&#x52A1;&#x7EC4;&#x7EC7;&#x5728;&#x4E00;&#x8D77;.&#x540C;&#x65F6;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x670D;&#x52A1;, <code>MultiService</code> &#x542F;&#x52A8;&#x65F6;&#x5C06;&#x542F;&#x52A8;&#x5B83;&#x7684;&#x5B50;&#x670D;&#x52A1;,&#x5173;&#x95ED;&#x65F6;&#x5C06;&#x5173;&#x95ED;&#x5B83;&#x7684;&#x5B50;&#x670D;&#x52A1;.&#x8BA9;&#x6211;&#x4EEC;&#x5411;&#x670D;&#x52A1;&#x96C6;&#x5408; <a href="https://github.com/jdavisp3/twisted-intro/blob/master/twisted-server-3/fastpoetry.py#L48" target="_blank">&#x6DFB;&#x52A0;</a> &#x7B2C;&#x4E00;&#x4E2A;&#x8BD7;&#x6B4C;&#x670D;&#x52A1;:</p>
+<pre><code class="lang-python"><span class="hljs-comment"># the poetry service holds the poem. it will load the poem when it is</span>
+<span class="hljs-comment"># started</span>
+poetry_service = PoetryService(poetry_file)
+poetry_service.setServiceParent(top_service)
+</code></pre>
+<p>&#x8FD9;&#x662F;&#x975E;&#x5E38;&#x7B80;&#x5355;&#x7684;&#x5185;&#x5BB9;.&#x6211;&#x4EEC;&#x4EC5;&#x521B;&#x5EFA;&#x4E86; <code>PoetryService</code>,&#x7136;&#x540E;&#x7528; <code>setServiceParent</code> &#x65B9;&#x6CD5;&#x5C06;&#x5176;&#x6DFB;&#x52A0;&#x5230;&#x670D;&#x52A1;&#x96C6;&#x5408;.&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x6DFB;&#x52A0; <strong>TCP</strong> &#x76D1;&#x542C;&#x5668;:</p>
+<pre><code class="lang-python"><span class="hljs-comment"># the tcp service connects the factory to a listening socket. it will</span>
+<span class="hljs-comment"># create the listening socket when it is started</span>
+factory = PoetryFactory(poetry_service)
+tcp_service = internet.TCPServer(port, factory, interface=iface)
+tcp_service.setServiceParent(top_service)
+</code></pre>
+<p>Twisted&#x4E3A;&#x521B;&#x5EFA;&#x8FDE;&#x63A5;&#x5230;&#x4EFB;&#x610F;&#x5DE5;&#x5382;&#x7684; <strong>TCP</strong> &#x76D1;&#x542C;&#x5957;&#x63A5;&#x5B57;&#x63D0;&#x4F9B;&#x4E86; <code>TCPServer</code> &#x670D;&#x52A1;(&#x8FD9;&#x91CC;&#x662F; <code>PoetryFactory</code>),&#x6211;&#x4EEC;&#x6CA1;&#x6709;&#x76F4;&#x63A5;&#x8C03;&#x7528; <code>reactor.listenTCP</code> &#x56E0;&#x4E3A; <code>tac</code> &#x6587;&#x4EF6;&#x7684;&#x5DE5;&#x4F5C;&#x662F;&#x4F7F;&#x6211;&#x4EEC;&#x7684;&#x5E94;&#x7528;&#x51C6;&#x5907;&#x597D;&#x5F00;&#x59CB;,&#x800C;&#x4E0D;&#x662F;&#x5B9E;&#x9645;&#x542F;&#x52A8;&#x5B83;. &#x8FD9;&#x91CC; <code>TCPServer</code> &#x5C06;&#x5728;&#x88AB; <code>twistd</code> &#x542F;&#x52A8;&#x540E;&#x521B;&#x5EFA;&#x5957;&#x63A5;&#x5B57;.</p>
+<p>&#x4F60;&#x53EF;&#x80FD;&#x6CE8;&#x610F;&#x5230;&#x6211;&#x4EEC;&#x6CA1;&#x6709;&#x4E3A;&#x4EFB;&#x4F55;&#x670D;&#x52A1;&#x8D77;&#x540D;&#x5B57;.&#x4E3A;&#x670D;&#x52A1;&#x8D77;&#x540D;&#x4E0D;&#x662F;&#x5FC5;&#x9700;&#x7684;,&#x800C;&#x4EC5;&#x662F;&#x4E00;&#x4E2A;&#x53EF;&#x9009;&#x9879;,&#x5982;&#x679C;&#x4F60;&#x5E0C;&#x671B;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x67E5;&#x627E;&#x670D;&#x52A1;.&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x4E0D;&#x9700;&#x8981;&#x8FD9;&#x4E2A;&#x529F;&#x80FD;,&#x6240;&#x4EE5;&#x8FD9;&#x91CC;&#x6CA1;&#x6709;&#x4E3A;&#x670D;&#x52A1;&#x547D;&#x540D;.</p>
+<p>&#x65E2;&#x7136;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x5C06;&#x4E24;&#x4E2A;&#x670D;&#x52A1;&#x7ED1;&#x5B9A;&#x5230;&#x670D;&#x52A1;&#x96C6;&#x5408;.&#x73B0;&#x53EA;&#x9700;&#x521B;&#x5EFA;&#x6211;&#x4EEC;&#x7684;&#x5E94;&#x7528;,&#x5E76;&#x4E14;&#x5C06;&#x5B83;&#x6DFB;&#x52A0;&#x5230;&#x96C6;&#x5408;:</p>
+<pre><code class="lang-python"><span class="hljs-comment"># this variable has to be named &apos;application&apos;</span>
+application = service.Application(<span class="hljs-string">&quot;fastpoetry&quot;</span>)
+
+<span class="hljs-comment"># this hooks the collection we made to the application</span>
+top_service.setServiceParent(application)
+</code></pre>
+<p>&#x5728;&#x8FD9;&#x4E2A;&#x811A;&#x672C;&#x4E2D; <code>twistd</code> &#x6240;&#x5173;&#x5FC3;&#x7684;&#x552F;&#x4E00;&#x53D8;&#x91CF;&#x5C31;&#x662F; <code>application</code>. <code>twistd</code> &#x6B63;&#x662F;&#x901A;&#x8FC7;&#x5B83;&#x627E;&#x5230;&#x90A3;&#x4E2A;&#x9700;&#x8981;&#x542F;&#x52A8;&#x7684;&#x5E94;&#x7528;(&#x6240;&#x4EE5;&#x8FD9;&#x4E2A;&#x53D8;&#x91CF;&#x5FC5;&#x987B;&#x88AB;&#x547D;&#x540D;&#x4E3A; <code>applicaton</code>).&#x5F53;&#x5E94;&#x7528;&#x88AB;&#x542F;&#x52A8;&#x65F6;,&#x6211;&#x4EEC;&#x6DFB;&#x52A0;&#x5230;&#x5B83;&#x7684;&#x6240;&#x6709;&#x670D;&#x52A1;&#x90FD;&#x4F1A;&#x88AB;&#x542F;&#x52A8;.</p>
+<p>&#x56FE;34&#x663E;&#x793A;&#x4E86;&#x6211;&#x4EEC;&#x521A;&#x521A;&#x5EFA;&#x7ACB;&#x7684;&#x5E94;&#x7528;&#x7684;&#x7ED3;&#x6784;:</p>
+<div style="text-align: center"><img src="_static/p16_application.png" title="fastpoetry &#x5E94;&#x7528;&#x7684;&#x7ED3;&#x6784;&#x56FE;" alt="fastpoetry &#x5E94;&#x7528;&#x7684;&#x7ED3;&#x6784;&#x56FE;"></div>
+<div style="text-align: center">&#x56FE;34 fastpoetry &#x5E94;&#x7528;&#x7684;&#x7ED3;&#x6784;&#x56FE;</div>
+
+<h3 id="running-the-server">Running the Server</h3>
+<p>&#x8BA9;&#x6211;&#x4EEC;&#x7684;&#x65B0;&#x670D;&#x52A1;&#x5668;&#x8FD0;&#x8F6C;&#x8D77;&#x6765;.&#x4F5C;&#x4E3A; <code>tac</code> &#x6587;&#x4EF6;,&#x6211;&#x4EEC;&#x9700;&#x8981;&#x7528; <code>twistd</code> &#x542F;&#x52A8;&#x5B83;.&#x5F53;&#x7136;,&#x5B83;&#x4EC5;&#x4EC5;&#x662F;&#x4E00;&#x4E2A;&#x666E;&#x901A;&#x7684;Python&#x6587;&#x4EF6;.&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x9996;&#x5148;&#x7528; <code>python</code> &#x547D;&#x4EE4;&#x542F;&#x52A8;,&#x518D;&#x770B;&#x770B;&#x4F1A;&#x53D1;&#x751F;&#x4EC0;&#x4E48;:</p>
+<pre><code>python twisted-server-3/fastpoetry.py
+</code></pre><p>&#x5982;&#x679C;&#x4F60;&#x8FD9;&#x6837;&#x505A;,&#x4F1A;&#x53D1;&#x73B0;&#x4EC0;&#x4E48;&#x4E5F;&#x6CA1;&#x6709;&#x53D1;&#x751F;&#xFF01;&#x6B63;&#x5982;&#x524D;&#x6587;&#x6240;&#x8FF0;, <code>tac</code> &#x6587;&#x4EF6;&#x7684;&#x5DE5;&#x4F5C;&#x662F;&#x4F7F;&#x6211;&#x4EEC;&#x7684;&#x5E94;&#x7528;&#x51C6;&#x5907;&#x597D;&#x8FD0;&#x884C;,&#x800C;&#x4E0D;&#x662F;&#x5B9E;&#x9645;&#x8FD0;&#x884C;&#x5B83;.&#x4F5C;&#x4E3A; <code>tac</code> &#x6587;&#x4EF6;&#x8FD9;&#x4E2A;&#x7279;&#x6B8A;&#x76EE;&#x7684;&#x7684;&#x63D0;&#x9192;,&#x4EBA;&#x4EEC;&#x5C06;&#x5B83;&#x7684;&#x6269;&#x5C55;&#x540D;&#x89C4;&#x5B9A;&#x4E3A; <code>.tac</code> &#x800C;&#x4E0D;&#x662F; <code>.py</code>.&#x4F46;&#x662F; <code>twistd</code> &#x811A;&#x672C;&#x5B9E;&#x9645;&#x5E76;&#x4E0D;&#x533A;&#x5206;&#x6269;&#x5C55;&#x540D;.</p>
+<p>&#x8BA9;&#x6211;&#x4EEC;&#x7528; <code>twistd</code> &#x811A;&#x672C;&#x6765;&#x5B9E;&#x9645;&#x8FD0;&#x884C;&#x8FD9;&#x4E2A;&#x670D;&#x52A1;&#x5668;:</p>
+<pre><code>twistd --nodaemon --python twisted-server-3/fastpoetry.py
+</code></pre><p>&#x8FD0;&#x884C;&#x4EE5;&#x4E0A;&#x547D;&#x4EE4;&#x540E;&#x4F1A;&#x770B;&#x5230;&#x5982;&#x4E0B;&#x8F93;&#x51FA;:</p>
+<pre><code>2010-06-23 20:57:14-0700 [-] Log opened.
+2010-06-23 20:57:14-0700 [-] twistd 10.0.0 (/usr/bin/python 2.6.5) starting up.
+2010-06-23 20:57:14-0700 [-] reactor class: twisted.internet.selectreactor.SelectReactor.
+2010-06-23 20:57:14-0700 [-] __builtin__.PoetryFactory starting on 10000
+2010-06-23 20:57:14-0700 [-] Starting factory &lt;__builtin__.PoetryFactory instance at 0x14ae8c0&gt;
+2010-06-23 20:57:14-0700 [-] loaded a poem from: poetry/ecstasy.txt
+</code></pre><p>&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x51E0;&#x70B9;:</p>
+<ol>
+<li>&#x4F60;&#x53EF;&#x4EE5;&#x770B;&#x5230;Twisted&#x65E5;&#x5FD7;&#x7CFB;&#x7EDF;&#x7684;&#x8F93;&#x51FA;, &#x5305;&#x62EC; <code>PoetryFactory</code> &#x8C03;&#x7528; <code>log.msg</code>.&#x4F46;&#x662F;&#x6211;&#x4EEC;&#x5728; <code>tac</code> &#x6587;&#x4EF6;&#x4E2D;&#x6CA1;&#x6709;&#x5B89;&#x88C5; <code>logger</code>, &#x6240;&#x4EE5; <code>twistd</code> &#x4F1A;&#x5E2E;&#x6211;&#x4EEC;&#x5B89;&#x88C5;.</li>
+<li>&#x4F60;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x6211;&#x4EEC;&#x7684;&#x4E24;&#x4E2A;&#x4E3B;&#x8981;&#x670D;&#x52A1; <code>PoetryService</code> &#x548C; <code>TCPServer</code> &#x542F;&#x52A8;&#x4E86;.</li>
+<li>shell&#x63D0;&#x793A;&#x7B26;&#x4E0D;&#x4F1A;&#x8FD4;&#x56DE;. &#x8FD9;&#x8868;&#x660E;&#x6211;&#x4EEC;&#x7684;&#x670D;&#x52A1;&#x5668;&#x6CA1;&#x6709;&#x4EE5;&#x5B88;&#x62A4;&#x8FDB;&#x7A0B;&#x65B9;&#x5F0F;&#x8FD0;&#x884C;. &#x9ED8;&#x8BA4;&#x5730;, <code>twistd</code> &#x4F1A;&#x4EE5;&#x5B88;&#x62A4;&#x8FDB;&#x7A0B;&#x65B9;&#x5F0F;&#x8FD0;&#x884C;&#x670D;&#x52A1;&#x5668;(&#x8FD9;&#x6B63;&#x662F; <code>twistd</code> &#x5B58;&#x5728;&#x7684;&#x539F;&#x56E0;), &#x4F46;&#x662F;&#x5982;&#x679C;&#x4F60;&#x5305;&#x542B;&quot;<code>--nodaemon</code>&quot; &#x9009;&#x9879;,&#x90A3;&#x4E48; <code>twistd</code> &#x5C06;&#x4EE5;&#x4E00;&#x4E2A;&#x5E38;&#x89C4;shell&#x8FDB;&#x7A0B;&#x7684;&#x65B9;&#x5F0F;&#x8FD0;&#x884C;&#x4F60;&#x7684;&#x670D;&#x52A1;&#x5668;,&#x540C;&#x65F6;&#x4F1A;&#x5C06;&#x65E5;&#x5FD7;&#x8F93;&#x51FA;&#x5BFC;&#x5411;&#x5230;&#x6807;&#x51C6;&#x8F93;&#x51FA;. &#x8FD9;&#x5BF9;&#x4E8E;&#x8C03;&#x8BD5; <code>tac</code> &#x6587;&#x4EF6;&#x975E;&#x5E38;&#x6709;&#x7528;.</li>
+</ol>
+<p>&#x4E0B;&#x9762;&#x6D4B;&#x8BD5;&#x53D6;&#x8BD7;&#x670D;&#x52A1;&#x5668;, &#x901A;&#x8FC7;&#x6211;&#x4EEC;&#x7684;&#x8BD7;&#x6B4C;&#x4EE3;&#x7406;&#x6216;&#x8005; <code>netcat</code> &#x547D;&#x4EE4;:</p>
+<pre><code>netcat localhost 10000
+</code></pre><p>&#x8FD9;&#x5C06;&#x4ECE;&#x670D;&#x52A1;&#x5668;&#x6293;&#x53D6;&#x8BD7;&#x6B4C;,&#x5E76;&#x4E14;&#x4F60;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x4E00;&#x884C;&#x5982;&#x4E0B;&#x7684;&#x65E5;&#x5FD7;:</p>
+<pre><code>2010-06-27 22:17:39-0700 [__builtin__.PoetryFactory] sending 3003 bytes 
+    of poetry to IPv4Address(TCP, &apos;127.0.0.1&apos;, 58208)
+</code></pre><p>&#x8FD9;&#x4E2A;&#x65E5;&#x5FD7;&#x6765;&#x81EA; <code>PoetryProtocol.connectionMade</code> &#x65B9;&#x6CD5;&#x8C03;&#x7528; <code>log.msg</code>.&#x5F53;&#x4F60;&#x5411;&#x670D;&#x52A1;&#x5668;&#x53D1;&#x9001;&#x66F4;&#x591A;&#x8BF7;&#x6C42;&#x65F6;, &#x4F60;&#x5C06;&#x770B;&#x5230;&#x66F4;&#x591A;&#x7684;&#x65E5;&#x5FD7;&#x6761;&#x76EE;.</p>
+<p>&#x73B0;&#x5728;&#x53EF;&#x4EE5;&#x7528; <code>Ctrl-C</code> &#x6765;&#x7EC8;&#x6B62;&#x8FD9;&#x4E2A;&#x670D;&#x52A1;&#x5668;. &#x4F60;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x5982;&#x4E0B;&#x8F93;&#x51FA;:</p>
+<pre><code>2010-06-29 21:32:59-0700 [-] Received SIGINT, shutting down.
+2010-06-29 21:32:59-0700 [-] (Port 10000 Closed)
+2010-06-29 21:32:59-0700 [-] Stopping factory &lt;__builtin__.PoetryFactory instance at 0x28d38c0&gt;
+2010-06-29 21:32:59-0700 [-] Main loop terminated.
+2010-06-29 21:32:59-0700 [-] Server Shut Down.
+</code></pre><p>&#x6B63;&#x5982;&#x4F60;&#x770B;&#x5230;&#x7684;, Twisted&#x5E76;&#x6CA1;&#x6709;&#x7B80;&#x5355;&#x5730;&#x5D29;&#x6E83;, &#x800C;&#x662F;&#x4F18;&#x96C5;&#x5730;&#x5173;&#x95ED;&#x5E76;&#x5C06;&#x65E5;&#x5FD7;&#x4FE1;&#x606F;&#x544A;&#x8BC9;&#x4F60;.</p>
+<p>&#x597D;&#x5566;, &#x73B0;&#x5728;&#x518D;&#x6B21;&#x542F;&#x52A8;&#x670D;&#x52A1;&#x5668;:</p>
+<pre><code>twistd --nodaemon --python twisted-server-3/fastpoetry.py
+</code></pre><p>&#x73B0;&#x5728;&#x6253;&#x5F00;&#x53E6;&#x4E00;&#x4E2A;shell&#x5E76;&#x5207;&#x6362;&#x5230; <code>twisted-intro</code> &#x76EE;&#x5F55;. &#x5176;&#x4E2D;&#x6709;&#x4E00;&#x4E2A;&#x53EB; <code>twistd.pid</code> &#x7684;&#x6587;&#x4EF6;. &#x5B83;&#x662F;&#x88AB; <code>twistd</code> &#x521B;&#x5EFA;&#x7684;, &#x5305;&#x542B;&#x6211;&#x4EEC;&#x8FD9;&#x4E2A;&#x8FD0;&#x884C;&#x670D;&#x52A1;&#x5668;&#x8FDB;&#x7A0B;&#x53F7;. &#x8BD5;&#x4E00;&#x4E0B;&#x4E0B;&#x9762;&#x7684;&#x65B9;&#x6CD5;&#x6765;&#x5173;&#x95ED;&#x670D;&#x52A1;&#x5668;:</p>
+<pre><code>kill `cat twistd.pid`
+</code></pre><p>&#x6CE8;&#x610F;&#x5F53;&#x670D;&#x52A1;&#x5668;&#x5173;&#x95ED;&#x540E;, <code>twistd.pid</code> &#x6587;&#x4EF6;&#x6D88;&#x5931;&#x4E86;, &#x5B83;&#x88AB; <code>twistd</code> &#x6E05;&#x7406;&#x4E86;.</p>
+<h3 id="a-real-daemon">A Real Daemon</h3>
+<p>&#x73B0;&#x5728;&#x8BA9;&#x6211;&#x4EEC;&#x4EE5;&#x5B88;&#x62A4;&#x8FDB;&#x7A0B;&#x7684;&#x65B9;&#x5F0F;&#x542F;&#x52A8;&#x670D;&#x52A1;&#x5668;, &#x8FD9;&#x662F; <code>twistd</code> &#x7684;&#x9ED8;&#x8BA4;&#x65B9;&#x5F0F;:</p>
+<pre><code>twistd --python twisted-server-3/fastpoetry.py
+</code></pre><p>&#x8FD9;&#x6B21;&#x6211;&#x4EEC;&#x7ACB;&#x5373;&#x770B;&#x5230;shell&#x63D0;&#x793A;&#x7B26;&#x8FD4;&#x56DE;. &#x5F53;&#x4F60;&#x5217;&#x51FA;&#x76EE;&#x5F55;&#x4E2D;&#x7684;&#x6587;&#x4EF6;&#x65F6;,&#x4F1A;&#x53D1;&#x73B0;&#x9664;&#x4E86; <code>twistd.pid</code> &#x6587;&#x4EF6;,&#x53C8;&#x51FA;&#x73B0;&#x4E86; <code>twistd.log</code> &#x6587;&#x4EF6;,&#x5B83;&#x8BB0;&#x5F55;&#x4E86;&#x4E4B;&#x524D;&#x663E;&#x793A;&#x5728;shell&#x7A97;&#x53E3;&#x7684;&#x65E5;&#x5FD7;&#x4FE1;&#x606F;.</p>
+<p>&#x5F53;&#x542F;&#x52A8;&#x4E00;&#x4E2A;&#x5B88;&#x62A4;&#x8FDB;&#x7A0B;&#x65F6;, <code>twistd</code> &#x5B89;&#x88C5;&#x4E00;&#x4E2A;&#x65E5;&#x5FD7;&#x7BA1;&#x7406;&#x5668;&#x5C06;&#x6761;&#x76EE;&#x5199;&#x5165;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x800C;&#x4E0D;&#x662F;&#x6807;&#x51C6;&#x8F93;&#x51FA;. &#x9ED8;&#x8BA4;&#x7684;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x662F; <code>twistd.log</code>, &#x5B83;&#x51FA;&#x73B0;&#x5728;&#x4F60;&#x8FD0;&#x884C; <code>twistd</code> &#x7684;&#x76EE;&#x5F55;&#x4E2D;,&#x4F46;&#x662F;&#x4F60;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&quot;<code>--logfile</code>&quot;&#x6765;&#x6539;&#x53D8;&#x5B83;&#x7684;&#x4F4D;&#x7F6E;. <code>twistd</code> &#x5B89;&#x88C5;&#x7684;&#x7684;&#x65E5;&#x5FD7;&#x7BA1;&#x7406;&#x5668;&#x5C06;&#x6EDA;&#x52A8;&#x8F93;&#x51FA;&#x65E5;&#x5FD7;&#x4FE1;&#x606F;, &#x786E;&#x4FDD;&#x5176;&#x4E0D;&#x8D85;&#x8FC7; <code>1M</code>.</p>
+<p>&#x4F60;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5217;&#x51FA;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4E0A;&#x7684;&#x6240;&#x6709;&#x8FDB;&#x7A0B;&#x6765;&#x67E5;&#x770B;&#x6B63;&#x5728;&#x8FD0;&#x884C;&#x7684;&#x670D;&#x52A1;&#x5668;. &#x4F60;&#x4E0D;&#x59A8;&#x901A;&#x8FC7;&#x53D6;&#x53E6;&#x4E00;&#x9996;&#x8BD7;&#x6765;&#x6D4B;&#x8BD5;&#x8FD9;&#x4E2A;&#x670D;&#x52A1;&#x5668;. &#x4F60;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x8BB0;&#x5F55;&#x6BCF;&#x4E2A;&#x8BD7;&#x6B4C;&#x8BF7;&#x6C42;&#x7684;&#x65B0;&#x6761;&#x76EE;&#x51FA;&#x73B0;&#x5728;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x4E2D;.</p>
+<p>&#x7531;&#x4E8E;&#x8FD9;&#x4E2A;&#x670D;&#x52A1;&#x5668;&#x4E0D;&#x518D;&#x4E0E;shell&#x76F8;&#x8FDE;(&#x6216;&#x8005;&#x9664;&#x4E86; <a href="http://en.wikipedia.org/wiki/Init" target="_blank">init</a> &#x7684;&#x4EFB;&#x4F55;&#x5176;&#x4ED6;&#x8FDB;&#x7A0B;), &#x4F60;&#x4E0D;&#x80FD;&#x901A;&#x8FC7; <code>Ctrl-C</code> &#x5173;&#x95ED;&#x5B83;. &#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x771F;&#x7684;&#x5B88;&#x62A4;&#x8FDB;&#x7A0B;, &#x5373;&#x4F7F;&#x4F60;&#x767B;&#x51FA;&#x5B83;&#x4E5F;&#x7EE7;&#x7EED;&#x8FD0;&#x884C;.&#x4F46;&#x662F;&#x4F60;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>twistd.pid</code> &#x6587;&#x4EF6;&#x7EC8;&#x6B62;&#x8FD9;&#x4E2A;&#x8FDB;&#x7A0B;:</p>
+<pre><code>kill `cat twistd.pid`
+</code></pre><p>&#x968F;&#x540E;, &#x5173;&#x95ED;&#x6D88;&#x606F;&#x51FA;&#x73B0;&#x5728;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x4E2D;, <code>twistd.pid</code> &#x6587;&#x4EF6;&#x88AB;&#x79FB;&#x9664;, &#x670D;&#x52A1;&#x5668;&#x505C;&#x6B62;.</p>
+<p>&#x68C0;&#x67E5;&#x4E00;&#x4E0B;&#x5176;&#x4ED6;&#x7684; <code>twistd</code> &#x542F;&#x52A8;&#x9009;&#x9879;&#x662F;&#x4E2A;&#x4E0D;&#x9519;&#x7684;&#x4E3B;&#x610F;. &#x4F8B;&#x5982;,&#x4F60;&#x53EF;&#x4EE5;&#x544A;&#x8BC9; <code>twistd</code> &#x5728;&#x542F;&#x52A8;&#x8FDB;&#x7A0B;&#x5B88;&#x62A4;&#x524D;&#x5207;&#x6362;&#x5230;&#x53E6;&#x4E00;&#x4E2A;&#x7528;&#x6237;&#x6216;&#x7EC4;&#x8D26;&#x6237;(&#x662F;&#x4E00;&#x79CD;&#x5F53;&#x4F60;&#x7684;&#x670D;&#x52A1;&#x5668;&#x4E0D;&#x9700;&#x8981;&#x5B89;&#x5168;&#x9632;&#x8303;&#x63AA;&#x65BD;&#x53D6;&#x6D88;&#x6743;&#x9650;&#x7684;&#x5178;&#x578B;&#x65B9;&#x6CD5;). &#x6211;&#x4EEC;&#x5C31;&#x4E0D;&#x8FDB;&#x4E00;&#x6B65;&#x63A2;&#x8BA8;&#x90A3;&#x4E9B;&#x989D;&#x5916;&#x7684;&#x9009;&#x9879;&#x4E86;,&#x4F60;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>twistd</code> &#x7684; <code>--help</code> &#x81EA;&#x5DF1;&#x7814;&#x7A76;&#x5B83;&#x4EEC;.</p>
+<h3 id="twisted-&#x63D2;&#x4EF6;&#x7CFB;&#x7EDF;">Twisted &#x63D2;&#x4EF6;&#x7CFB;&#x7EDF;</h3>
+<p>&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x901A;&#x8FC7; <code>twistd</code> &#x542F;&#x52A8;&#x771F;&#x6B63;&#x7684;&#x5B88;&#x62A4;&#x8FDB;&#x7A0B;&#x670D;&#x52A1;&#x5668;. &#x8FD9;&#x975E;&#x5E38;&#x5B8C;&#x7F8E;,&#x800C;&#x4E14;&#x4E8B;&#x5B9E;&#x4E0A;&#x6211;&#x4EEC;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x662F;&#x7EAF;Python&#x6E90;&#x7801;&#x6587;&#x4EF6;,&#x8FD9;&#x4E00;&#x70B9;&#x4E3A;&#x6211;&#x4EEC;&#x8BBE;&#x7F6E;&#x5E26;&#x6765;&#x5DE8;&#x5927;&#x4FBF;&#x5229;. &#x4F46;&#x662F;&#x6211;&#x4EEC;&#x6709;&#x65F6;&#x7528;&#x4E0D;&#x5230;&#x8FD9;&#x6837;&#x7684;&#x4FBF;&#x5229;&#x6027;.&#x5BF9;&#x4E8E;&#x8BD7;&#x6B4C;&#x670D;&#x52A1;&#x5668;,&#x6211;&#x4EEC;&#x901A;&#x5E38;&#x53EA;&#x5173;&#x5FC3;&#x4E00;&#x5C0F;&#x90E8;&#x5206;&#x9009;&#x9879;:</p>
+<ol>
+<li>&#x9700;&#x8981;&#x670D;&#x52A1;&#x7684;&#x8BD7;&#x6B4C;</li>
+<li>&#x670D;&#x52A1;&#x7AEF;&#x53E3;</li>
+<li>&#x76D1;&#x542C;&#x63A5;&#x53E3;</li>
+</ol>
+<p>&#x4E3A;&#x4E86;&#x51E0;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x53D8;&#x91CF;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A; <code>tac</code> &#x6587;&#x4EF6;&#x663E;&#x5F97;&#x6709;&#x70B9;&#x5C0F;&#x9898;&#x5927;&#x505A;. &#x5982;&#x679C;&#x6211;&#x4EEC;&#x80FD;&#x591F;&#x901A;&#x8FC7; <code>twistd</code> &#x9009;&#x9879;&#x6307;&#x5B9A;&#x8FD9;&#x4E9B;&#x503C;&#x5C06;&#x975E;&#x5E38;&#x65B9;&#x4FBF;. Twisted&#x7684;&#x63D2;&#x4EF6;&#x7CFB;&#x7EDF;&#x5141;&#x8BB8;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x505A;.</p>
+<p>Twisted&#x63D2;&#x4EF6;&#x901A;&#x8FC7;&#x5B9A;&#x4E49; <code>Application</code> &#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;, &#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x4E2A;&#x6027;&#x5316;&#x7684;&#x547D;&#x4EE4;&#x884C;&#x9009;&#x9879;, &#x8FDB;&#x800C; <code>twistd</code> &#x52A8;&#x6001;&#x7684;&#x53D1;&#x73B0;&#x548C;&#x8FD0;&#x884C;. Twisted&#x672C;&#x8EAB;&#x5177;&#x6709;&#x4E00;&#x5957;&#x63D2;&#x4EF6;,&#x4F60;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8FD0;&#x884C;&#x4E0D;&#x5E26;&#x53C2;&#x6570;&#x7684; <code>twistd</code> &#x547D;&#x4EE4;&#x6765;&#x67E5;&#x770B;&#x5B83;&#x4EEC;. &#x73B0;&#x5728;&#x5C31;&#x8BD5;&#x4E00;&#x8BD5;, &#x5728; <code>twisted-intro</code> &#x76EE;&#x5F55;&#x5916;. &#x5728;&#x5E2E;&#x52A9;&#x90E8;&#x5206;&#x540E;&#x9762;,&#x4F60;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x5982;&#x4E0B;&#x8F93;&#x51FA;:</p>
+<pre><code>...
+ftp                An FTP server.
+telnet             A simple, telnet-based remote debugging service.
+socks              A SOCKSv4 proxy service.
+...
+</code></pre><p>&#x6BCF;&#x4E00;&#x884C;&#x663E;&#x793A;&#x4E86;&#x4E00;&#x4E2A;Twisted&#x5185;&#x7F6E;&#x7684;&#x63D2;&#x4EF6;, &#x4F60;&#x53EF;&#x4EE5;&#x7528; <code>twistd</code> &#x8FD0;&#x884C;&#x5B83;&#x4EEC;.</p>
+<p>&#x6BCF;&#x4E2A;&#x63D2;&#x4EF6;&#x540C;&#x6837;&#x6709;&#x5B83;&#x4EEC;&#x81EA;&#x5DF1;&#x7684;&#x9009;&#x9879;,&#x4F60;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>--help</code> &#x6765;&#x53D1;&#x73B0;&#x5B83;&#x4EEC;. &#x8BA9;&#x6211;&#x4EEC;&#x770B;&#x770B; <code>ftp</code> &#x63D2;&#x4EF6;&#x6709;&#x4EC0;&#x4E48;&#x9009;&#x9879;:</p>
+<pre><code>twistd ftp --help
+</code></pre><p>&#x6CE8;&#x610F;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5C06; <code>--help</code> &#x653E;&#x5728; <code>ftp</code> &#x540E;&#x9762;&#x800C;&#x4E0D;&#x662F; <code>twistd</code> &#x540E;&#x9762;, &#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x60F3;&#x5F97;&#x5230; <code>ftp</code> &#x7684;&#x53EF;&#x9009;&#x9879;.</p>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x50CF;&#x8FD0;&#x884C;&#x8BD7;&#x6B4C;&#x670D;&#x52A1;&#x5668;&#x4E00;&#x6837;&#x8FD0;&#x884C; <code>ftp</code> &#x670D;&#x52A1;&#x5668;. &#x4F46;&#x7531;&#x4E8E;&#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x63D2;&#x4EF6;,&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4EC5;&#x4EC5;&#x901A;&#x8FC7;&#x5B83;&#x7684;&#x540D;&#x5B57;&#x8FD0;&#x884C;:</p>
+<pre><code>twistd --nodaemon ftp --port 10001
+</code></pre><p>&#x4EE5;&#x4E0A;&#x547D;&#x4EE4;&#x4EE5;&#x975E;&#x5B88;&#x62A4;&#x8FDB;&#x7A0B;&#x7684;&#x65B9;&#x5F0F;&#x5728;&#x7AEF;&#x53E3; <code>10001</code> &#x4E0A;&#x8FD0;&#x884C; <code>ftp</code> &#x63D2;&#x4EF6;. &#x6CE8;&#x610F; <code>twistd</code> &#x7684; <code>nodaemon</code> &#x9009;&#x9879;&#x51FA;&#x73B0;&#x5728;&#x63D2;&#x4EF6;&#x540D;&#x5B57;&#x7684;&#x524D;&#x9762;,&#x63D2;&#x4EF6;&#x7279;&#x5B9A;&#x9009;&#x9879; <code>port</code> &#x51FA;&#x73B0;&#x5728;&#x63D2;&#x4EF6;&#x540D;&#x5B57;&#x7684;&#x540E;&#x9762;. &#x6B63;&#x5982;&#x6211;&#x4EEC;&#x7684;&#x8BD7;&#x6B4C;&#x670D;&#x52A1;&#x5668;&#x4E00;&#x6837;,&#x4F60;&#x53EF;&#x4EE5;&#x7528; <code>Ctrl-C</code> &#x505C;&#x6B62;&#x5B83;.</p>
+<p>OK, &#x8BA9;&#x6211;&#x4EEC;&#x628A;&#x8BD7;&#x6B4C;&#x670D;&#x52A1;&#x5668;&#x8F6C;&#x5316;&#x4E3A;Twisted&#x7684;&#x63D2;&#x4EF6;. &#x9996;&#x5148;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x4ECB;&#x7ECD;&#x4E00;&#x4E9B;&#x65B0;&#x6982;&#x5FF5;.</p>
+<h3 id="iplugin">IPlugin</h3>
+<p>&#x4EFB;&#x4F55;Twisted&#x63D2;&#x4EF6;&#x90FD;&#x9700;&#x8981;&#x5B9E;&#x73B0; <a href="http://twistedmatrix.com/trac/browser/tags/releases/twisted-10.0.0/twisted/plugin.py#L38" target="_blank">twisted.plugin.IPlugin</a> &#x63A5;&#x53E3;. &#x5982;&#x679C;&#x4F60;&#x6D4F;&#x89C8;&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x7684;&#x58F0;&#x660E;, &#x4F60;&#x4F1A;&#x53D1;&#x73B0;&#x5B83;&#x6CA1;&#x6709;&#x6307;&#x5B9A;&#x4EFB;&#x4F55;&#x65B9;&#x6CD5;. &#x5B9E;&#x73B0; <code>IPlugin</code> &#x63A5;&#x53E3;&#x4EC5;&#x4EC5;&#x76F8;&#x5F53;&#x4E8E;&#x4E00;&#x4E2A;&#x63D2;&#x4EF6;&#x5728;&#x8BF4;&#xFF1A;&quot;&#x4F60;&#x597D;,&#x6211;&#x662F;&#x63D2;&#x4EF6;&#xFF01;&quot;&#x4EE5;&#x4FBF; <code>twistd</code> &#x627E;&#x5230;&#x5B83;. &#x5F53;&#x7136;,&#x51FA;&#x4E8E;&#x5B9E;&#x7528;&#x8003;&#x8651;,&#x5B83;&#x9700;&#x8981;&#x5B9E;&#x73B0;&#x4E00;&#x4E9B;&#x5176;&#x4ED6;&#x63A5;&#x53E3;,&#x6211;&#x4EEC;&#x5F88;&#x5FEB;&#x4F1A;&#x4ECB;&#x7ECD;.</p>
+<p>&#x4F46;&#x662F;&#x4F60;&#x600E;&#x6837;&#x77E5;&#x9053;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x5B9E;&#x73B0;&#x4E86;&#x4E00;&#x4E2A;&#x7A7A;&#x63A5;&#x53E3;? <code>zope.interface</code> &#x5305;&#x542B;&#x4E86;&#x4E00;&#x4E2A;&#x53EB;&#x505A; <code>implements</code> &#x7684;&#x51FD;&#x6570;,&#x5B83;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x58F0;&#x660E;&#x4E00;&#x4E2A;&#x7279;&#x5B9A;&#x7C7B;&#x5B9E;&#x73B0;&#x4E86;&#x4E00;&#x4E2A;&#x7279;&#x5B9A;&#x7684;&#x63A5;&#x53E3;. &#x6211;&#x4EEC;&#x5C06;&#x5728;&#x63D2;&#x4EF6;&#x7248;&#x7684;&#x8BD7;&#x6B4C;&#x670D;&#x52A1;&#x5668;&#x4E2D;&#x770B;&#x5230;&#x8FD9;&#x79CD;&#x4F7F;&#x7528;.</p>
+<h3 id="iservicemaker">IServiceMaker</h3>
+<p>&#x9664;&#x4E86; <code>IPlugin</code>,&#x6211;&#x4EEC;&#x7684;&#x63D2;&#x4EF6;&#x8FD8;&#x5B9E;&#x73B0; <code>IServiceMaker</code> &#x63A5;&#x53E3;. &#x4E00;&#x4E2A;&#x5B9E;&#x73B0;&#x4E86; <code>IServiceMaker</code> &#x63A5;&#x53E3;&#x7684;&#x5BF9;&#x8C61;&#x77E5;&#x9053;&#x5982;&#x4F55;&#x521B;&#x5EFA; <code>IService</code>,&#x5B83;&#x5C06;&#x6210;&#x4E3A;&#x8FD0;&#x884C;&#x7A0B;&#x5E8F;&#x7684;&#x6838;&#x5FC3;. <code>IServiceMaker</code> &#x6307;&#x5B9A;&#x4E86;&#x4E09;&#x4E2A;&#x5C5E;&#x6027;&#x548C;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;:</p>
+<ol>
+<li><code>tapname</code>: &#x4EE3;&#x8868;&#x63D2;&#x4EF6;&#x540D;&#x5B57;&#x7684;&#x5B57;&#x7B26;&#x4E32;. &quot;<code>tap</code>&quot;&#x4EE3;&#x8868;&quot;Twisted Application Plugin&quot;. &#x6CE8;:&#x8001;&#x7248;&#x672C;&#x7684;Twisted&#x8FD8;&#x4F7F;&#x7528;&quot;<code>tapfiles</code>&quot;&#x6587;&#x4EF6;,&#x4E0D;&#x8FC7;&#x8FD9;&#x4E2A;&#x529F;&#x80FD;&#x73B0;&#x5728;&#x5DF2;&#x7ECF;&#x53D6;&#x6D88;&#x4E86;.</li>
+<li><code>description</code>: &#x63D2;&#x4EF6;&#x7684;&#x63CF;&#x8FF0;, <code>twistd</code> &#x5C06;&#x4EE5;&#x5B83;&#x4F5C;&#x4E3A;&#x5E2E;&#x52A9;&#x4FE1;&#x606F;&#x8F93;&#x51FA;.</li>
+<li><code>options</code>: &#x4E00;&#x4E2A;&#x4EE3;&#x8868;&#x8FD9;&#x4E2A;&#x63D2;&#x4EF6;&#x63A5;&#x53D7;&#x7684;&#x547D;&#x4EE4;&#x884C;&#x9009;&#x9879;&#x7684;&#x5BF9;&#x8C61;.</li>
+<li><code>makeService</code>: &#x4E00;&#x4E2A;&#x521B;&#x5EFA; <code>IService</code> &#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;,&#x9700;&#x63D0;&#x4F9B;&#x4E00;&#x4E9B;&#x7279;&#x5B9A;&#x7684;&#x547D;&#x4EE4;&#x884C;&#x9009;&#x9879;.</li>
+</ol>
+<p>&#x6211;&#x4EEC;&#x5C06;&#x5728;&#x4E0B;&#x4E00;&#x4E2A;&#x7248;&#x672C;&#x7684;&#x8BD7;&#x6B4C;&#x670D;&#x52A1;&#x5668;&#x4E2D;&#x770B;&#x5230;&#x600E;&#x6837;&#x5C06;&#x4E0A;&#x8FF0;&#x5185;&#x5BB9;&#x7EC4;&#x7EC7;&#x5728;&#x4E00;&#x8D77;.</p>
+<h3 id="fast-poetry-30">Fast Poetry 3.0</h3>
+<p>&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x4E3A;&#x63D2;&#x4EF6;&#x7248;&#x672C;&#x7684;&quot;<code>Fast Poetry</code>&quot;&#x505A;&#x597D;&#x51C6;&#x5907;,&#x5B83;&#x4F4D;&#x4E8E; <a href="https://github.com/jdavisp3/twisted-intro/blob/master/twisted/plugins/fastpoetry_plugin.py#L1" target="_blank">twisted/plugins/fastpoetry_plugin.py</a>.</p>
+<p>&#x4F60;&#x53EF;&#x80FD;&#x6CE8;&#x610F;&#x5230;&#x4E0E;&#x5176;&#x4ED6;&#x4F8B;&#x5B50;&#x4E0D;&#x540C;, &#x6211;&#x4EEC;&#x547D;&#x540D;&#x4E86;&#x4E00;&#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x76EE;&#x5F55;. &#x8FD9;&#x662F;&#x56E0;&#x4E3A; <code>twistd</code> &#x9700;&#x8981;&#x63D2;&#x4EF6;&#x6587;&#x4EF6;&#x4F4D;&#x4E8E; <code>twisted/plugins</code> &#x76EE;&#x5F55;&#x4E2D;, &#x540C;&#x65F6;&#x5728;&#x4F60;&#x7684;Python&#x641C;&#x7D22;&#x8DEF;&#x5F84;&#x4E0A;. &#x8FD9;&#x4E2A;&#x76EE;&#x5F55;&#x4E0D;&#x5FC5;&#x662F;&#x4E00;&#x4E2A;&#x5305;(&#x4E5F;&#x5C31;&#x662F;, &#x4E0D;&#x5FC5;&#x5305;&#x542B;&#x4EFB;&#x4F55; <code>__init__.py</code> &#x6587;&#x4EF6;), &#x800C;&#x4E14;&#x5728;&#x8DEF;&#x5F84;&#x4E0A;&#x53EF;&#x4EE5;&#x6709;&#x591A;&#x4E2A; <code>twisted/plugins</code> &#x76EE;&#x5F55;, <code>twistd</code> &#x90FD;&#x4F1A;&#x627E;&#x5230;&#x5B83;&#x4EEC;. &#x8FD9;&#x4E2A;&#x63D2;&#x4EF6;&#x7684;&#x5B9E;&#x9645;&#x6587;&#x4EF6;&#x540D;&#x662F;&#x4EC0;&#x4E48;&#x4E5F;&#x6CA1;&#x6709;&#x5173;&#x7CFB;, &#x4F46;&#x662F;&#x4E00;&#x4E2A;&#x597D;&#x7684;&#x65B9;&#x6848;&#x662F;&#x6839;&#x636E;&#x5E94;&#x7528;&#x6240;&#x4EE3;&#x8868;&#x7684;&#x542B;&#x4E49;&#x6765;&#x547D;&#x540D;, &#x5C31;&#x50CF;&#x6211;&#x4EEC;&#x5728;&#x8FD9;&#x91CC;&#x505A;&#x7684;.</p>
+<p>&#x6211;&#x4EEC;&#x7684;&#x63D2;&#x4EF6;&#x5F00;&#x5934;&#x90E8;&#x5206;&#x540C;&#x6837;&#x5305;&#x62EC;&#x8BD7;&#x6B4C;&#x534F;&#x8BAE;,&#x5DE5;&#x5382;,&#x4EE5;&#x53CA;&#x50CF; <code>tac</code> &#x6587;&#x4EF6;&#x4E2D;&#x6240;&#x5B9E;&#x73B0;&#x7684;&#x670D;&#x52A1;.&#x5982;&#x524D;&#x6240;&#x8FF0;,&#x8FD9;&#x4E9B;&#x4EE3;&#x7801;&#x901A;&#x5E38;&#x5E94;&#x8BE5;&#x5355;&#x72EC;&#x7684;&#x5B58;&#x5728;&#x4E8E;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x4E2D;,&#x4F46;&#x51FA;&#x4E8E;&#x6211;&#x4EEC;&#x4F8B;&#x5B50;&#x81EA;&#x5305;&#x542B;&#x7684;&#x76EE;&#x7684;,&#x8FD8;&#x662F;&#x5C06;&#x5B83;&#x4EEC;&#x653E;&#x5728;&#x63D2;&#x4EF6;&#x6587;&#x4EF6;&#x4E2D;.</p>
+<p>&#x4E0B;&#x9762;&#x5C06; <a href="https://github.com/jdavisp3/twisted-intro/blob/master/twisted/plugins/fastpoetry_plugin.py#L45" target="_blank">&#x58F0;&#x660E;</a> &#x8FD9;&#x4E2A;&#x63D2;&#x4EF6;&#x7684;&#x547D;&#x4EE4;&#x884C;&#x9009;&#x9879;:</p>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Options</span><span class="hljs-params">(usage.Options)</span>:</span>
+
+      optParameters = [
+          [<span class="hljs-string">&apos;port&apos;</span>, <span class="hljs-string">&apos;p&apos;</span>, <span class="hljs-number">10000</span>, <span class="hljs-string">&apos;The port number to listen on.&apos;</span>],
+          [<span class="hljs-string">&apos;poem&apos;</span>, <span class="hljs-keyword">None</span>, <span class="hljs-keyword">None</span>, <span class="hljs-string">&apos;The file containing the poem.&apos;</span>],
+          [<span class="hljs-string">&apos;iface&apos;</span>, <span class="hljs-keyword">None</span>, <span class="hljs-string">&apos;localhost&apos;</span>, <span class="hljs-string">&apos;The interface to listen on.&apos;</span>],
+      ]
+</code></pre>
+<p>&#x4EE5;&#x4E0A;&#x4EE3;&#x7801;&#x6307;&#x5B9A;&#x53EF;&#x4EE5;&#x653E;&#x5728; <code>twistd</code> &#x547D;&#x4EE4;&#x540E;&#x9762;&#x4F7F;&#x7528;&#x7684;&#x63D2;&#x4EF6;&#x7279;&#x5B9A;&#x9009;&#x9879;&#x7684;&#x540D;&#x5B57;.</p>
+<p>&#x8FD9;&#x91CC;&#x5C31;&#x4E0D;&#x5FC5;&#x8FDB;&#x4E00;&#x6B65;&#x89E3;&#x91CA;&#x4E0A;&#x8FF0;&#x9009;&#x9879;&#x7684;&#x542B;&#x4E49;&#x4E86;,&#x5176;&#x542B;&#x4E49;&#x5F88;&#x663E;&#x7136;. &#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x6765;&#x770B;&#x4E00;&#x4E0B;&#x63D2;&#x4EF6;&#x7684;&#x4E3B;&#x8981;&#x90E8;&#x5206; <a href="https://github.com/jdavisp3/twisted-intro/blob/master/twisted/plugins/fastpoetry_plugin.py#L56" target="_blank">&#x670D;&#x52A1;&#x5236;&#x9020;&#x7C7B;</a>:</p>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PoetryServiceMaker</span><span class="hljs-params">(object)</span>:</span>
+
+    implements(service.IServiceMaker, IPlugin)
+
+    tapname = <span class="hljs-string">&quot;fastpoetry&quot;</span>
+    description = <span class="hljs-string">&quot;A fast poetry service.&quot;</span>
+    options = Options
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">makeService</span><span class="hljs-params">(self, options)</span>:</span>
+        top_service = service.MultiService()
+
+        poetry_service = PoetryService(options[<span class="hljs-string">&apos;poem&apos;</span>])
+        poetry_service.setServiceParent(top_service)
+
+        factory = PoetryFactory(poetry_service)
+        tcp_service = internet.TCPServer(int(options[<span class="hljs-string">&apos;port&apos;</span>]), factory,
+                    interface=options[<span class="hljs-string">&apos;iface&apos;</span>])
+
+        tcp_service.setServiceParent(top_service)
+
+        <span class="hljs-keyword">return</span> top_service
+</code></pre>
+<p>&#x8FD9;&#x91CC;&#x4F60;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x5982;&#x4F55;&#x4F7F;&#x7528; <code>zope.interface.implements</code> &#x51FD;&#x6570;&#x6765;&#x58F0;&#x660E;&#x6211;&#x4EEC;&#x7684;&#x7C7B;&#x540C;&#x65F6;&#x5B9E;&#x73B0; <code>IServiceMaker</code> &#x548C; <code>IPlugin</code> &#x63A5;&#x53E3;.</p>
+<p>&#x4F60;&#x5E94;&#x8BE5;&#x4ECE;&#x4E4B;&#x524D;&#x7684; <code>tac</code> &#x6587;&#x4EF6;&#x8FA8;&#x8BA4;&#x51FA; <code>makeService</code> &#x4E2D;&#x7684;&#x4EE3;&#x7801;, &#x4F46;&#x662F;&#x8FD9;&#x6B21;&#x6211;&#x4EEC;&#x4E0D;&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A; <code>Application</code> &#x5BF9;&#x8C61;, &#x6211;&#x4EEC;&#x4EC5;&#x4EC5;&#x521B;&#x5EFA;&#x5E76;&#x8FD4;&#x56DE;&#x6700;&#x9876;&#x5C42;&#x670D;&#x52A1;,&#x8FD9;&#x6837;&#x6211;&#x4EEC;&#x7684;&#x7A0B;&#x5E8F;&#x5C31;&#x53EF;&#x4EE5;&#x8FD0;&#x884C;, <code>twistd</code> &#x6765;&#x5904;&#x7406;&#x5176;&#x4F59;&#x7684;&#x4E8B;&#x60C5;. &#x6CE8;&#x610F;&#x6211;&#x4EEC;&#x662F;&#x5982;&#x4F55;&#x4F7F;&#x7528; <code>options</code> &#x53C2;&#x6570;&#x6765;&#x63D0;&#x53D6;&#x63D2;&#x4EF6;&#x4F20;&#x9012;&#x7ED9; <code>twistd</code> &#x7684;&#x7279;&#x5B9A;&#x547D;&#x4EE4;&#x884C;&#x9009;&#x9879;.</p>
+<p>&#x5B9A;&#x4E49;&#x4E86;&#x4E0A;&#x8FF0;&#x7C7B;, &#x8FD8;&#x6709; <a href="https://github.com/jdavisp3/twisted-intro/blob/master/twisted/plugins/fastpoetry_plugin.py#L81" target="_blank">&#x4E00;&#x6B65;</a> :</p>
+<pre><code class="lang-python">service_maker = PoetryServiceMaker()
+</code></pre>
+<p><code>twistd</code> &#x811A;&#x672C;&#x4F1A;&#x53D1;&#x73B0;&#x6211;&#x4EEC;&#x63D2;&#x4EF6;&#x7684;&#x5B9E;&#x4F8B;&#x5E76;&#x4F7F;&#x7528;&#x5B83;&#x6784;&#x5EFA;&#x6700;&#x9876;&#x5C42;&#x670D;&#x52A1;. &#x4E0E; <code>tac</code> &#x6587;&#x4EF6;&#x4E0D;&#x540C;&#x7684;&#x662F;, &#x9009;&#x62E9;&#x4EC0;&#x4E48;&#x53D8;&#x91CF;&#x540D;&#x6CA1;&#x6709;&#x5173;&#x7CFB;, &#x5173;&#x952E;&#x662F;&#x6211;&#x4EEC;&#x7684;&#x5BF9;&#x8C61;&#x5B9E;&#x73B0;&#x4E86; <code>IPlugin</code> &#x548C; <code>IServiceMaker</code> &#x63A5;&#x53E3;.</p>
+<p>&#x65E2;&#x7136;&#x5DF2;&#x7ECF;&#x521B;&#x5EFA;&#x4E86;&#x63D2;&#x4EF6;, &#x8BA9;&#x6211;&#x4EEC;&#x8FD0;&#x884C;&#x5B83;. &#x786E;&#x4FDD;&#x4F60;&#x4F4D;&#x4E8E; <code>twisted-intro</code> &#x76EE;&#x5F55;&#x4E2D;, &#x6216;&#x8005; <code>twisted-intro</code> &#x4F4D;&#x4E8E;Python&#x7684;&#x641C;&#x7D22;&#x76EE;&#x5F55;&#x4E2D;. &#x4E0B;&#x9762;&#x5355;&#x72EC;&#x8FD0;&#x884C; <code>twistd</code>,&#x4F60;&#x4F1A;&#x770B;&#x5230;&quot;<code>fastpoetry</code>&quot;&#x662F;&#x5217;&#x51FA;&#x7684;&#x63D2;&#x4EF6;&#x4E4B;&#x4E00;,&#x540E;&#x9762;&#x663E;&#x793A;&#x63D2;&#x4EF6;&#x6587;&#x4EF6;&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x63CF;&#x8FF0;&#x6587;&#x5B57;.</p>
+<p>&#x4F60;&#x540C;&#x6837;&#x4F1A;&#x6CE8;&#x610F;&#x5230; <code>twisted/plugins</code> &#x76EE;&#x5F55;&#x4E2D;&#x51FA;&#x73B0;&#x4E86;&#x4E00;&#x4E2A; <code>dropin.cache</code> &#x7684;&#x65B0;&#x6587;&#x4EF6;. &#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x7531; <code>twistd</code> &#x521B;&#x5EFA;, &#x7528;&#x6765;&#x52A0;&#x901F;&#x540E;&#x7EED;&#x626B;&#x63CF;&#x63D2;&#x4EF6;&#x7684;.</p>
+<p>&#x73B0;&#x5728;&#x8BA9;&#x6211;&#x4EEC;&#x83B7;&#x53D6;&#x4E00;&#x4E9B;&#x5173;&#x4E8E;&#x63D2;&#x4EF6;&#x7684;&#x5E2E;&#x52A9;&#x4FE1;&#x606F;:</p>
+<pre><code>twistd fastpoetry --help
+</code></pre><p>&#x4F60;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x5173;&#x4E8E; <code>fastpoetry</code> &#x63D2;&#x4EF6;&#x9009;&#x9879;&#x7684;&#x5E2E;&#x52A9;&#x6027;&#x6587;&#x5B57;. &#x6700;&#x540E;,&#x8FD0;&#x884C;&#x8FD9;&#x4E2A;&#x63D2;&#x4EF6;:</p>
+<pre><code>twistd fastpoetry --port 10000 --poem poetry/ecstasy.txt
+</code></pre><p>&#x8FD9;&#x5C06;&#x4EE5;&#x5B88;&#x62A4;&#x8FDB;&#x7A0B;&#x65B9;&#x5F0F;&#x542F;&#x52A8; <code>fastpoetry</code> &#x670D;&#x52A1;&#x5668;. &#x4E0E;&#x524D;&#x9762;&#x4F8B;&#x5B50;&#x4E00;&#x6837;, &#x4F60;&#x4F1A;&#x5728;&#x5F53;&#x671F;&#x6587;&#x4EF6;&#x5939;&#x770B;&#x5230; <code>twistd.pid</code> &#x548C; <code>twistd.log</code> &#x6587;&#x4EF6;. &#x6D4B;&#x8BD5;&#x5B8C;&#x6211;&#x4EEC;&#x7684;&#x670D;&#x52A1;&#x5668;, &#x7528;&#x4E00;&#x4E0B;&#x547D;&#x4EE4;&#x5173;&#x95ED;:</p>
+<pre><code>kill `cat twistd.pid`
+</code></pre><p>&#x8FD9;&#x5C31;&#x662F;&#x5982;&#x4F55;&#x5236;&#x4F5C;Twisted&#x63D2;&#x4EF6;&#x7684;&#x65B9;&#x6CD5;.</p>
+<h3 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h3>
+<p>&#x5728;&#x8FD9;&#x4E2A;&#x90E8;&#x5206;, &#x6211;&#x4EEC;&#x5B66;&#x4E60;&#x4E86;&#x5C06;Twisted&#x670D;&#x52A1;&#x5668;&#x8F6C;&#x6362;&#x5230;&#x652F;&#x6301;&#x957F;&#x65F6;&#x95F4;&#x8FD0;&#x884C;&#x7684;&#x5B88;&#x62A4;&#x8FDB;&#x7A0B;&#x6A21;&#x5F0F;. &#x6211;&#x4EEC;&#x8FD8;&#x6D89;&#x53CA;&#x4E86;Twisted&#x65E5;&#x5FD7;&#x7CFB;&#x7EDF;&#x4EE5;&#x53CA;&#x5982;&#x4F55;&#x4F7F;&#x7528; <code>twistd</code> &#x4EE5;&#x5B88;&#x62A4;&#x8FDB;&#x7A0B;&#x6A21;&#x5F0F;&#x542F;&#x52A8;&#x4E00;&#x4E2A;Twisted&#x5E94;&#x7528;&#x7A0B;&#x5E8F;, &#x5373;&#x6216;&#x8005;&#x901A;&#x8FC7; <code>tac</code> &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x6216;&#x8005;Twisted&#x63D2;&#x4EF6;. &#x5728;&#x7B2C;&#x5341;&#x4E03;&#x90E8;&#x5206; &#x6211;&#x4EEC;&#x5C06;&#x8F6C;&#x5411;&#x5F02;&#x6B65;&#x7F16;&#x7A0B;&#x7684;&#x66F4;&#x57FA;&#x672C;&#x7684;&#x4E3B;&#x9898;&#x548C;&#x53E6;&#x5916;&#x4E00;&#x79CD;&#x7ED3;&#x6784;&#x5316;Twisted&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x7684;&#x65B9;&#x6CD5;.</p>
+<h3 id="&#x53C2;&#x8003;&#x7EC3;&#x4E60;">&#x53C2;&#x8003;&#x7EC3;&#x4E60;</h3>
+<ol>
+<li>&#x4FEE;&#x6B63; <code>tac</code> &#x6587;&#x4EF6;&#x4EE5;&#x5728;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x7AEF;&#x53E3;&#x670D;&#x52A1;&#x53E6;&#x5916;&#x4E00;&#x9996;&#x8BD7;. &#x4F7F;&#x7528;&#x53E6;&#x5916;&#x4E00;&#x4E2A; <code>MultiService</code> &#x5BF9;&#x8C61;&#x4EE5;&#x4FDD;&#x6301;&#x6BCF;&#x9996;&#x8BD7;&#x7684;&#x670D;&#x52A1;&#x662F;&#x5206;&#x79BB;&#x7684;.</li>
+<li>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684; <code>tac</code> &#x6587;&#x4EF6;&#x6765;&#x542F;&#x52A8;&#x4E00;&#x4E2A;&#x8BD7;&#x6B4C;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;.</li>
+<li>&#x4FEE;&#x6B63;&#x63D2;&#x4EF6;&#x6587;&#x4EF6;&#x4F7F;&#x5176;&#x53EF;&#x63A5;&#x53D7;&#x7B2C;&#x4E8C;&#x4E2A;&#x53EF;&#x9009;&#x8BD7;&#x6B4C;&#x6587;&#x4EF6;&#x548C;&#x670D;&#x52A1;&#x7AEF;&#x53E3;.</li>
+<li>&#x4E3A;&#x8BD7;&#x6B4C;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x63D2;&#x4EF6;.</li>
+</ol>
+<h3 id="&#x53C2;&#x8003;">&#x53C2;&#x8003;</h3>
+<p>&#x672C;&#x90E8;&#x5206;&#x539F;&#x4F5C;&#x53C2;&#x89C1;: dave @ <a href="http://krondo.com/blog/?p=2345" target="_blank">http://krondo.com/blog/?p=2345</a></p>
+<p>&#x672C;&#x90E8;&#x5206;&#x7FFB;&#x8BD1;&#x5185;&#x5BB9;&#x53C2;&#x89C1;luocheng @ <a href="https://github.com/luocheng/twisted-intro-cn/blob/master/p16.rst" target="_blank">https://github.com/luocheng/twisted-intro-cn/blob/master/p16.rst</a></p>
+<footer class="page-footer"><span class="copyright">powered by Gitbook</span><span class="footer-modification">&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2021-12-19 11:14:28
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="p15.html" class="navigation navigation-prev " aria-label="Previous page: 测试诗歌">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="p17.html" class="navigation navigation-next " aria-label="Next page: 构造"回调"的另一种方法">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Twisted 进程守护","level":"1.17","depth":1,"next":{"title":"构造\"回调\"的另一种方法","level":"1.18","depth":1,"path":"p17.md","ref":"p17.md","articles":[]},"previous":{"title":"测试诗歌","level":"1.16","depth":1,"path":"p15.md","ref":"p15.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-sharing-plus","-livereload","highlight","search-pro","github","back-to-top-button","code","splitter","tbfed-pagefooter","fontsettings"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"modify_label":"修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/likebeta"},"splitter":{},"search-pro":{"cutWordLib":"nodejieba"},"code":{"copyButtons":true},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"back-to-top-button":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"likebeta","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Twisted与异步编程入门","language":"zh","links":{"sidebar":{"代码仓库":"https://github.com/likebeta/twisted-intro-cn"}},"gitbook":"*","description":"Twisted与异步编程入门"},"file":{"path":"p16.md","mtime":"2021-12-19T11:14:28.520Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-12-19T11:17:49.681Z"},"basePath":".","book":{"language":"zh"}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

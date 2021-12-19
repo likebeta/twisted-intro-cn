@@ -1,0 +1,672 @@
+
+<!DOCTYPE HTML>
+<html lang="zh" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>由Twisted扶持的客户端 · Twisted与异步编程入门</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="likebeta">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="p06.html" />
+    
+    
+    <link rel="prev" href="p04.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="輸入並搜尋" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://github.com/likebeta/twisted-intro-cn" target="_blank" class="custom-link">代码仓库</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="p01.html">
+            
+                <a href="p01.html">
+            
+                    
+                    Twisted 理论基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="p02.html">
+            
+                <a href="p02.html">
+            
+                    
+                    异步编程模式与Reactor初探
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="p03.html">
+            
+                <a href="p03.html">
+            
+                    
+                    初识Twisted
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="p04.html">
+            
+                <a href="p04.html">
+            
+                    
+                    由twisted支持的客户端
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6" data-path="p05.html">
+            
+                <a href="p05.html">
+            
+                    
+                    由Twisted扶持的客户端
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="p06.html">
+            
+                <a href="p06.html">
+            
+                    
+                    更加"抽象"的运用Twisted
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="p07.html">
+            
+                <a href="p07.html">
+            
+                    
+                    小插曲，Deferred
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="p08.html">
+            
+                <a href="p08.html">
+            
+                    
+                    使用Deferred的诗歌下载客户端
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="p09.html">
+            
+                <a href="p09.html">
+            
+                    
+                    第二个小插曲，deferred
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="p10.html">
+            
+                <a href="p10.html">
+            
+                    
+                    增强defer功能的客户端
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="p11.html">
+            
+                <a href="p11.html">
+            
+                    
+                    改进诗歌下载服务器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="p12.html">
+            
+                <a href="p12.html">
+            
+                    
+                    改进诗歌下载服务器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="p13.html">
+            
+                <a href="p13.html">
+            
+                    
+                    使用Deferred新功能实现新客户端
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="p14.html">
+            
+                <a href="p14.html">
+            
+                    
+                    Deferred用于同步环境
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="p15.html">
+            
+                <a href="p15.html">
+            
+                    
+                    测试诗歌
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="p16.html">
+            
+                <a href="p16.html">
+            
+                    
+                    Twisted 进程守护
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="p17.html">
+            
+                <a href="p17.html">
+            
+                    
+                    构造"回调"的另一种方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="p18.html">
+            
+                <a href="p18.html">
+            
+                    
+                    Deferreds 全貌
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" data-path="p19.html">
+            
+                <a href="p19.html">
+            
+                    
+                    取消之前的意图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.21" data-path="p20.html">
+            
+                <a href="p20.html">
+            
+                    
+                    轮子内的轮子: Twisted和Erlang
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22" data-path="p21.html">
+            
+                <a href="p21.html">
+            
+                    
+                    惰性不是迟缓: Twisted和Haskell
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.23" data-path="p22.html">
+            
+                <a href="p22.html">
+            
+                    
+                    结束
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本書使用 GitBook 釋出
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >由Twisted扶持的客户端</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h3 id="&#x62BD;&#x8C61;&#x5730;&#x6784;&#x5EFA;&#x5BA2;&#x6237;&#x7AEF;">&#x62BD;&#x8C61;&#x5730;&#x6784;&#x5EFA;&#x5BA2;&#x6237;&#x7AEF;</h3>
+<p>&#x5728;&#x7B2C;&#x56DB;&#x90E8;&#x5206;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x6784;&#x5EFA;&#x4E86;&#x7B2C;&#x4E00;&#x4E2A;&#x4F7F;&#x7528;Twisted&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x3002;&#x5B83;&#x786E;&#x5B9E;&#x80FD;&#x5F88;&#x597D;&#x5730;&#x5DE5;&#x4F5C;&#xFF0C;&#x4F46;&#x4ECD;&#x6709;&#x63D0;&#x9AD8;&#x7684;&#x7A7A;&#x95F4;&#x3002;</p>
+<p>&#x9996;&#x5148;&#x662F;&#xFF0C;&#x8FD9;&#x4E2A;&#x5BA2;&#x6237;&#x7AEF;&#x7ADF;&#x7136;&#x6709;&#x521B;&#x5EFA;&#x7F51;&#x7EDC;&#x7AEF;&#x53E3;&#x5E76;&#x63A5;&#x6536;&#x7AEF;&#x53E3;&#x5904;&#x7684;&#x6570;&#x636E;&#x8FD9;&#x6837;&#x67AF;&#x71E5;&#x7684;&#x4EE3;&#x7801;&#x3002;Twisted&#x7406;&#x5E94;&#x4E3A;&#x6211;&#x4EEC;&#x5B9E;&#x73B0;&#x8FD9;&#x4E9B;&#x4F8B;&#x7A0B;&#x6027;&#x529F;&#x80FD;&#xFF0C;&#x7701;&#x5F97;&#x6211;&#x4EEC;&#x6BCF;&#x6B21;&#x5199;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x7A0B;&#x5E8F;&#x65F6;&#x90FD;&#x8981;&#x81EA;&#x5DF1;&#x53BB;&#x5B9E;&#x73B0;&#x3002;&#x8FD9;&#x6837;&#x505A;&#x7279;&#x522B;&#x6709;&#x7528;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x6211;&#x4EEC;&#x4ECE;&#x5F02;&#x6B65;I/O&#x6D89;&#x53CA;&#x7684;&#x4E00;&#x4E9B;&#x68D8;&#x624B;&#x7684;&#x5F02;&#x5E38;&#x5904;&#x7406;&#x4E2D;&#x89E3;&#x653E;&#x51FA;&#x6765;(&#x53C2;&#x770B;&#x524D;&#x9762;&#x7684;<a href="http://github.com/jdavisp3/twisted-intro/blob/master/twisted-client-1/get-poetry.py" target="_blank">&#x5BA2;&#x6237;&#x7AEF;</a>)
+, &#x5982;&#x679C;&#x8981;&#x8DE8;&#x5E73;&#x53F0;&#x5C31;&#x6D89;&#x53CA;&#x5230;&#x66F4;&#x591A;&#x66F4;&#x52A0;&#x68D8;&#x624B;&#x7684;&#x7EC6;&#x8282;&#x3002;&#x5982;&#x679C;&#x4F60;&#x54EA;&#x5929;&#x4E0B;&#x5348;&#x6709;&#x7A7A;&#xFF0C;&#x53EF;&#x4EE5;&#x7FFB;&#x7FFB;Twisted&#x7684;WIN32&#x5B9E;&#x73B0;&#x6E90;&#x4EE3;&#x7801;&#xFF0C;&#x770B;&#x770B;&#x91CC;&#x9762;&#x6709;&#x591A;&#x5C11;&#x5C0F;&#x9488;&#x7EBF;&#x662F;&#x6765;&#x5904;&#x7406;&#x8DE8;&#x5E73;&#x53F0;&#x7684;&#x3002;</p>
+<p>&#x53E6;&#x4E00;&#x95EE;&#x9898;&#x662F;&#x4E0E;&#x9519;&#x8BEF;&#x5904;&#x7406;&#x6709;&#x5173;&#x3002;&#x5F53;&#x8FD0;&#x884C;&#x7248;&#x672C;1&#x7684;Twisted&#x5BA2;&#x6237;&#x7AEF;&#x4ECE;&#x5E76;&#x6CA1;&#x6709;&#x63D0;&#x4F9B;&#x670D;&#x52A1;&#x7684;&#x7AEF;&#x53E3;&#x4E0A;&#x4E0B;&#x8F7D;&#x8BD7;&#x6B4C;&#x65F6;&#xFF0C;&#x5B83;&#x5C31;&#x4F1A;&#x5D29;&#x6E83;&#x3002;&#x5F53;&#x7136;&#x6211;&#x4EEC;&#x662F;&#x53EF;&#x4EE5;&#x4FEE;&#x6B63;&#x8FD9;&#x4E2A;&#x9519;&#x8BEF;&#xFF0C;&#x4F46;&#x901A;&#x8FC7;&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x8981;&#x4ECB;&#x7ECD;Twisted&#x7684;APIs&#x6765;&#x5904;&#x7406;&#x8FD9;&#x4E9B;&#x7C7B;&#x578B;&#x7684;&#x9519;&#x8BEF;&#x4F1A;&#x66F4;&#x7B80;&#x5355;&#x3002;</p>
+<p>&#x6700;&#x540E;&#xFF0C;&#x90A3;&#x4E2A;&#x5BA2;&#x6237;&#x7AEF;&#x4E5F;&#x4E0D;&#x80FD;&#x590D;&#x7528;&#x3002;&#x5982;&#x679C;&#x6709;&#x53E6;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x6211;&#x4EEC;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x4E0B;&#x8F7D;&#x8BD7;&#x6B4C;&#x5462;&#xFF1F;&#x4EBA;&#x5BB6;&#x600E;&#x4E48;&#x77E5;&#x9053;&#x4F60;&#x7684;&#x8BD7;&#x6B4C;&#x5DF2;&#x7ECF;&#x4E0B;&#x8F7D;&#x5B8C;&#x6BD5;&#xFF1F;&#x6211;&#x4EEC;&#x4E0D;&#x80FD;&#x7528;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x7B80;&#x5355;&#x5730;&#x5C06;&#x4E00;&#x9996;&#x8BD7;&#x4E0B;&#x8F7D;&#x5B8C;&#x6210;&#x540E;&#x518D;&#x4F20;&#x7ED9;&#x4EBA;&#x5BB6;&#xFF0C;&#x800C;&#x5728;&#x4E4B;&#x524D;&#x8BA9;&#x4EBA;&#x5BB6;&#x5904;&#x4E8E;&#x7B49;&#x5F85;&#x72B6;&#x6001;&#x3002;&#x8FD9;&#x786E;&#x5B9E;&#x662F;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x4F46;&#x6211;&#x4EEC;&#x4E0D;&#x51C6;&#x5907;&#x5728;&#x8FD9;&#x4E2A;&#x90E8;&#x5206;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x2014;&#x5728;&#x672A;&#x6765;&#x7684;&#x90E8;&#x5206;&#x4E2D;&#x4E00;&#x5B9A;&#x4F1A;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x5C06;&#x4F1A;&#x4F7F;&#x7528;&#x4E00;&#x4E9B;&#x9AD8;&#x5C42;&#x6B21;&#x7684;APIs&#x548C;&#x63A5;&#x53E3;&#x6765;&#x89E3;&#x51B3;&#x7B2C;&#x4E00;&#x3001;&#x4E8C;&#x4E2A;&#x95EE;&#x9898;&#x3002;Twisted&#x6846;&#x67B6;&#x662F;&#x7531;&#x4F17;&#x591A;&#x62BD;&#x8C61;&#x5C42;&#x677E;&#x6563;&#x5730;&#x7EC4;&#x5408;&#x8D77;&#x6765;&#x7684;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x5B66;&#x4E60;Twisted&#x4E5F;&#x5C31;&#x610F;&#x5473;&#x7740;&#x9700;&#x8981;&#x5B66;&#x4E60;&#x8FD9;&#x4E9B;&#x5C42;&#x90FD;&#x63D0;&#x4F9B;&#x4EC0;&#x4E48;&#x529F;&#x80FD;&#xFF0C;&#x4F8B;&#x5982;&#x6BCF;&#x5C42;&#x90FD;&#x6709;&#x54EA;&#x4E9B;APIs&#xFF0C;&#x63A5;&#x53E3;&#x548C;&#x5B9E;&#x4F8B;&#x53EF;&#x4F9B;&#x4F7F;&#x7528;&#x3002;&#x63A5;&#x4E0B;&#x6765;&#x6211;&#x4EEC;&#x4F1A;&#x901A;&#x8FC7;&#x5256;&#x6790;Twisted&#x6700;&#x6700;&#x91CD;&#x8981;&#x7684;&#x90E8;&#x5206;&#x6765;&#x66F4;&#x597D;&#x5730;&#x611F;&#x53D7;&#x4E00;&#x4E0B;Twisted&#x90FD;&#x662F;&#x600E;&#x4E48;&#x7EC4;&#x7EC7;&#x7684;&#x3002;&#x4E00;&#x65E6;&#x4F60;&#x5BF9;Twisted&#x7684;&#x6574;&#x4E2A;&#x7ED3;&#x6784;&#x719F;&#x6089;&#x4E86;&#xFF0C;&#x5B66;&#x4E60;&#x65B0;&#x7684;&#x90E8;&#x5206;&#x4F1A;&#x7B80;&#x5355;&#x591A;&#x4E86;&#x3002;</p>
+<p>&#x4E00;&#x822C;&#x6765;&#x8BF4;&#xFF0C;&#x6BCF;&#x4E2A;Twisted&#x7684;&#x62BD;&#x8C61;&#x90FD;&#x53EA;&#x4E0E;&#x4E00;&#x4E2A;&#x7279;&#x5B9A;&#x7684;&#x6982;&#x5FF5;&#x76F8;&#x5173;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x7B2C;&#x56DB;&#x90E8;&#x5206;&#x4E2D;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x4F7F;&#x7528;&#x7684;IReadDescriptor&#xFF0C;&#x5B83;&#x5C31;&#x662F;&quot;&#x4E00;&#x4E2A;&#x53EF;&#x4EE5;&#x8BFB;&#x53D6;&#x5B57;&#x8282;&#x7684;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&quot;&#x7684;&#x62BD;&#x8C61;&#x3002;&#x4E00;&#x4E2A;&#x62BD;&#x8C61;&#x5F80;&#x5F80;&#x4F1A;&#x901A;&#x8FC7;&#x5B9A;&#x4E49;&#x63A5;&#x53E3;&#x6765;&#x6307;&#x5B9A;&#x90A3;&#x4E9B;&#x60F3;&#x5B9E;&#x73B0;&#x8FD9;&#x4E2A;&#x62BD;&#x8C61;&#xFF08;&#x4E5F;&#x5C31;&#x662F;&#x5B9E;&#x73B0;&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#xFF09;&#x7684;&#x5BF9;&#x8C61;&#x7684;&#x5F62;&#x4E3A;&#x3002;&#x5728;&#x5B66;&#x4E60;&#x65B0;&#x7684;Twisted&#x62BD;&#x8C61;&#x6982;&#x5FF5;&#x65F6;&#xFF0C;&#x6700;&#x9700;&#x8981;&#x8C28;&#x8BB0;&#x7684;&#x5C31;&#x662F;&#xFF1A;</p>
+<blockquote>
+<p><strong>&#x591A;&#x6570;&#x9AD8;&#x5C42;&#x6B21;&#x62BD;&#x8C61;&#x90FD;&#x662F;&#x5728;&#x4F4E;&#x5C42;&#x6B21;&#x62BD;&#x8C61;&#x7684;&#x57FA;&#x7840;&#x4E0A;&#x5EFA;&#x7ACB;&#x7684;&#xFF0C;&#x5F88;&#x5C11;&#x6709;&#x53E6;&#x7ACB;&#x95E8;&#x6237;&#x7684;&#x3002;</strong></p>
+</blockquote>
+<p>&#x56E0;&#x6B64;&#xFF0C;&#x4F60;&#x5728;&#x5B66;&#x4E60;&#x65B0;&#x7684;Twisted&#x62BD;&#x8C61;&#x6982;&#x5FF5;&#x65F6;&#xFF0C;&#x59CB;&#x7EC8;&#x8981;&#x8BB0;&#x4F4F;&#x5B83;&#x505A;&#x4EC0;&#x4E48;&#x548C;&#x4E0D;&#x505A;&#x4EC0;&#x4E48;&#x3002;&#x7279;&#x522B;&#x662F;&#xFF0C;&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x65E9;&#x671F;&#x7684;&#x62BD;&#x8C61;A&#x5B9E;&#x73B0;&#x4E86;F&#x7279;&#x6027;&#xFF0C;&#x90A3;&#x4E48;F&#x7279;&#x6027;&#x4E0D;&#x592A;&#x53EF;&#x80FD;&#x518D;&#x7531;&#x5176;&#x5B83;&#x4EFB;&#x4F55;&#x62BD;&#x8C61;&#x6765;&#x5B9E;&#x73B0;&#x3002;&#x53E6;&#x5916;&#xFF0C;&#x5982;&#x679C;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x62BD;&#x8C61;&#x9700;&#x8981;F&#x7279;&#x6027;&#xFF0C;&#x90A3;&#x4E48;&#x5B83;&#x4F1A;&#x4F7F;&#x7528;A&#x800C;&#x4E0D;&#x662F;&#x81EA;&#x5DF1;&#x518D;&#x53BB;&#x5B9E;&#x73B0;F&#x3002;&#xFF08;&#x901A;&#x5E38;&#x7684;&#x505A;&#x6CD5;&#xFF0C;B&#x53EF;&#x80FD;&#x4F1A;&#x901A;&#x8FC7;&#x7EE7;&#x627F;A&#x6216;&#x83B7;&#x5F97;&#x4E00;&#x4E2A;&#x6307;&#x5411;A&#x5B9E;&#x4F8B;&#x7684;&#x5F15;&#x7528;&#xFF09;</p>
+<p>&#x7F51;&#x7EDC;&#x975E;&#x5E38;&#x7684;&#x590D;&#x6742;&#xFF0C;&#x56E0;&#x6B64;Twisted&#x5305;&#x542B;&#x5F88;&#x591A;&#x62BD;&#x8C61;&#x7684;&#x6982;&#x5FF5;&#x3002;&#x901A;&#x8FC7;&#x4ECE;&#x4F4E;&#x5C42;&#x7684;&#x62BD;&#x8C61;&#x8BB2;&#x8D77;&#xFF0C;&#x6211;&#x4EEC;&#x5E0C;&#x671B;&#x80FD;&#x66F4;&#x6E05;&#x695A;&#x8D77;&#x770B;&#x5230;&#x5728;&#x4E00;&#x4E2A;Twisted&#x7A0B;&#x5E8F;&#x4E2D;&#x5404;&#x4E2A;&#x90E8;&#x5206;&#x662F;&#x600E;&#x4E48;&#x7EC4;&#x7EC7;&#x8D77;&#x6765;&#x7684;&#x3002;</p>
+<h3 id="&#x6838;&#x5FC3;&#x7684;&#x5FAA;&#x73AF;&#x4F53;">&#x6838;&#x5FC3;&#x7684;&#x5FAA;&#x73AF;&#x4F53;</h3>
+<p>&#x7B2C;&#x4E00;&#x4E2A;&#x6211;&#x4EEC;&#x8981;&#x5B66;&#x4E60;&#x7684;&#x62BD;&#x8C61;&#xFF0C;&#x4E5F;&#x662F;Twisted&#x4E2D;&#x6700;&#x91CD;&#x8981;&#x7684;&#xFF0C;&#x5C31;&#x662F;reactor&#x3002;&#x5728;&#x6BCF;&#x4E2A;&#x901A;&#x8FC7;Twisted&#x642D;&#x5EFA;&#x8D77;&#x6765;&#x7684;&#x7A0B;&#x5E8F;&#x4E2D;&#x5FC3;&#x5904;&#xFF0C;&#x4E0D;&#x7BA1;&#x4F60;&#x8FD9;&#x4E2A;&#x7A0B;&#x5E8F;&#x6709;&#x591A;&#x5C11;&#x5C42;&#xFF0C;&#x603B;&#x4F1A;&#x6709;&#x4E00;&#x4E2A;reactor&#x5FAA;&#x73AF;&#x5728;&#x4E0D;&#x505C;&#x6B62;&#x5730;&#x9A71;&#x52A8;&#x7A0B;&#x5E8F;&#x7684;&#x8FD0;&#x884C;&#x3002;&#x518D;&#x4E5F;&#x6CA1;&#x6709;&#x6BD4;reactor&#x63D0;&#x4F9B;&#x66F4;&#x52A0;&#x57FA;&#x7840;&#x7684;&#x652F;&#x6301;&#x4E86;&#x3002;&#x5B9E;&#x9645;&#x4E0A;&#xFF0C;Twisted&#x7684;&#x5176;&#x5B83;&#x90E8;&#x5206;&#xFF08;&#x5373;&#x9664;&#x4E86;reactor&#x5FAA;&#x73AF;&#x4F53;&#xFF09;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x7406;&#x89E3;&#xFF1A;&#x5B83;&#x4EEC;&#x90FD;&#x662F;&#x6765;&#x8F85;&#x52A9;X&#x6765;&#x66F4;&#x597D;&#x5730;&#x4F7F;&#x7528;reactor&#xFF0C;&#x8FD9;&#x91CC;&#x7684;X&#x53EF;&#x4EE5;&#x662F;&#x63D0;&#x4F9B;Web&#x7F51;&#x9875;&#x3001;&#x5904;&#x7406;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#x67E5;&#x8BE2;&#x8BF7;&#x6C42;&#x6216;&#x5176;&#x5B83;&#x66F4;&#x52A0;&#x5177;&#x4F53;&#x7684;&#x5185;&#x5BB9;&#x3002;&#x5C3D;&#x7BA1;&#x575A;&#x6301;&#x50CF;&#x4E0A;&#x4E00;&#x4E2A;&#x5BA2;&#x6237;&#x7AEF;&#x4E00;&#x6837;&#x4F7F;&#x7528;&#x4F4E;&#x5C42;APIs&#x662F;&#x53EF;&#x80FD;&#x7684;&#xFF0C;&#x4F46;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x6267;&#x610F;&#x90A3;&#x6837;&#x505A;&#xFF0C;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x5FC5;&#x9700;&#x81EA;&#x5DF1;&#x6765;&#x5B9E;&#x73B0;&#x975E;&#x5E38;&#x591A;&#x7684;&#x5185;&#x5BB9;&#x3002;&#x800C;&#x5728;&#x66F4;&#x9AD8;&#x7684;&#x5C42;&#x6B21;&#x4E0A;&#xFF0C;&#x610F;&#x5473;&#x7740;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5C11;&#x5199;&#x5F88;&#x591A;&#x4EE3;&#x7801;&#x3002;</p>
+<p>&#x4F46;&#x662F;&#x5F53;&#x5728;&#x5916;&#x5C42;&#x601D;&#x8003;&#x4E0E;&#x5904;&#x7406;&#x95EE;&#x9898;&#x65F6;, &#x5F88;&#x5BB9;&#x6613;&#x5C31;&#x5FD8;&#x8BB0;&#x4E86;reactor&#x7684;&#x5B58;&#x5728;&#x4E86;&#x3002;&#x5728;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;&#x5E38;&#x89C1;&#x5927;&#x5C0F;&#x7684;Twisted&#x7A0B;&#x5E8F;&#x4E2D; &#xFF0C;&#x786E;&#x5B9E;&#x5F88;&#x5C11;&#x4F1A;&#x6709;&#x76F4;&#x63A5;&#x4E0E;reactor&#x7684;APIs&#x4EA4;&#x4E92;&#x3002;&#x4F4E;&#x5C42;&#x7684;&#x62BD;&#x8C61;&#x4E5F;&#x662F;&#x4E00;&#x6837;&#xFF08;&#x5373;&#x6211;&#x4EEC;&#x5F88;&#x5C11;&#x4F1A;&#x76F4;&#x63A5;&#x4E0E;&#x5176;&#x4EA4;&#x4E92;&#xFF09;&#x3002;&#x6211;&#x4EEC;&#x5728;&#x4E0A;&#x4E00;&#x4E2A;&#x5BA2;&#x6237;&#x7AEF;&#x4E2D;&#x7528;&#x5230;&#x7684;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x62BD;&#x8C61;&#xFF0C;&#x5C31;&#x88AB;&#x66F4;&#x9AD8;&#x5C42;&#x7684;&#x62BD;&#x8C61;&#x66F4;&#x597D;&#x7684;&#x5F52;&#x7EB3;&#x4EE5;&#x81F3;&#x4E8E;&#x6211;&#x4EEC;&#x5F88;&#x5C11;&#x4F1A;&#x5728;&#x771F;&#x6B63;&#x7684;Twisted&#x7A0B;&#x5E8F;&#x4E2D;&#x9047;&#x5230;&#x3002;&#xFF08;&#x4ED6;&#x4EEC;&#x5728;&#x5185;&#x90E8;&#x4F9D;&#x7136;&#x5728;&#x88AB;&#x4F7F;&#x7528;&#xFF0C;&#x53EA;&#x662F;&#x6211;&#x4EEC;&#x770B;&#x4E0D;&#x5230;&#x800C;&#x5DF2;&#xFF09;</p>
+<p>&#x81F3;&#x4E8E;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x62BD;&#x8C61;&#x7684;&#x6D88;&#x606F;&#xFF0C;&#x8FD9;&#x5E76;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#x3002;&#x8BA9;Twisted&#x638C;&#x8235;&#x5F02;&#x6B65;I/O&#x5904;&#x7406;&#xFF0C;&#x8FD9;&#x6837;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x66F4;&#x52A0;&#x5173;&#x6CE8;&#x6211;&#x4EEC;&#x5B9E;&#x9645;&#x8981;&#x89E3;&#x51B3;&#x7684;&#x95EE;&#x9898;&#x3002;&#x4F46;&#x5BF9;&#x4E8E;reactor&#x4E0D;&#x4E00;&#x6837;&#xFF0C;&#x5B83;&#x6C38;&#x8FDC;&#x90FD;&#x4E0D;&#x4F1A;&#x6D88;&#x5931;&#x3002;&#x5F53;&#x4F60;&#x9009;&#x62E9;&#x4F7F;&#x7528;Twisted&#xFF0C;&#x4E5F;&#x5C31;&#x610F;&#x5473;&#x7740;&#x4F60;&#x9009;&#x62E9;&#x4F7F;&#x7528;Reactor&#x6A21;&#x5F0F;&#xFF0C;&#x5E76;&#x4E14;&#x610F;&#x5473;&#x7740;&#x4F60;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x56DE;&#x8C03;&#x4E0E;&#x591A;&#x4EFB;&#x52A1;&#x5408;&#x4F5C;&#x7684;&quot;&#x4EA4;&#x4E92;&#x5F0F;&quot;&#x7F16;&#x7A0B;&#x65B9;&#x5F0F;&#x3002;&#x5982;&#x679C;&#x4F60;&#x60F3;&#x6B63;&#x786E;&#x5730;&#x4F7F;&#x7528;Twisted&#xFF0C;&#x4F60;&#x5FC5;&#x987B;&#x7262;&#x8BB0;reactor&#x7684;&#x5B58;&#x5728;&#x3002;&#x6211;&#x4EEC;&#x5C06;&#x5728;&#x7B2C;&#x516D;&#x90E8;&#x5206;&#x66F4;&#x52A0;&#x8BE6;&#x7EC6;&#x7684;&#x8BB2;&#x89E3;&#x90E8;&#x5206;&#x5185;&#x5BB9;&#x3002;&#x4F46;&#x662F;&#x73B0;&#x5728;&#x8981;&#x5F3A;&#x8C03;&#x7684;&#x662F;&#xFF1A;</p>
+<blockquote>
+<p><strong>&#x56FE;5&#x4E0E;&#x56FE;6&#x662F;&#x8FD9;&#x4E2A;&#x7CFB;&#x5217;&#x4E2D;&#x6700;&#x6700;&#x91CD;&#x8981;&#x7684;&#x56FE;</strong></p>
+</blockquote>
+<p>&#x6211;&#x4EEC;&#x8FD8;&#x5C06;&#x7528;&#x56FE;&#x6765;&#x63CF;&#x8FF0;&#x65B0;&#x7684;&#x6982;&#x5FF5;&#xFF0C;&#x4F46;&#x8FD9;&#x4E24;&#x4E2A;&#x56FE;&#x662F;&#x9700;&#x8981;&#x4F60;&#x7262;&#x8BB0;&#x5728;&#x8111;&#x6D77;&#x4E2D;&#x7684;&#x3002;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x8BF4;&#xFF0C;&#x6211;&#x5728;&#x5199;Twisted&#x7A0B;&#x5E8F;&#x65F6;&#x4E00;&#x76F4;&#x60F3;&#x7740;&#x8FD9;&#x4E24;&#x5F20;&#x56FE;&#x3002;</p>
+<p>&#x5728;&#x6211;&#x4EEC;&#x4ED8;&#x8BF8;&#x4E8E;&#x4EE3;&#x7801;&#x524D;&#xFF0C;&#x6709;&#x4E09;&#x4E2A;&#x65B0;&#x7684;&#x6982;&#x5FF5;&#x9700;&#x8981;&#x9610;&#x8FF0;&#x6E05;&#x695A;&#xFF1A;Transports, Protocols, Protocol Factories</p>
+<h3 id="transports">Transports</h3>
+<p>Transports&#x62BD;&#x8C61;&#x662F;&#x901A;&#x8FC7;Twisted&#x4E2D;interfaces&#x6A21;&#x5757;&#x4E2D;ITransport&#x63A5;&#x53E3;&#x5B9A;&#x4E49;&#x7684;&#x3002;&#x4E00;&#x4E2A;Twisted&#x7684;Transport&#x4EE3;&#x8868;&#x4E00;&#x4E2A;&#x53EF;&#x4EE5;&#x6536;&#x53D1;&#x5B57;&#x8282;&#x7684;&#x5355;&#x6761;&#x8FDE;&#x63A5;&#x3002;&#x5BF9;&#x4E8E;&#x6211;&#x4EEC;&#x7684;&#x8BD7;&#x6B4C;&#x4E0B;&#x8F7D;&#x5BA2;&#x6237;&#x7AEF;&#x800C;&#x8A00;&#xFF0C;&#x5C31;&#x662F;&#x5BF9;&#x4E00;&#x6761;TCP&#x8FDE;&#x63A5;&#x7684;&#x62BD;&#x8C61;&#x3002;&#x4F46;&#x662F;Twisted&#x4E5F;&#x652F;&#x6301;&#x8BF8;&#x5982;Unix&#x4E2D;&#x7BA1;&#x9053;&#x548C;UDP&#x3002;Transport&#x62BD;&#x8C61;&#x53EF;&#x4EE5;&#x4EE3;&#x8868;&#x4EFB;&#x4F55;&#x8FD9;&#x6837;&#x7684;&#x8FDE;&#x63A5;&#x5E76;&#x4E3A;&#x5176;&#x4EE3;&#x8868;&#x7684;&#x8FDE;&#x63A5;&#x5904;&#x7406;&#x5177;&#x4F53;&#x7684;&#x5F02;&#x6B65;I/O&#x64CD;&#x4F5C;&#x7EC6;&#x8282;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x4F60;&#x6D4F;&#x89C8;&#x4E00;&#x4E0B;ITransport&#x4E2D;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x53EF;&#x80FD;&#x627E;&#x4E0D;&#x5230;&#x4EFB;&#x4F55;&#x63A5;&#x6536;&#x6570;&#x636E;&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x8FD9;&#x662F;&#x56E0;&#x4E3A;Transports&#x603B;&#x662F;&#x5728;&#x4F4E;&#x5C42;&#x5B8C;&#x6210;&#x4ECE;&#x8FDE;&#x63A5;&#x4E2D;&#x5F02;&#x6B65;&#x8BFB;&#x53D6;&#x6570;&#x636E;&#x7684;&#x8BB8;&#x591A;&#x7EC6;&#x8282;&#x5DE5;&#x4F5C;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;&#x56DE;&#x8C03;&#x5C06;&#x6570;&#x636E;&#x53D1;&#x7ED9;&#x6211;&#x4EEC;&#x3002;&#x76F8;&#x4F3C;&#x7684;&#x539F;&#x7406;&#xFF0C;Transport&#x5BF9;&#x8C61;&#x7684;&#x5199;&#x76F8;&#x5173;&#x7684;&#x65B9;&#x6CD5;&#x4E3A;&#x907F;&#x514D;&#x963B;&#x585E;&#x4E5F;&#x4E0D;&#x4F1A;&#x9009;&#x62E9;&#x7ACB;&#x5373;&#x5199;&#x6211;&#x4EEC;&#x8981;&#x53D1;&#x9001;&#x7684;&#x6570;&#x636E;&#x3002;&#x544A;&#x8BC9;&#x4E00;&#x4E2A;Transport&#x8981;&#x53D1;&#x9001;&#x6570;&#x636E;&#xFF0C;&#x53EA;&#x662F;&#x610F;&#x5473;&#x7740;&#xFF1A;&#x5C3D;&#x5FEB;&#x5C06;&#x8FD9;&#x4E9B;&#x6570;&#x636E;&#x53D1;&#x9001;&#x51FA;&#x53BB;&#xFF0C;&#x522B;&#x4EA7;&#x751F;&#x963B;&#x585E;&#x5C31;&#x884C;&#x3002;&#x5F53;&#x7136;&#xFF0C;&#x6570;&#x636E;&#x4F1A;&#x6309;&#x7167;&#x6211;&#x4EEC;&#x63D0;&#x4EA4;&#x7684;&#x987A;&#x5E8F;&#x53D1;&#x9001;&#x3002;</p>
+<p>&#x901A;&#x5E38;&#x6211;&#x4EEC;&#x4E0D;&#x4F1A;&#x81EA;&#x5DF1;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;Transport&#x3002;&#x6211;&#x4EEC;&#x4F1A;&#x53BB;&#x4F7F;&#x7528;Twisted&#x63D0;&#x4F9B;&#x7684;&#x5B9E;&#x73B0;&#x7C7B;&#xFF0C;&#x5373;&#x5728;&#x4F20;&#x9012;&#x7ED9;reactor&#x65F6;&#x4F1A;&#x4E3A;&#x6211;&#x4EEC;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;&#x3002;</p>
+<h3 id="protocols">Protocols</h3>
+<p>Twisted&#x7684;Protocols&#x62BD;&#x8C61;&#x7531;interfaces&#x6A21;&#x5757;&#x4E2D;&#x7684;IProtocol&#x5B9A;&#x4E49;&#x3002;&#x4E5F;&#x8BB8;&#x4F60;&#x5DF2;&#x7ECF;&#x60F3;&#x5230;&#xFF0C;Protocol&#x5BF9;&#x8C61;&#x5B9E;&#x73B0;&#x534F;&#x8BAE;&#x5185;&#x5BB9;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x4E00;&#x4E2A;&#x5177;&#x4F53;&#x7684;Twisted&#x7684;Protocol&#x7684;&#x5B9E;&#x73B0;&#x5E94;&#x8BE5;&#x5BF9;&#x5E94;&#x4E00;&#x4E2A;&#x5177;&#x4F53;&#x7F51;&#x7EDC;&#x534F;&#x8BAE;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x50CF;FTP&#x3001;IMAP&#x6216;&#x5176;&#x5B83;&#x6211;&#x4EEC;&#x81EA;&#x5DF1;&#x5236;&#x5B9A;&#x7684;&#x534F;&#x8BAE;&#x3002;&#x6211;&#x4EEC;&#x7684;&#x8BD7;&#x6B4C;&#x4E0B;&#x8F7D;&#x534F;&#x8BAE;&#xFF0C;&#x6B63;&#x5982;&#x5B83;&#x8868;&#x73B0;&#x7684;&#x90A3;&#x6837;&#xFF0C;&#x5C31;&#x662F;&#x5728;&#x8FDE;&#x63A5;&#x5EFA;&#x7ACB;&#x540E;&#x5C06;&#x6240;&#x6709;&#x7684;&#x8BD7;&#x6B4C;&#x5185;&#x5BB9;&#x5168;&#x90E8;&#x53D1;&#x9001;&#x51FA;&#x53BB;&#x5E76;&#x4E14;&#x5728;&#x53D1;&#x9001;&#x5B8C;&#x6BD5;&#x540E;&#x5173;&#x95ED;&#x8FDE;&#x63A5;&#x3002;</p>
+<p>&#x4E25;&#x683C;&#x610F;&#x4E49;&#x4E0A;&#x8BB2;&#xFF0C;&#x6BCF;&#x4E00;&#x4E2A;Twisted&#x7684;Protocols&#x7C7B;&#x5B9E;&#x4F8B;&#x90FD;&#x4E3A;&#x4E00;&#x4E2A;&#x5177;&#x4F53;&#x7684;&#x8FDE;&#x63A5;&#x63D0;&#x4F9B;&#x534F;&#x8BAE;&#x89E3;&#x6790;&#x3002;&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x7684;&#x7A0B;&#x5E8F;&#x6BCF;&#x5EFA;&#x7ACB;&#x4E00;&#x6761;&#x8FDE;&#x63A5;&#xFF08;&#x5BF9;&#x4E8E;&#x670D;&#x52A1;&#x65B9;&#x5C31;&#x662F;&#x6BCF;&#x63A5;&#x53D7;&#x4E00;&#x6761;&#x8FDE;&#x63A5;&#xFF09;&#xFF0C;&#x90FD;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x534F;&#x8BAE;&#x5B9E;&#x4F8B;&#x3002;&#x8FD9;&#x5C31;&#x610F;&#x5473;&#x7740;&#xFF0C;Protocol&#x5B9E;&#x4F8B;&#x662F;&#x5B58;&#x50A8;&#x534F;&#x8BAE;&#x72B6;&#x6001;&#x4E0E;&#x95F4;&#x65AD;&#x6027;&#xFF08;&#x7531;&#x4E8E;&#x6211;&#x4EEC;&#x662F;&#x901A;&#x8FC7;&#x5F02;&#x6B65;I/O&#x65B9;&#x5F0F;&#x4EE5;&#x4EFB;&#x610F;&#x5927;&#x5C0F;&#x6765;&#x63A5;&#x6536;&#x6570;&#x636E;&#x7684;&#xFF09;&#x63A5;&#x6536;&#x5E76;&#x7D2F;&#x79EF;&#x6570;&#x636E;&#x7684;&#x5730;&#x65B9;&#x3002;</p>
+<p>&#x56E0;&#x6B64;&#xFF0C;Protocol&#x5B9E;&#x4F8B;&#x5982;&#x4F55;&#x5F97;&#x77E5;&#x5B83;&#x4E3A;&#x54EA;&#x6761;&#x8FDE;&#x63A5;&#x670D;&#x52A1;&#x5462;&#xFF1F;&#x5982;&#x679C;&#x4F60;&#x9605;&#x8BFB;IProtocol&#x5B9A;&#x4E49;&#x4F1A;&#x53D1;&#x73B0;&#x4E00;&#x4E2A;makeConnection&#x51FD;&#x6570;&#x3002;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C;Twisted&#x4F1A;&#x5728;&#x8C03;&#x7528;&#x5B83;&#x65F6;&#x4F20;&#x9012;&#x7ED9;&#x5176;&#x4E00;&#x4E2A;&#x4E5F;&#x662F;&#x4EC5;&#x6709;&#x7684;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x5373;Transport&#x5B9E;&#x4F8B;&#x3002;&#x8FD9;&#x4E2A;Transport&#x5B9E;&#x4F8B;&#x5C31;&#x4EE3;&#x8868;Protocol&#x5C06;&#x8981;&#x4F7F;&#x7528;&#x7684;&#x8FDE;&#x63A5;&#x3002;</p>
+<p>Twisted&#x5185;&#x7F6E;&#x4E86;&#x5F88;&#x591A;&#x5B9E;&#x73B0;&#x4E86;&#x901A;&#x7528;&#x534F;&#x8BAE;&#x7684;Protocol&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x5728;<a href="http://twistedmatrix.com/trac/browser/trunk/twisted/protocols/basic.py" target="_blank">twisted.protocols.basic</a>&#x4E2D;&#x627E;&#x5230;&#x4E00;&#x4E9B;&#x7A0D;&#x5FAE;&#x7B80;&#x5355;&#x70B9;&#x7684;&#x3002;&#x5728;&#x4F60;&#x5C1D;&#x8BD5;&#x5199;&#x65B0;Protocol&#x65F6;&#xFF0C;&#x6700;&#x597D;&#x662F;&#x770B;&#x770B;Twisted&#x6E90;&#x7801;&#x662F;&#x4E0D;&#x662F;&#x5DF2;&#x7ECF;&#x6709;&#x73B0;&#x6210;&#x7684;&#x5B58;&#x5728;&#x3002;&#x5982;&#x679C;&#x6CA1;&#x6709;&#xFF0C;&#x90A3;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x81EA;&#x5DF1;&#x7684;&#x534F;&#x8BAE;&#x662F;&#x975E;&#x5E38;&#x597D;&#x7684;&#xFF0C;&#x6B63;&#x5982;&#x6211;&#x4EEC;&#x4E3A;&#x8BD7;&#x6B4C;&#x4E0B;&#x8F7D;&#x5BA2;&#x6237;&#x7AEF;&#x505A;&#x7684;&#x90A3;&#x6837;&#x3002;</p>
+<h3 id="protocol-factories">Protocol Factories</h3>
+<p>&#x56E0;&#x6B64;&#x6BCF;&#x4E2A;&#x8FDE;&#x63A5;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x81EA;&#x5DF1;&#x7684;Protocol&#xFF0C;&#x800C;&#x4E14;&#x8FD9;&#x4E2A;Protocol&#x662F;&#x6211;&#x4EEC;&#x81EA;&#x5DF1;&#x5B9A;&#x4E49;&#x7684;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x3002;&#x7531;&#x4E8E;&#x6211;&#x4EEC;&#x4F1A;&#x5C06;&#x521B;&#x5EFA;&#x8FDE;&#x63A5;&#x7684;&#x5DE5;&#x4F5C;&#x4EA4;&#x7ED9;Twisted&#x6765;&#x5B8C;&#x6210;&#xFF0C;Twisted&#x9700;&#x8981;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;&#x6765;&#x4E3A;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x8FDE;&#x63A5;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5408;&#x9002;&#x7684;&#x534F;&#x8BAE;&#x3002;&#x521B;&#x5EFA;&#x534F;&#x8BAE;&#x5C31;&#x662F;Protocol Factories&#x7684;&#x5DE5;&#x4F5C;&#x4E86;&#x3002;</p>
+<p>&#x4E5F;&#x8BB8;&#x4F60;&#x5DF2;&#x7ECF;&#x731C;&#x5230;&#x4E86;&#xFF0C;Protocol Factory&#x7684;API&#x7531;<a href="http://twistedmatrix.com/trac/browser/trunk/twisted/internet/interfaces.py" target="_blank">IProtocolFactory</a>&#x6765;&#x5B9A;&#x4E49;&#xFF0C;&#x540C;&#x6837;&#x5728;<a href="http://twistedmatrix.com/trac/browser/trunk/twisted/internet/interfaces.py" target="_blank">interfaces</a>&#x6A21;&#x5757;&#x4E2D;&#x3002;Protocol Factory&#x5C31;&#x662F;Factory&#x6A21;&#x5F0F;&#x7684;&#x4E00;&#x4E2A;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x3002;buildProtocol&#x65B9;&#x6CD5;&#x5728;&#x6BCF;&#x6B21;&#x88AB;&#x8C03;&#x7528;&#x65F6;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;Protocol&#x5B9E;&#x4F8B;&#xFF0C;&#x5B83;&#x5C31;&#x662F;Twisted&#x7528;&#x6765;&#x4E3A;&#x65B0;&#x8FDE;&#x63A5;&#x521B;&#x5EFA;&#x65B0;Protocol&#x5B9E;&#x4F8B;&#x7684;&#x65B9;&#x6CD5;&#x3002;</p>
+<h3 id="&#x8BD7;&#x6B4C;&#x4E0B;&#x8F7D;&#x5BA2;&#x6237;&#x7AEF;20&#xFF1A;&#x7B2C;&#x4E00;&#x6EF4;&#x5FC3;&#x8840;">&#x8BD7;&#x6B4C;&#x4E0B;&#x8F7D;&#x5BA2;&#x6237;&#x7AEF;2.0&#xFF1A;&#x7B2C;&#x4E00;&#x6EF4;&#x5FC3;&#x8840;</h3>
+<p>&#x597D;&#x5427;&#xFF0C;&#x8BA9;&#x6211;&#x4EEC;&#x6765;&#x770B;&#x770B;&#x7531;Twisted&#x652F;&#x6301;&#x7684;&#x8BD7;&#x6B4C;&#x4E0B;&#x8F7D;&#x5BA2;&#x6237;&#x7AEF;2.0&#x3002;&#x6E90;&#x7801;&#x53EF;&#x4EE5;&#x5728;&#x8FD9;&#x91CC;<a href="http://github.com/jdavisp3/twisted-intro/blob/master/twisted-client-2/get-poetry.py" target="_blank">twisted-client-2/get-poetry.py</a>&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x50CF;&#x524D;&#x9762;&#x4E00;&#x6837;&#x8FD0;&#x884C;&#x5B83;&#xFF0C;&#x5E76;&#x5F97;&#x5230;&#x76F8;&#x540C;&#x7684;&#x8F93;&#x51FA;&#x3002;&#x8FD9;&#x4E5F;&#x662F;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5728;&#x63A5;&#x6536;&#x5230;&#x6570;&#x636E;&#x65F6;&#x6253;&#x5370;&#x5176;&#x4EFB;&#x52A1;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x7248;&#x672C;&#x4E86;&#x3002;&#x5230;&#x73B0;&#x5728;&#x4E3A;&#x6B62;&#xFF0C;&#x5BF9;&#x4E8E;&#x6240;&#x6709;Twisted&#x7A0B;&#x5E8F;&#x90FD;&#x662F;&#x4EA4;&#x66FF;&#x6267;&#x884C;&#x4EFB;&#x52A1;&#x5E76;&#x5904;&#x7406;&#x76F8;&#x5BF9;&#x8F83;&#x5C11;&#x6570;&#x91CF;&#x6570;&#x636E;&#x7684;&#xFF0C;&#x5E94;&#x8BE5;&#x5F88;&#x6E05;&#x6670;&#x4E86;&#x3002;&#x6211;&#x4EEC;&#x4F9D;&#x7136;&#x901A;&#x8FC7;print&#x51FD;&#x6570;&#x6765;&#x5C55;&#x793A;&#x5728;&#x5173;&#x952E;&#x65F6;&#x523B;&#x5728;&#x8FDB;&#x884C;&#x4EC0;&#x4E48;&#x5185;&#x5BB9;&#xFF0C;&#x4F46;&#x5C06;&#x6765;&#x5BA2;&#x6237;&#x7AEF;&#x4E0D;&#x4F1A;&#x5728;&#x8FD9;&#x6837;&#x7E41;&#x9501;&#x3002;</p>
+<p>&#x5728;&#x7B2C;&#x4E8C;&#x4E2A;&#x7248;&#x672C;&#x4E2D;&#xFF0C;sockets&#x4E0D;&#x4F1A;&#x518D;&#x51FA;&#x73B0;&#x4E86;&#x3002;&#x6211;&#x4EEC;&#x751A;&#x81F3;&#x4E0D;&#x9700;&#x8981;&#x5F15;&#x5165;socket&#x6A21;&#x5757;&#x4E5F;&#x4E0D;&#x7528;&#x5F15;&#x7528;socket&#x5BF9;&#x8C61;&#x548C;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x3002;&#x53D6;&#x800C;&#x4EE3;&#x4E4B;&#x7684;&#x662F;&#xFF0C;&#x6211;&#x4EEC;&#x544A;&#x8BC9;reactor&#x6765;&#x521B;&#x5EFA;&#x5230;&#x8BD7;&#x6B4C;&#x670D;&#x52A1;&#x5668;&#x7684;&#x8FDE;&#x63A5;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#x9762;&#x6240;&#x793A;&#xFF1A;</p>
+<pre><code class="lang-python">factory = PoetryClientFactory(len(addresses))
+
+<span class="hljs-keyword">from</span> twisted.internet <span class="hljs-keyword">import</span> reactor
+
+<span class="hljs-keyword">for</span> address <span class="hljs-keyword">in</span> addresses:
+    host, port = address
+    reactor.connectTCP(host, port, factory)
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5173;&#x6CE8;&#x7684;&#x662F;connectTCP&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x3002;&#x524D;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#x7684;&#x542B;&#x4E49;&#x5F88;&#x660E;&#x663E;&#xFF0C;&#x4E0D;&#x89E3;&#x91CA;&#x4E86;&#x3002;&#x7B2C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x6211;&#x4EEC;&#x81EA;&#x5B9A;&#x4E49;&#x7684;PoetryClientFactory&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x3002;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x4E13;&#x95E8;&#x9488;&#x5BF9;&#x8BD7;&#x6B4C;&#x4E0B;&#x8F7D;&#x5BA2;&#x6237;&#x7AEF;&#x7684;Protocol Factory&#xFF0C;&#x5C06;&#x5B83;&#x4F20;&#x9012;&#x7ED9;reactor&#x53EF;&#x4EE5;&#x8BA9;Twisted&#x4E3A;&#x6211;&#x4EEC;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;PoetryProtocol&#x5B9E;&#x4F8B;&#x3002;</p>
+<p>&#x503C;&#x5F97;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x4ECE;&#x4E00;&#x5F00;&#x59CB;&#x6211;&#x4EEC;&#x65E2;&#x6CA1;&#x6709;&#x5B9E;&#x73B0;Factory&#x4E5F;&#x6CA1;&#x6709;&#x53BB;&#x5B9E;&#x73B0;Protocol&#xFF0C;&#x4E0D;&#x50CF;&#x5728;&#x524D;&#x9762;&#x90A3;&#x4E2A;&#x5BA2;&#x6237;&#x7AEF;&#x4E2D;&#x6211;&#x4EEC;&#x53BB;&#x5B9E;&#x4F8B;&#x5316;&#x6211;&#x4EEC;PoetrySocket&#x7C7B;&#x3002;&#x6211;&#x4EEC;&#x53EA;&#x662F;&#x7EE7;&#x627F;&#x4E86;Twisted&#x5728;twisted.internet.protocol &#x4E2D;&#x63D0;&#x4F9B;&#x7684;&#x57FA;&#x7C7B;&#x3002;Factory&#x7684;&#x57FA;&#x7C7B;&#x662F;twisted.internet.protocol.Factory&#xFF0C;&#x4F46;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x5BA2;&#x6237;&#x7AEF;&#x4E13;&#x7528;&#xFF08;&#x5373;&#x4E0D;&#x50CF;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x90A3;&#x6837;&#x76D1;&#x542C;&#x4E00;&#x4E2A;&#x8FDE;&#x63A5;&#xFF0C;&#x800C;&#x662F;&#x4E3B;&#x52A8;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x8FDE;&#x63A5;&#xFF09;&#x7684;ClientFactory&#x5B50;&#x7C7B;&#x6765;&#x7EE7;&#x627F;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x540C;&#x6837;&#x5229;&#x7528;&#x4E86;Twisted&#x7684;Factory&#x5DF2;&#x7ECF;&#x5B9E;&#x73B0;&#x4E86;buildProtocol&#x65B9;&#x6CD5;&#x8FD9;&#x4E00;&#x4F18;&#x52BF;&#x6765;&#x4E3A;&#x6211;&#x4EEC;&#x6240;&#x7528;&#x3002;&#x6211;&#x4EEC;&#x8981;&#x5728;&#x5B50;&#x7C7B;&#x4E2D;&#x8C03;&#x7528;&#x57FA;&#x7C7B;&#x4E2D;&#x7684;&#x5B9E;&#x73B0;&#xFF1A;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">buildProtocol</span><span class="hljs-params">(self, address)</span>:</span>
+    proto = ClientFactory.buildProtocol(self, address)
+    proto.task_num = self.task_num
+    self.task_num += <span class="hljs-number">1</span>
+    <span class="hljs-keyword">return</span> proto
+</code></pre>
+<p>&#x57FA;&#x7C7B;&#x600E;&#x4E48;&#x4F1A;&#x77E5;&#x9053;&#x6211;&#x4EEC;&#x8981;&#x521B;&#x5EFA;&#x4EC0;&#x4E48;&#x6837;&#x7684;Protocol&#x5462;&#xFF1F;&#x6CE8;&#x610F;&#xFF0C;&#x6211;&#x4EEC;&#x7684;PoetryClientFactory&#x4E2D;&#x6709;&#x4E00;&#x4E2A;protocol&#x7C7B;&#x53D8;&#x91CF;&#xFF1A;</p>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PoetryClientFactory</span><span class="hljs-params">(ClientFactory)</span>:</span>
+
+    task_num = <span class="hljs-number">1</span>
+
+    protocol = PoetryProtocol <span class="hljs-comment"># tell base class what proto to build</span>
+</code></pre>
+<p>&#x57FA;&#x7C7B;Factory&#x5B9E;&#x73B0;buildProtocol&#x7684;&#x8FC7;&#x7A0B;&#x662F;&#xFF1A;&#x5B89;&#x88C5;&#xFF08;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#xFF09;&#x6211;&#x4EEC;&#x8BBE;&#x7F6E;&#x5728;protocol&#x53D8;&#x91CF;&#x4E0A;&#x7684;Protocol&#x7C7B;&#x4E0E;&#x5728;&#x8FD9;&#x4E2A;&#x5B9E;&#x4F8B;&#xFF08;&#x6B64;&#x5904;&#x5373;PoetryProtocol&#x7684;&#x5B9E;&#x4F8B;&#xFF09;&#x7684;factory&#x5C5E;&#x6027;&#x4E0A;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x4EA7;&#x751F;&#x5B83;&#x7684;Factory&#x7684;&#x5F15;&#x7528;&#xFF08;&#x6B64;&#x5904;&#x5373;&#x5B9E;&#x4F8B;&#x5316;PoetryProtocol&#x7684;PoetryClientFactory&#xFF09;&#x3002;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#x5982;&#x56FE;8&#x6240;&#x793A;&#xFF1A;</p>
+<div style="text-align: center"><img src="_static/p05_protocols-1.png" title="Protocol&#x7684;&#x751F;&#x6210;&#x8FC7;&#x7A0B;" alt="Protocol&#x7684;&#x751F;&#x6210;&#x8FC7;&#x7A0B;"></div>
+<div style="text-align: center">&#x56FE;8 Protocol&#x7684;&#x751F;&#x6210;&#x8FC7;&#x7A0B;</div>
+
+<p>&#x6B63;&#x5982;&#x6211;&#x4EEC;&#x63D0;&#x5230;&#x7684;&#x90A3;&#x6837;&#xFF0C;&#x4F4D;&#x4E8E;Protocol&#x5BF9;&#x8C61;&#x5185;&#x7684;factory&#x5C5E;&#x6027;&#x5B57;&#x6BB5;&#x5141;&#x8BB8;&#x5728;&#x90FD;&#x7531;&#x540C;&#x4E00;&#x4E2A;factory&#x4EA7;&#x751F;&#x7684;Protocol&#x4E4B;&#x95F4;&#x5171;&#x4EAB;&#x6570;&#x636E;&#x3002;&#x7531;&#x4E8E;Factories&#x90FD;&#x662F;&#x7531;&#x7528;&#x6237;&#x4EE3;&#x7801;&#x6765;&#x521B;&#x5EFA;&#x7684;&#xFF08;&#x5373;&#x5728;&#x7528;&#x6237;&#x7684;&#x63A7;&#x5236;&#x4E2D;&#xFF09;&#xFF0C;&#x56E0;&#x6B64;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x4E5F;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;Protocol&#x5BF9;&#x8C61;&#x5C06;&#x6570;&#x636E;&#x4F20;&#x9012;&#x56DE;&#x4E00;&#x5F00;&#x59CB;&#x521D;&#x59CB;&#x5316;&#x8BF7;&#x6C42;&#x7684;&#x4EE3;&#x7801;&#x4E2D;&#x6765;&#xFF0C;&#x8FD9;&#x5C06;&#x5728;&#x7B2C;&#x516D;&#x90E8;&#x5206;&#x770B;&#x5230;&#x3002;</p>
+<p>&#x503C;&#x5F97;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x867D;&#x7136;&#x5728;Protocol&#x4E2D;&#x6709;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#x6307;&#x5411;&#x751F;&#x6210;&#x5176;&#x7684;Protocol Factory&#xFF0C;&#x5728;Factory&#x4E2D;&#x4E5F;&#x6709;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#x6307;&#x5411;&#x4E00;&#x4E2A;Protocol&#x7C7B;&#xFF0C;&#x4F46;&#x901A;&#x5E38;&#x6765;&#x8BF4;&#xFF0C;&#x4E00;&#x4E2A;Factory&#x53EF;&#x4EE5;&#x751F;&#x6210;&#x591A;&#x4E2A;Protocol&#x3002;</p>
+<p>&#x5728;Protocol&#x521B;&#x7ACB;&#x7684;&#x7B2C;&#x4E8C;&#x6B65;&#x4FBF;&#x662F;&#x901A;&#x8FC7;makeConnection&#x4E0E;&#x4E00;&#x4E2A;Transport&#x8054;&#x7CFB;&#x8D77;&#x6765;&#x3002;&#x6211;&#x4EEC;&#x65E0;&#x9700;&#x81EA;&#x5DF1;&#x6765;&#x5B9E;&#x73B0;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x800C;&#x4F7F;&#x7528;Twisted&#x63D0;&#x4F9B;&#x7684;&#x9ED8;&#x8BA4;&#x5B9E;&#x73B0;&#x3002;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x662F;&#xFF0C;makeConnection&#x5C06;Transport&#x7684;&#x4E00;&#x4E2A;&#x5F15;&#x7528;&#x8D4B;&#x7ED9;&#xFF08;Protocol&#x7684;&#xFF09;transport&#x5C5E;&#x6027;&#xFF0C;&#x540C;&#x65F6;&#x7F6E;&#xFF08;&#x540C;&#x6837;&#x662F;Protocol&#x7684;&#xFF09;connected&#x5C5E;&#x6027;&#x4E3A;True&#xFF0C;&#x6B63;&#x5982;&#x56FE;9&#x63CF;&#x8FF0;&#x7684;&#x4E00;&#x6837;&#xFF1A;</p>
+<div style="text-align: center"><img src="_static/p05_protocols-2.png" title="Protocol&#x9047;&#x5230;&#x5176;Transport" alt="Protocol&#x9047;&#x5230;&#x5176;Transport"></div>
+<div style="text-align: center">&#x56FE;9 Protocol&#x9047;&#x5230;&#x5176;Transport</div>
+
+<p>&#x4E00;&#x65E6;&#x521D;&#x59CB;&#x5316;&#x5230;&#x8FD9;&#x4E00;&#x6B65;&#x540E;&#xFF0C;Protocol&#x5F00;&#x59CB;&#x5176;&#x771F;&#x6B63;&#x7684;&#x5DE5;&#x4F5C;&#x2014;&#x5C06;&#x4F4E;&#x5C42;&#x7684;&#x6570;&#x636E;&#x6D41;&#x7FFB;&#x8BD1;&#x6210;&#x9AD8;&#x5C42;&#x7684;&#x534F;&#x8BAE;&#x89C4;&#x5B9A;&#x683C;&#x5F0F;&#x7684;&#x6D88;&#x606F;&#x3002;&#x5904;&#x7406;&#x63A5;&#x6536;&#x5230;&#x6570;&#x636E;&#x7684;&#x4E3B;&#x8981;&#x65B9;&#x6CD5;&#x662F;dataReceived&#xFF0C;&#x6211;&#x4EEC;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x662F;&#x8FD9;&#x6837;&#x5B9E;&#x73B0;&#x7684;&#xFF1A;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">dataReceived</span><span class="hljs-params">(self, data)</span>:</span>
+    self.poem += data
+    msg = <span class="hljs-string">&apos;Task %d: got %d bytes of poetry from %s&apos;</span>
+    <span class="hljs-keyword">print</span>  msg % (self.task_num, len(data), self.transport.getHost())
+</code></pre>
+<p>&#x6BCF;&#x6B21;dateReceved&#x88AB;&#x8C03;&#x7528;&#x5C31;&#x610F;&#x5473;&#x7740;&#x6211;&#x4EEC;&#x5F97;&#x5230;&#x4E00;&#x4E2A;&#x65B0;&#x5B57;&#x7B26;&#x4E32;&#x3002;&#x7531;&#x4E8E;&#x4E0E;&#x5F02;&#x6B65;I/O&#x4EA4;&#x4E92;&#xFF0C;&#x6211;&#x4EEC;&#x4E0D;&#x77E5;&#x9053;&#x80FD;&#x63A5;&#x6536;&#x5230;&#x591A;&#x5C11;&#x6570;&#x636E;&#xFF0C;&#x56E0;&#x6B64;&#x5C06;&#x63A5;&#x6536;&#x5230;&#x7684;&#x6570;&#x636E;&#x7F13;&#x5B58;&#x4E0B;&#x6765;&#x76F4;&#x5230;&#x5B8C;&#x6210;&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x7684;&#x534F;&#x8BAE;&#x89C4;&#x5B9A;&#x683C;&#x5F0F;&#x7684;&#x6D88;&#x606F;&#x3002;&#x5728;&#x6211;&#x4EEC;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x8BD7;&#x6B4C;&#x53EA;&#x6709;&#x5728;&#x8FDE;&#x63A5;&#x5173;&#x95ED;&#x65F6;&#x624D;&#x4E0B;&#x8F7D;&#x5B8C;&#x6BD5;&#xFF0C;&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x53EA;&#x662F;&#x4E0D;&#x65AD;&#x5730;&#x5C06;&#x63A5;&#x6536;&#x5230;&#x7684;&#x6570;&#x636E;&#x6DFB;&#x52A0;&#x5230;&#x6211;&#x4EEC;&#x7684;.poem&#x5C5E;&#x6027;&#x5B57;&#x6BB5;&#x4E2D;&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x4E86;Transport&#x7684;getHost&#x65B9;&#x6CD5;&#x6765;&#x53D6;&#x5F97;&#x6570;&#x636E;&#x6765;&#x81EA;&#x7684;&#x670D;&#x52A1;&#x5668;&#x4FE1;&#x606F;&#x3002;&#x6211;&#x4EEC;&#x8FD9;&#x6837;&#x505A;&#x53EA;&#x662F;&#x4E0E;&#x524D;&#x9762;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x4FDD;&#x6301;&#x4E00;&#x81F4;&#x3002;&#x76F8;&#x53CD;&#xFF0C;&#x6211;&#x4EEC;&#x7684;&#x4EE3;&#x7801;&#x6CA1;&#x6709;&#x5FC5;&#x8981;&#x8FD9;&#x6837;&#x505A;&#xFF0C;&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x6CA1;&#x6709;&#x5411;&#x670D;&#x52A1;&#x5668;&#x53D1;&#x9001;&#x4EFB;&#x4F55;&#x6D88;&#x606F;&#xFF0C;&#x4E5F;&#x5C31;&#x6CA1;&#x6709;&#x5FC5;&#x8981;&#x77E5;&#x9053;&#x670D;&#x52A1;&#x5668;&#x7684;&#x4FE1;&#x606F;&#x4E86;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x6765;&#x770B;&#x4E00;&#x4E0B;dataReceved&#x8FD0;&#x884C;&#x65F6;&#x7684;&#x5FEB;&#x7167;&#x3002;&#x5728;2.0&#x7248;&#x672C;&#x76F8;&#x540C;&#x7684;&#x76EE;&#x5F55;&#x4E0B;&#x6709;&#x4E00;&#x4E2A;twisted-client-2/get-poetry-stack.py&#x3002;&#x5B83;&#x4E0E;2.0&#x7248;&#x672C;&#x7684;&#x4E0D;&#x540C;&#x4E4B;&#x5904;&#x53EA;&#x5728;&#x4E8E;&#xFF1A;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">dataReceived</span><span class="hljs-params">(self, data)</span>:</span>
+    traceback.print_stack()
+    os._exit(<span class="hljs-number">0</span>)
+</code></pre>
+<p>&#x8FD9;&#x6837;&#x4E00;&#x6539;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x80FD;&#x6253;&#x5370;&#x51FA;&#x8DDF;&#x8E2A;&#x5806;&#x6808;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x7136;&#x540E;&#x79BB;&#x5F00;&#x7A0B;&#x5E8F;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x547D;&#x4EE4;&#x6765;&#x8FD0;&#x884C;&#x5B83;&#xFF1A;</p>
+<pre><code>python twisted-client-2/get-poetry-stack.py 10000
+</code></pre><p>&#x4F60;&#x4F1A;&#x5F97;&#x5230;&#x5185;&#x5BB9;&#x5982;&#x4E0B;&#x7684;&#x8DDF;&#x8E2A;&#x5806;&#x6808;&#xFF1A;</p>
+<pre><code>File &quot;twisted-client-2/get-poetry-stack.py&quot;, line 125, in
+    poetry_main()
+
+... # I removed a bunch of lines here
+
+File &quot;.../twisted/internet/tcp.py&quot;, line 463, in doRead  # Note the doRead callback
+    return self.protocol.dataReceived(data)
+File &quot;twisted-client-2/get-poetry-stack.py&quot;, line 58, in dataReceived
+    traceback.print_stack()
+</code></pre><p>&#x770B;&#x89C1;&#x6CA1;&#xFF0C;&#x6709;&#x6211;&#x4EEC;&#x5728;1.0&#x7248;&#x672C;&#x5BA2;&#x6237;&#x7AEF;&#x7684;doRead&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x3002;&#x6211;&#x4EEC;&#x524D;&#x9762;&#x4E5F;&#x63D0;&#x5230;&#x8FC7;&#xFF0C;Twisted&#x5728;&#x5EFA;&#x7ACB;&#x65B0;&#x62BD;&#x8C61;&#x5C42;&#x4F1A;&#x4F7F;&#x7528;&#x5DF2;&#x6709;&#x7684;&#x5B9E;&#x73B0;&#x800C;&#x4E0D;&#x662F;&#x53E6;&#x8D77;&#x7089;&#x7076;&#x3002;&#x56E0;&#x6B64;&#x5FC5;&#x7136;&#x4F1A;&#x6709;&#x4E00;&#x4E2A;IReadDescriptor&#x7684;&#x5B9E;&#x4F8B;&#x5728;&#x8F9B;&#x82E6;&#x7684;&#x5DE5;&#x4F5C;&#xFF0C;&#x5B83;&#x662F;&#x7531;Twisted&#x4EE3;&#x7801;&#x800C;&#x975E;&#x6211;&#x4EEC;&#x81EA;&#x5DF1;&#x7684;&#x4EE3;&#x7801;&#x6765;&#x5B9E;&#x73B0;&#x3002;&#x5982;&#x679C;&#x4F60;&#x8868;&#x793A;&#x6000;&#x7591;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x770B;&#x770B;twisted.internet.tcp&#x4E2D;&#x7684;&#x5B9E;&#x73B0;&#x5427;&#x3002;&#x5982;&#x679C;&#x4F60;&#x6D4F;&#x89C8;&#x4EE3;&#x7801;&#x4F1A;&#x53D1;&#x73B0;&#xFF0C;&#x7531;&#x540C;&#x4E00;&#x4E2A;&#x7C7B;&#x5B9E;&#x73B0;&#x4E86;IWriteDescriptor&#x4E0E;ITransport&#x3002;&#x56E0;&#x6B64; <strong>IReadDescriptor&#x5B9E;&#x9645;&#x4E0A;&#x5C31;&#x662F;&#x53D8;&#x76F8;&#x7684;Transport&#x7C7B;</strong>&#x3002;&#x53EF;&#x4EE5;&#x7528;&#x56FE;10&#x6765;&#x5F62;&#x8C61;&#x5730;&#x8BF4;&#x660E;dateReceived&#x7684;&#x56DE;&#x8C03;&#x8FC7;&#x7A0B;&#xFF1A; </p>
+<div style="text-align: center"><img src="_static/p05_reactor-data-received.png" title="dateReceived&#x56DE;&#x8C03;&#x8FC7;&#x7A0B; " alt="dateReceived&#x56DE;&#x8C03;&#x8FC7;&#x7A0B; "></div>
+<div style="text-align: center">&#x56FE;10 dateReceived&#x56DE;&#x8C03;&#x8FC7;&#x7A0B;</div>
+
+<p>&#x4E00;&#x65E6;&#x8BD7;&#x6B4C;&#x4E0B;&#x8F7D;&#x5B8C;&#x6210;&#xFF0C;PoetryProtocol&#x5C31;&#x4F1A;&#x901A;&#x77E5;&#x5B83;&#x7684;PooetryClientFactory&#xFF1A;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">connectionLost</span><span class="hljs-params">(self, reason)</span>:</span>     
+  self.poemReceived(self.poem) 
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">poemReceived</span><span class="hljs-params">(self, poem)</span>:</span>    
+  self.factory.poem_finished(self.task_num, poem)
+</code></pre>
+<p>&#x5F53;transport&#x7684;&#x8FDE;&#x63A5;&#x5173;&#x95ED;&#x65F6;&#xFF0C;conncetionLost&#x56DE;&#x8C03;&#x4F1A;&#x88AB;&#x6FC0;&#x6D3B;&#x3002;reason&#x53C2;&#x6570;&#x662F;&#x4E00;&#x4E2A;<a href="http://twistedmatrix.com/trac/browser/trunk/twisted/python/failure.py" target="_blank">twisted.python.failure.Failure</a>&#x7684;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#xFF0C;&#x5176;&#x643A;&#x5E26;&#x7684;&#x4FE1;&#x606F;&#x80FD;&#x591F;&#x8BF4;&#x660E;&#x8FDE;&#x63A5;&#x662F;&#x88AB;&#x5B89;&#x5168;&#x7684;&#x5173;&#x95ED;&#x8FD8;&#x662F;&#x7531;&#x4E8E;&#x51FA;&#x9519;&#x88AB;&#x5173;&#x95ED;&#x7684;&#x3002;&#x6211;&#x4EEC;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x56E0;&#x8BA4;&#x4E3A;&#x603B;&#x662F;&#x80FD;&#x5B8C;&#x6574;&#x5730;&#x4E0B;&#x8F7D;&#x5B8C;&#x8BD7;&#x6B4C;&#x800C;&#x5FFD;&#x7565;&#x4E86;&#x8FD9;&#x4E00;&#x53C2;&#x6570;&#x3002;</p>
+<p>&#x5DE5;&#x5382;&#x4F1A;&#x5728;&#x6240;&#x6709;&#x7684;&#x8BD7;&#x6B4C;&#x90FD;&#x4E0B;&#x8F7D;&#x5B8C;&#x6BD5;&#x540E;&#x5173;&#x95ED;reactor&#x3002;&#x518D;&#x6B21;&#x91CD;&#x7533;&#xFF1A;&#x6211;&#x4EEC;&#x4EE3;&#x7801;&#x7684;&#x5DE5;&#x4F5C;&#x5C31;&#x662F;&#x7528;&#x6765;&#x4E0B;&#x8F7D;&#x8BD7;&#x6B4C;-&#x8FD9;&#x610F;&#x5473;&#x6211;&#x4EEC;&#x7684;PoetryClientFactory&#x7F3A;&#x5C11;&#x590D;&#x7528;&#x6027;&#x3002;&#x6211;&#x4EEC;&#x5C06;&#x5728;&#x4E0B;&#x4E00;&#x90E8;&#x5206;&#x4FEE;&#x6B63;&#x8FD9;&#x4E00;&#x7F3A;&#x9677;&#x3002;&#x503C;&#x5F97;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;poem_finish&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x662F;&#x5982;&#x4F55;&#x901A;&#x8FC7;&#x8DDF;&#x8E2A;&#x5269;&#x4F59;&#x8BD7;&#x6B4C;&#x6570;&#x7684;&#xFF1A;</p>
+<pre><code class="lang-python">    ...
+    self.poetry_count -= <span class="hljs-number">1</span>
+
+    <span class="hljs-keyword">if</span> self.poetry_count == <span class="hljs-number">0</span>:
+    ...
+</code></pre>
+<p>&#x5982;&#x679C;&#x6211;&#x4EEC;&#x91C7;&#x7528;&#x591A;&#x7EBF;&#x7A0B;&#x4EE5;&#x8BA9;&#x6BCF;&#x4E2A;&#x7EBF;&#x7A0B;&#x5206;&#x522B;&#x4E0B;&#x8F7D;&#x8BD7;&#x6B4C;&#xFF0C;&#x8FD9;&#x6837;&#x6211;&#x4EEC;&#x5C31;&#x5FC5;&#x987B;&#x4F7F;&#x7528;&#x4E00;&#x628A;&#x9501;&#x6765;&#x7BA1;&#x7406;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x4EE5;&#x514D;&#x591A;&#x4E2A;&#x7EBF;&#x7A0B;&#x5728;&#x540C;&#x4E00;&#x65F6;&#x95F4;&#x8C03;&#x7528;poem_finish&#x3002;&#x4F46;&#x662F;&#x5728;&#x4EA4;&#x4E92;&#x5F0F;&#x4F53;&#x7CFB;&#x4E0B;&#x5C31;&#x4E0D;&#x5FC5;&#x62C5;&#x5FC3;&#x4E86;&#x3002;&#x7531;&#x4E8E;reactor&#x53EA;&#x80FD;&#x4E00;&#x6B21;&#x542F;&#x7528;&#x4E00;&#x4E2A;&#x56DE;&#x8C03;&#x3002;</p>
+<p>&#x65B0;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x5B9E;&#x73B0;&#x5728;&#x5904;&#x7406;&#x9519;&#x8BEF;&#x4E0A;&#x4E5F;&#x6BD4;&#x5148;&#x524D;&#x7684;&#x4F18;&#x96C5;&#x7684;&#x591A;&#xFF0C;&#x4E0B;&#x9762;&#x662F;PoetryClientFactory&#x5904;&#x7406;&#x9519;&#x8BEF;&#x8FDE;&#x63A5;&#x7684;&#x56DE;&#x8C03;&#x5B9E;&#x73B0;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">clientConnectionFailed</span><span class="hljs-params">(self, connector, reason)</span>:</span>
+    <span class="hljs-keyword">print</span> <span class="hljs-string">&apos;Failed to connect to:&apos;</span>, connector.getDestination()
+    self.poem_finished()
+</code></pre>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x56DE;&#x8C03;&#x662F;&#x5728;&#x5DE5;&#x5382;&#x5185;&#x90E8;&#x800C;&#x4E0D;&#x662F;&#x534F;&#x8BAE;&#x5185;&#x90E8;&#x5B9E;&#x73B0;&#x3002;&#x7531;&#x4E8E;&#x534F;&#x8BAE;&#x662F;&#x5728;&#x8FDE;&#x63A5;&#x5EFA;&#x7ACB;&#x540E;&#x624D;&#x521B;&#x5EFA;&#x7684;&#xFF0C;&#x800C;&#x5DE5;&#x5382;&#x80FD;&#x591F;&#x5728;&#x8FDE;&#x63A5;&#x672A;&#x80FD;&#x6210;&#x529F;&#x5EFA;&#x7ACB;&#x65F6;&#x6355;&#x83B7;&#x6D88;&#x606F;&#x3002;</p>
+<h3 id="&#x7ED3;&#x675F;&#x8BED;">&#x7ED3;&#x675F;&#x8BED;</h3>
+<p>&#x7248;&#x672C;2&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x4F7F;&#x7528;&#x7684;&#x62BD;&#x8C61;&#x5BF9;&#x4E8E;&#x90A3;&#x4E9B;Twisted&#x9AD8;&#x624B;&#x5E94;&#x8BE5;&#x975E;&#x5E38;&#x719F;&#x6089;&#x3002;&#x5982;&#x679C;&#x4EC5;&#x4EC5;&#x662F;&#x4E3A;&#x5728;&#x547D;&#x4EE4;&#x884C;&#x4E0A;&#x6253;&#x5370;&#x51FA;&#x4E0B;&#x8F7D;&#x7684;&#x8BD7;&#x6B4C;&#x8FD9;&#x4E2A;&#x529F;&#x80FD;&#xFF0C;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;&#x4E86;&#x3002;&#x4F46;&#x5982;&#x679C;&#x60F3;&#x4F7F;&#x6211;&#x4EEC;&#x7684;&#x4EE3;&#x7801;&#x80FD;&#x591F;&#x590D;&#x7528;&#xFF0C;&#x80FD;&#x591F;&#x88AB;&#x5185;&#x5D4C;&#x5728;&#x4E00;&#x4E9B;&#x5305;&#x542B;&#x8BD7;&#x6B4C;&#x4E0B;&#x8F7D;&#x529F;&#x80FD;&#x5E76;&#x53EF;&#x4EE5;&#x505A;&#x5176;&#x5B83;&#x4E8B;&#x60C5;&#x7684;&#x5927;&#x8F6F;&#x4EF6;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x8FD8;&#x6709;&#x8BB8;&#x591A;&#x5DE5;&#x4F5C;&#x8981;&#x505A;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x5728;&#x7B2C;&#x516D;&#x90E8;&#x5206;&#x8BB2;&#x89E3;&#x76F8;&#x5173;&#x5185;&#x5BB9;&#x3002;</p>
+<h3 id="&#x53C2;&#x8003;">&#x53C2;&#x8003;</h3>
+<p>&#x672C;&#x90E8;&#x5206;&#x539F;&#x4F5C;&#x53C2;&#x89C1;: dave @ <a href="http://krondo.com/?p=1522" target="_blank">http://krondo.com/?p=1522</a></p>
+<p>&#x672C;&#x90E8;&#x5206;&#x7FFB;&#x8BD1;&#x5185;&#x5BB9;&#x53C2;&#x89C1;&#x6768;&#x6653;&#x4F1F;&#x7684;&#x535A;&#x5BA2; <a href="http://blog.sina.com.cn/s/blog_704b6af70100q2ac.html" target="_blank">http://blog.sina.com.cn/s/blog_704b6af70100q2ac.html</a></p>
+<footer class="page-footer"><span class="copyright">powered by Gitbook</span><span class="footer-modification">&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2021-12-19 11:14:28
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="p04.html" class="navigation navigation-prev " aria-label="Previous page: 由twisted支持的客户端">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="p06.html" class="navigation navigation-next " aria-label="Next page: 更加"抽象"的运用Twisted">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"由Twisted扶持的客户端","level":"1.6","depth":1,"next":{"title":"更加\"抽象\"的运用Twisted","level":"1.7","depth":1,"path":"p06.md","ref":"p06.md","articles":[]},"previous":{"title":"由twisted支持的客户端","level":"1.5","depth":1,"path":"p04.md","ref":"p04.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-sharing-plus","-livereload","highlight","search-pro","github","back-to-top-button","code","splitter","tbfed-pagefooter","fontsettings"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"modify_label":"修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/likebeta"},"splitter":{},"search-pro":{"cutWordLib":"nodejieba"},"code":{"copyButtons":true},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"back-to-top-button":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"likebeta","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Twisted与异步编程入门","language":"zh","links":{"sidebar":{"代码仓库":"https://github.com/likebeta/twisted-intro-cn"}},"gitbook":"*","description":"Twisted与异步编程入门"},"file":{"path":"p05.md","mtime":"2021-12-19T11:14:28.516Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-12-19T11:17:49.681Z"},"basePath":".","book":{"language":"zh"}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

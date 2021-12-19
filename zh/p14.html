@@ -1,0 +1,644 @@
+
+<!DOCTYPE HTML>
+<html lang="zh" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Deferred用于同步环境 · Twisted与异步编程入门</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="likebeta">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="p15.html" />
+    
+    
+    <link rel="prev" href="p13.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="輸入並搜尋" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://github.com/likebeta/twisted-intro-cn" target="_blank" class="custom-link">代码仓库</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="p01.html">
+            
+                <a href="p01.html">
+            
+                    
+                    Twisted 理论基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="p02.html">
+            
+                <a href="p02.html">
+            
+                    
+                    异步编程模式与Reactor初探
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="p03.html">
+            
+                <a href="p03.html">
+            
+                    
+                    初识Twisted
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="p04.html">
+            
+                <a href="p04.html">
+            
+                    
+                    由twisted支持的客户端
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="p05.html">
+            
+                <a href="p05.html">
+            
+                    
+                    由Twisted扶持的客户端
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="p06.html">
+            
+                <a href="p06.html">
+            
+                    
+                    更加"抽象"的运用Twisted
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="p07.html">
+            
+                <a href="p07.html">
+            
+                    
+                    小插曲，Deferred
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="p08.html">
+            
+                <a href="p08.html">
+            
+                    
+                    使用Deferred的诗歌下载客户端
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="p09.html">
+            
+                <a href="p09.html">
+            
+                    
+                    第二个小插曲，deferred
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="p10.html">
+            
+                <a href="p10.html">
+            
+                    
+                    增强defer功能的客户端
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="p11.html">
+            
+                <a href="p11.html">
+            
+                    
+                    改进诗歌下载服务器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="p12.html">
+            
+                <a href="p12.html">
+            
+                    
+                    改进诗歌下载服务器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="p13.html">
+            
+                <a href="p13.html">
+            
+                    
+                    使用Deferred新功能实现新客户端
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.15" data-path="p14.html">
+            
+                <a href="p14.html">
+            
+                    
+                    Deferred用于同步环境
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="p15.html">
+            
+                <a href="p15.html">
+            
+                    
+                    测试诗歌
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="p16.html">
+            
+                <a href="p16.html">
+            
+                    
+                    Twisted 进程守护
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="p17.html">
+            
+                <a href="p17.html">
+            
+                    
+                    构造"回调"的另一种方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="p18.html">
+            
+                <a href="p18.html">
+            
+                    
+                    Deferreds 全貌
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" data-path="p19.html">
+            
+                <a href="p19.html">
+            
+                    
+                    取消之前的意图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.21" data-path="p20.html">
+            
+                <a href="p20.html">
+            
+                    
+                    轮子内的轮子: Twisted和Erlang
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22" data-path="p21.html">
+            
+                <a href="p21.html">
+            
+                    
+                    惰性不是迟缓: Twisted和Haskell
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.23" data-path="p22.html">
+            
+                <a href="p22.html">
+            
+                    
+                    结束
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本書使用 GitBook 釋出
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Deferred用于同步环境</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h3 id="&#x4ECB;&#x7ECD;">&#x4ECB;&#x7ECD;</h3>
+<p>&#x8FD9;&#x90E8;&#x5206;&#x6211;&#x4EEC;&#x8981;&#x4ECB;&#x7ECD;Deferred&#x7684;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x529F;&#x80FD;&#x3002;&#x4FBF;&#x4E8E;&#x8BA8;&#x8BBA;&#xFF0C;&#x6211;&#x4EEC;&#x8BBE;&#x5B9A;&#x5982;&#x4E0B;&#x60C5;&#x666F;&#xFF1A;&#x5047;&#x8BBE;&#x7531;&#x4E8E;&#x4F17;&#x591A;&#x7684;&#x5185;&#x90E8;&#x7F51;&#x8BF7;&#x6C42;&#x4E00;&#x4E2A;&#x5916;&#x90E8;&#x8BD7;&#x6B4C;&#x4E0B;&#x8F7D;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x4F46;&#x7531;&#x4E8E;&#x8FD9;&#x4E2A;&#x5916;&#x90E8;&#x4E0B;&#x8F7D;&#x670D;&#x52A1;&#x5668;&#x6027;&#x80FD;&#x592A;&#x5DEE;&#x6216;&#x8BF7;&#x6C42;&#x8D1F;&#x8377;&#x592A;&#x91CD;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x6211;&#x4EEC;&#x4E0D;&#x60F3;&#x5C06;&#x6240;&#x6709;&#x7684;&#x5185;&#x90E8;&#x8BF7;&#x6C42;&#x5168;&#x90E8;&#x53D1;&#x9001;&#x5230;&#x5916;&#x90E8;&#x670D;&#x52A1;&#x5668;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x7684;&#x5904;&#x7406;&#x529E;&#x6CD5;&#x662F;&#xFF0C;&#x5728;&#x4E2D;&#x95F4;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x7F13;&#x5B58;&#x4EE3;&#x7406;&#x3002;&#x5F53;&#x4E00;&#x4E2A;&#x8BF7;&#x6C42;&#x6765;&#x5230;&#x540E;&#xFF0C;&#x7F13;&#x5B58;&#x670D;&#x52A1;&#x5668;&#x4F1A;&#x4ECE;&#x7F13;&#x5B58;&#x4E2D;&#x8FD4;&#x56DE;&#x5907;&#x4EFD;&#xFF08;&#x5982;&#x679C;&#x6709;&#x7F13;&#x5B58;&#xFF09;&#x6216;&#x8005;&#x76F4;&#x63A5;&#x4ECE;&#x5916;&#x90E8;&#x670D;&#x52A1;&#x5668;&#x83B7;&#x5F97;&#x3002;&#x90E8;&#x7F72;&#x56FE;&#x5982;&#x56FE;30&#x6240;&#x793A;&#xFF1A;</p>
+<div style="text-align: center"><img src="_static/p14_proxy1.png" title="&#x7F13;&#x5B58;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;" alt="&#x7F13;&#x5B58;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;"></div>
+<div style="text-align: center">&#x56FE;30 &#x7F13;&#x5B58;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;</div>
+
+<p>&#x8003;&#x8651;&#x5230;&#x5BA2;&#x6237;&#x7AEF;&#x7AEF;&#x53D1;&#x9001;&#x8BF7;&#x6C42;&#x6765;&#x65F6;&#xFF0C;&#x7F13;&#x5B58;&#x4EE3;&#x7406;&#x53EF;&#x80FD;&#x4F1A;&#x5C06;&#x672C;&#x5730;&#x7F13;&#x51B2;&#x7684;&#x8BD7;&#x6B4C;&#x53D6;&#x51FA;&#x8FD4;&#x56DE;&#xFF0C;&#x4E5F;&#x6709;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x5F02;&#x6B65;&#x7B49;&#x5F85;&#x5916;&#x90E8;&#x8BD7;&#x6B4C;&#x4E0B;&#x8F7D;&#x670D;&#x52A1;&#x5668;&#x7684;&#x56DE;&#x590D;&#x3002;&#x5982;&#x6B64;&#x4E00;&#x6765;&#xFF0C;&#x5C31;&#x4F1A;&#x51FA;&#x73B0;&#x8FD9;&#x6837;&#x7684;&#x60C5;&#x666F;&#xFF1A;&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x9001;&#x6765;&#x7684;&#x8BF7;&#x6C42;&#xFF0C;&#x7F13;&#x5B58;&#x4EE3;&#x7406;&#x5904;&#x7406;&#x8BF7;&#x6C42;&#x53EF;&#x80FD;&#x662F;&#x540C;&#x6B65;&#x4E5F;&#x53EF;&#x80FD;&#x662F;&#x5F02;&#x6B65;&#x3002;</p>
+<p>&#x8981;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x9700;&#x8981;&#xFF0C;&#x5C31;&#x7528;&#x5230;&#x4E86;Deferred&#x7684;&#x53E6;&#x4E00;&#x4E2A;&#x7279;&#x6027;&#xFF1A;&#x53EF;&#x4EE5;&#x5728;&#x8FD4;&#x56DE;Deferred&#x524D;&#x5C31;&#x6FC0;&#x6D3B;&#x3002;&#x4E4B;&#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x505A;&#xFF0C;&#x662F;&#x56E0;&#x4E3A;&#x4F60;&#x53EF;&#x4EE5;&#x5728;&#x4E00;&#x4E2A;&#x5DF2;&#x7ECF;&#x6FC0;&#x6D3B;&#x7684;deferred&#x4E0A;&#x6DFB;&#x52A0;&#x56DE;&#x8C03;&#x5904;&#x7406;&#x51FD;&#x6570;&#x3002;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x503C;&#x5F97;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF1A;&#x5DF2;&#x7ECF;&#x88AB;&#x6FC0;&#x6D3B;&#x7684;deferred&#x53EF;&#x4EE5;&#x7ACB;&#x5373;&#x6FC0;&#x6D3B;&#x65B0;&#x6DFB;&#x52A0;&#x7684;&#x56DE;&#x8C03;&#x5904;&#x7406;&#x51FD;&#x6570;&#x3002;&#x56FE;31&#x8868;&#x793A;&#x4E00;&#x4E2A;&#x5DF2;&#x7ECF;&#x6FC0;&#x6D3B;&#x7684;deferred&#xFF1A;</p>
+<div style="text-align: center"><img src="_static/p14_deferred-13.png" title="&#x5DF2;&#x7ECF;&#x6FC0;&#x6D3B;&#x7684;deferred" alt="&#x5DF2;&#x7ECF;&#x6FC0;&#x6D3B;&#x7684;deferred"></div>
+<div style="text-align: center">&#x56FE;31 &#x5DF2;&#x7ECF;&#x6FC0;&#x6D3B;&#x7684;deferred</div>
+
+<p>&#x5982;&#x679C;&#x5728;&#x6B64;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x518D;&#x4E3A;&#x5176;&#x53E6;&#x4E00;&#x5BF9;callback/errback&#xFF0C;&#x90A3;&#x4E48;&#x4F1A;&#x7ACB;&#x5373;&#x6FC0;&#x6D3B;&#x6267;&#x884C;&#x65B0;&#x7684;&#x56DE;&#x8C03;&#x3002;&#x5982;&#x56FE;32</p>
+<div style="text-align: center"><img src="_static/p14_deferred-14.png" title="&#x540C;&#x4E00;&#x4E2A;deferred&#x5728;&#x6DFB;&#x52A0;&#x65B0;&#x7684;&#x56DE;&#x8C03;&#x4E4B;&#x540E;" alt="&#x540C;&#x4E00;&#x4E2A;deferred&#x5728;&#x6DFB;&#x52A0;&#x65B0;&#x7684;&#x56DE;&#x8C03;&#x4E4B;&#x540E;"></div>
+<div style="text-align: center">&#x56FE;32 &#x540C;&#x4E00;&#x4E2A;deferred&#x5728;&#x6DFB;&#x52A0;&#x65B0;&#x7684;&#x56DE;&#x8C03;&#x4E4B;&#x540E;</div>
+
+<p>&#x540E;&#x9762;&#x7684;callback&#x56DE;&#x8C03;&#x88AB;&#x6267;&#x884C;&#xFF0C;&#x662F;&#x56E0;&#x4E3A;&#x524D;&#x9762;&#x7684;callback&#x6267;&#x884C;&#x6210;&#x529F;&#x3002;&#x5982;&#x679C;&#x524D;&#x9762;&#x6267;&#x884C;&#x5931;&#x8D25;&#xFF0C;&#x90A3;&#x4E48;&#x63A5;&#x4E0B;&#x6765;&#x6267;&#x884C;&#x7684;&#x5C06;&#x662F;&#x65B0;&#x6DFB;&#x52A0;&#x7684;errback&#x56DE;&#x8C03;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <a href="http://github.com/jdavisp3/twisted-intro/blob/master/twisted-deferred/defer-11.py" target="_blank">twisted-deferred/defer-11.py</a> &#x793A;&#x4F8B;&#x6765;&#x68C0;&#x6D4B;&#x6211;&#x4EEC;&#x8FD9;&#x91CC;&#x8BF4;&#x5230;&#x7684;&#x7279;&#x6027;&#x3002;&#x5176;&#x4E2D;&#x7B2C;&#x4E8C;&#x7EC4;&#x4F8B;&#x5B50;&#xFF0C;&#x6F14;&#x793A;&#x4E86;deferred&#x4E2D;&#x7684;pause&#x4E0E;unpause&#x51FD;&#x6570;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x5373;&#x53EF;&#x4EE5;&#x6682;&#x505C;&#x4E00;&#x4E2A;&#x5DF2;&#x7ECF;&#x6FC0;&#x6D3B;&#x7684;deferred&#x5BF9;&#x5176;&#x56DE;&#x8C03;&#x94FE;&#x4E0A;&#x56DE;&#x8C03;&#x7684;&#x6FC0;&#x6D3B;&#x3002;&#x5E76;&#x53EF;&#x4EE5;&#x7528;unpause&#x6765;&#x89E3;&#x9664;&#x6682;&#x505C;&#x8BBE;&#x7F6E;&#x3002;&#x8FD9;&#x4E24;&#x4E2A;&#x51FD;&#x6570;&#x540C;&#x6837;&#x5B8C;&#x6210;&#x4E86;&#x5728;&#x56DE;&#x8C03;&#x4E2D;&#x7EE7;&#x7EED;&#x4EA7;&#x751F;deferred&#x671F;&#x95F4;&#x7684;&#x63A7;&#x5236;&#x3002;
+&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <a href="http://github.com/jdavisp3/twisted-intro/blob/master/twisted-deferred/defer-11.py" target="_blank">twisted-deferred/defer-11.py</a> &#x793A;&#x4F8B;&#x6765;&#x68C0;&#x6D4B;&#x6211;&#x4EEC;&#x8FD9;&#x91CC;&#x8BF4;&#x5230;&#x7684;&#x7279;&#x6027;&#x3002;&#x5176;&#x4E2D;&#x7B2C;&#x4E8C;&#x7EC4;&#x4F8B;&#x5B50;&#xFF0C;&#x6F14;&#x793A;&#x4E86;deferred&#x4E2D;&#x7684;pause&#x4E0E;unpause&#x51FD;&#x6570;&#x7684;&#x529F;&#x80FD;&#xFF0C;pause&#x53EF;&#x4EE5;&#x6682;&#x505C;&#x4E00;&#x4E2A;&#x5DF2;&#x7ECF;&#x6FC0;&#x6D3B;&#x7684;deferred&#x5BF9;&#x5176;&#x56DE;&#x8C03;&#x94FE;&#x4E0A;&#x56DE;&#x8C03;&#x7684;&#x6FC0;&#x6D3B;&#xFF0C;unpause&#x53EF;&#x4EE5;&#x89E3;&#x9664;&#x6682;&#x505C;&#x3002;&#x8FD9;&#x4E2A;&#x673A;&#x5236;&#x7C7B;&#x4F3C;&#x4E8E;&#x201C;&#x5F53;Deferred&#x56DE;&#x8C03;&#x94FE;&#x4E0A;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x53C8;&#x8FD4;&#x56DE;Deferred&#x65F6;&#xFF0C;Deferred&#x6682;&#x505C;&#x81EA;&#x5DF1;&#x201D;&#x3002;</p>
+<h3 id="&#x4EE3;&#x7406;-10&#x7248;&#x672C;">&#x4EE3;&#x7406; 1.0&#x7248;&#x672C;</h3>
+<p>&#x8BA9;&#x6211;&#x4EEC;&#x6765;&#x770B;&#x770B;&#x7B2C;&#x4E00;&#x4E2A;&#x7248;&#x672C;&#x7684;&#x7F13;&#x5B58;&#x4EE3;&#x7406;&#x7684;&#x5B9E;&#x73B0;<a href="http://github.com/jdavisp3/twisted-intro/blob/master/twisted-server-1/poetry-proxy.py" target="_blank">twisted-server-1/poetry-proxy.py</a>&#x3002;&#x7531;&#x4E8E;&#x8BE5;&#x670D;&#x52A1;&#x5668;&#x65E2;&#x4F5C;&#x4E3A;&#x670D;&#x52A1;&#x5668;&#x5411;&#x5BA2;&#x6237;&#x7AEF;&#x8BF7;&#x6C42;&#x63D0;&#x4F9B;&#x672C;&#x5730;&#x7F13;&#x5B58;&#x7684;&#x8BD7;&#x6B4C;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x8981;&#x4F5C;&#x4E3A;&#x5411;&#x5916;&#x90E8;&#x8BD7;&#x6B4C;&#x4E0B;&#x8F7D;&#x670D;&#x52A1;&#x5668;&#x63D0;&#x51FA;&#x4E0B;&#x8F7D;&#x8BF7;&#x6C42;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#xFF0C;&#x56E0;&#x6B64;&#x5176;&#x6709;&#x4E24;&#x5957;&#x534F;&#x8BAE;/&#x5DE5;&#x5382;&#xFF0C;&#x4E00;&#x5957;&#x5B9E;&#x73B0;&#x670D;&#x52A1;&#x5668;&#x89D2;&#x8272;&#xFF0C;&#x53E6;&#x4E00;&#x5957;&#x5B9E;&#x73B0;&#x5BA2;&#x6237;&#x7AEF;&#x89D2;&#x8272;&#x3002;</p>
+<p>&#x9996;&#x5148;&#x6211;&#x4EEC;&#x5148;&#x6765;&#x770B;&#x770B;ProxyService&#x7684;&#x5B9E;&#x73B0;&#x90E8;&#x5206;&#xFF1A;</p>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ProxyService</span><span class="hljs-params">(object)</span>:</span>
+    poem = <span class="hljs-keyword">None</span> <span class="hljs-comment"># the cached poem</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, host, port)</span>:</span>
+        self.host = host
+        self.port = port
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_poem</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">if</span> self.poem <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">None</span>:
+            <span class="hljs-keyword">print</span> <span class="hljs-string">&apos;Using cached poem.&apos;</span>
+            <span class="hljs-keyword">return</span> self.poem
+        <span class="hljs-keyword">print</span> <span class="hljs-string">&apos;Fetching poem from server.&apos;</span>
+        factory = PoetryClientFactory()
+        factory.deferred.addCallback(self.set_poem)
+        <span class="hljs-keyword">from</span> twisted.internet <span class="hljs-keyword">import</span> reactor
+        reactor.connectTCP(self.host, self.port, factory)
+        <span class="hljs-keyword">return</span> factory.deferred
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">set_poem</span><span class="hljs-params">(self, poem)</span>:</span>
+        self.poem = poem
+        <span class="hljs-keyword">return</span> poem
+</code></pre>
+<p>&#x4E3B;&#x8981;&#x7684;&#x51FD;&#x6570;&#x662F;get_poem&#x3002;&#x5982;&#x679C;&#x7F13;&#x5B58;&#x4E2D;&#x6CA1;&#x6709;&#x8BF7;&#x6C42;&#x7684;&#x8BD7;&#x6B4C;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x4F1A;&#x5EFA;&#x7ACB;&#x8FDE;&#x63A5;&#x4ECE;&#x5916;&#x90E8;&#x670D;&#x52A1;&#x5668;&#x4E2D;&#x5F02;&#x6B65;&#x53D6;&#x5F97;&#x800C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;deferred&#xFF0C;&#x5E76;&#x5C06;&#x53D6;&#x5F97;&#x7684;&#x8BD7;&#x6B4C;&#x653E;&#x5230;&#x7F13;&#x51B2;&#x533A;&#x4E2D;&#x3002;&#x76F8;&#x53CD;&#xFF0C;&#x82E5;&#x7F13;&#x51B2;&#x533A;&#x4E2D;&#x5B58;&#x5728;&#x8BF7;&#x6C42;&#x7684;&#x8BD7;&#x6B4C;&#xFF0C;&#x5219;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x8BD7;&#x6B4C;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x5982;&#x4F55;&#x6765;&#x5904;&#x7406;&#x8FD9;&#x6837;&#x4E00;&#x4E2A;&#x8FD4;&#x56DE;&#x503C;&#x4E0D;&#x786E;&#x5B9A;&#x7684;&#x51FD;&#x6570;&#x5462;&#xFF0C;&#x8BA9;&#x6211;&#x4EEC;&#x6765;&#x770B;&#x770B;&#x5B9E;&#x73B0;&#x670D;&#x52A1;&#x5668;&#x89D2;&#x8272;&#x7684;&#x534F;&#x8BAE;/&#x5DE5;&#x5382;&#xFF1A;</p>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PoetryProxyProtocol</span><span class="hljs-params">(Protocol)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">connectionMade</span><span class="hljs-params">(self)</span>:</span>
+        d = maybeDeferred(self.factory.service.get_poem)
+        d.addCallback(self.transport.write)
+        d.addBoth(<span class="hljs-keyword">lambda</span> r: self.transport.loseConnection())
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PoetryProxyFactory</span><span class="hljs-params">(ServerFactory)</span>:</span>
+    protocol = PoetryProxyProtocol
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, service)</span>:</span>
+        self.service = service
+</code></pre>
+<p>&#x8FD9;&#x91CC;&#x4F7F;&#x7528;&#x4E86;maybeDeferred&#x51FD;&#x6570;&#x89E3;&#x51B3;&#x4E86;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x3002;&#x6B64;&#x51FD;&#x6570;&#x7684;&#x529F;&#x80FD;&#x5C31;&#x662F;&#x5982;&#x679C;&#x4F5C;&#x4E3A;&#x5176;&#x53C2;&#x6570;&#x8FD4;&#x56DE;&#x503C;&#x4E3A;defer&#xFF0C;&#x90A3;&#x4E48;&#x5176;&#x4E0D;&#x4F5C;&#x4EFB;&#x4F55;&#x5904;&#x7406;&#xFF0C;&#x539F;&#x6837;&#x5C06;defer&#x8FD4;&#x56DE;&#x3002;&#x4F46;&#x5982;&#x4F55;&#x8FD4;&#x56DE;&#x503C;&#x4E0D;&#x662F;defer&#x800C;&#x662F;&#x4E00;&#x4E2A;&#x503C;&#xFF08;&#x6B63;&#x5982;&#x6211;&#x4EEC;&#x7684;&#x7F13;&#x5B58;&#x4EE3;&#x7406;&#x5C06;&#x672C;&#x5730;&#x7F13;&#x51B2;&#x7684;&#x8BD7;&#x6B4C;&#x8FD4;&#x56DE;&#x4E00;&#x6837;&#xFF09;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;maybeDeferred&#x4F1A;&#x5C06;&#x8BE5;&#x503C;&#x91CD;&#x65B0;&#x6253;&#x5305;&#x6210;&#x4E00;&#x4E2A;&#x5DF2;&#x7ECF;&#x6FC0;&#x6D3B;&#x7684;deferred&#x8FD4;&#x56DE;&#xFF0C;&#x6CE8;&#x610F;&#x662F;&#x5DF2;&#x7ECF;&#x6FC0;&#x6D3B;&#x7684;deferred&#x3002;&#x5F53;&#x7136;&#xFF0C;&#x5982;&#x679C;&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x4E00;&#x4E2A;&#x5F02;&#x5E38;&#xFF0C;&#x5176;&#x4E5F;&#x4F1A;&#x5C06;&#x5176;&#x6253;&#x5305;&#x6210;&#x4E00;&#x4E2A;&#x5DF2;&#x7ECF;&#x6FC0;&#x6D3B;&#x7684;deferred&#xFF0C;&#x53EA;&#x4E0D;&#x8FC7;&#x5C31;&#x4E0D;&#x662F;&#x901A;&#x8FC7;callback&#x800C;&#x662F;errback&#x6FC0;&#x6D3B;&#x7684;&#x3002;</p>
+<h3 id="&#x8FD0;&#x884C;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;">&#x8FD0;&#x884C;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;</h3>
+<p>&#x542F;&#x52A8;&#x8BD7;&#x6B4C;&#x4E0B;&#x8F7D;&#x670D;&#x52A1;&#x5668;&#xFF1A;</p>
+<pre><code>python twisted-server-1/fastpoetry.py --port 10001 poetry/fascination.txt
+</code></pre><p>&#x542F;&#x52A8;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#xFF1A;</p>
+<pre><code>python twisted-server-1/poetry-proxy.py --port 10000 10001
+</code></pre><p>&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x76D1;&#x542C;10000&#x7AEF;&#x53E3;&#xFF0C;&#x8FDE;&#x63A5;100001&#x7AEF;&#x53E3;&#x4E0B;&#x8F7D;&#x8BD7;&#x6B4C;&#x3002;</p>
+<p>&#x5F00;&#x4E00;&#x4E2A;&#x5BA2;&#x6237;&#x7AEF;&#xFF1A;</p>
+<pre><code>python twisted-client-4/get-poetry.py 10000
+</code></pre><p>&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x65E9;&#x671F;&#x4E0D;&#x5E26;&#x8BD7;&#x6B4C;&#x7FFB;&#x8BD1;&#x529F;&#x80FD;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x5BA2;&#x6237;&#x7AEF;&#x7A97;&#x53E3;&#x4E2D;&#x663E;&#x793A;&#x4E86;&#x8BD7;&#x6B4C;&#x5185;&#x5BB9;&#xFF0C;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x7A97;&#x53E3;&#x663E;&#x793A;&#x201C;&#x4ECE;&#x4E0B;&#x8F7D;&#x670D;&#x52A1;&#x5668;&#x83B7;&#x53D6;&#x8BD7;&#x6B4C;&#x201D;&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x518D;&#x6B21;&#x542F;&#x52A8;&#x5BA2;&#x6237;&#x7AEF;&#xFF0C;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x4F1A;&#x4ECE;&#x7F13;&#x5B58;&#x4E2D;&#x53D6;&#x5F97;&#x8BD7;&#x6B4C;&#x8FD4;&#x56DE;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x663E;&#x793A;&#x7684;&#x5185;&#x5BB9;&#x548C;&#x521A;&#x624D;&#x4E00;&#x6837;&#x3002;</p>
+<h3 id="&#x4EE3;&#x7406;-20&#x7248;&#x672C;">&#x4EE3;&#x7406; 2.0&#x7248;&#x672C;</h3>
+<p>&#x524D;&#x9762;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x63D0;&#x5230;&#xFF0C;&#x6709;&#x53E6;&#x4E00;&#x79CD;&#x66FF;&#x4EE3;&#x65B9;&#x6CD5;&#x6765;&#x5B9E;&#x73B0;&#x8FD9;&#x4E00;&#x673A;&#x5236;&#x3002;&#x8FD9;&#x5728; <a href="http://github.com/jdavisp3/twisted-intro/blob/master/twisted-server-2/poetry-proxy.py" target="_blank">twisted-server-2/poetry-proxy.py</a> &#x4E2D;&#x5F88;&#x597D;&#x7684;&#x8BF4;&#x660E;&#x4E86;&#x3002;&#x5373;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5DF2;&#x7ECF;&#x6FC0;&#x6D3B;&#x7684;defer&#xFF0C;&#x653E;&#x5728;&#x8FD9;&#x513F;&#x5C31;&#x662F;&#x5982;&#x679C;&#x7F13;&#x5B58;&#x4EE3;&#x7406;&#x4E2D;&#x6709;&#x8BF7;&#x6C42;&#x7684;&#x8BD7;&#x6B4C;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x901A;&#x8FC7;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6FC0;&#x6D3B;&#x7684;deferred&#xFF1A;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_poem</span><span class="hljs-params">(self)</span>:</span>
+    <span class="hljs-keyword">if</span> self.poem <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">None</span>:
+        <span class="hljs-keyword">print</span> <span class="hljs-string">&apos;Using cached poem.&apos;</span>
+        <span class="hljs-comment"># return an already-fired deferred</span>
+        <span class="hljs-keyword">return</span> succeed(self.poem)
+    <span class="hljs-keyword">print</span> <span class="hljs-string">&apos;Fetching poem from server.&apos;</span>
+    factory = PoetryClientFactory()
+    factory.deferred.addCallback(self.set_poem)
+    <span class="hljs-keyword">from</span> twisted.internet <span class="hljs-keyword">import</span> reactor
+    reactor.connectTCP(self.host, self.port, factory)
+    <span class="hljs-keyword">return</span> factory.deferred
+</code></pre>
+<p>&#x5982;&#x679C;&#x6211;&#x4EEC;&#x53BB;&#x770B;<a href="http://twistedmatrix.com/trac/browser/trunk/twisted/internet/defer.py" target="_blank">defer.succeed</a>&#x7684;&#x6E90;&#x7801;&#x4F1A;&#x53D1;&#x73B0;&#xFF0C;&#x5176;&#x53EA;&#x662F;&#x5728;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;deferred&#x4E4B;&#x524D;&#xFF0C;&#x5C06;&#x5176;&#x6FC0;&#x6D3B;&#x3002;&#x540C;&#x6837;&#xFF0C;&#x5982;&#x679C;&#x60F3;&#x8981;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x4EE5;&#x5931;&#x8D25;&#x7684;&#x65B9;&#x5F0F;&#x6FC0;&#x6D3B;&#x7684;deferred&#xFF0C;&#x53EF;&#x4EE5;&#x8C03;&#x7528;&#x51FD;&#x6570;<a href="http://twistedmatrix.com/trac/browser/trunk/twisted/internet/defer.py" target="_blank">defer.fail</a></p>
+<p>&#x5728;&#x8FD9;&#x4E2A;&#x7248;&#x672C;&#x4E2D;&#xFF0C;&#x7531;&#x4E8E;get_poem&#x8FD4;&#x56DE;&#x7684;&#x662F;deferred&#x800C;&#x4E0D;&#x50CF;&#x524D;&#x4E00;&#x4E2A;&#x7248;&#x672C;&#x5B58;&#x5728;&#x4E0D;&#x786E;&#x5B9A;&#x6027;&#x56E0;&#x7D20;&#x3002;&#x56E0;&#x6B64;&#x534F;&#x8BAE;&#x5B9E;&#x73B0;&#x5C31;&#x65E0;&#x9700;&#x4F7F;&#x7528;maybeDeferred(&#x5F53;&#x7136;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;)&#xFF1A;</p>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PoetryProxyProtocol</span><span class="hljs-params">(Protocol)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">connectionMade</span><span class="hljs-params">(self)</span>:</span>
+        d = self.factory.service.get_poem()
+        d.addCallback(self.transport.write)
+        d.addBoth(<span class="hljs-keyword">lambda</span> r: self.transport.loseConnection())
+</code></pre>
+<p>&#x9664;&#x4E86;&#x8FD9;&#x4E24;&#x4E2A;&#x5730;&#x65B9;&#xFF0C;&#x5176;&#x4ED6;&#x5730;&#x65B9;&#x90FD;&#x662F;&#x76F8;&#x540C;&#x7684;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E0A;&#x9762;&#x7684;&#x65B9;&#x6CD5;&#x8FD0;&#x884C;&#x6D4B;&#x8BD5;&#xFF0C;&#x7ED3;&#x679C;&#x662F;&#x4E00;&#x6837;&#x7684;&#x3002;</p>
+<h3 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h3>
+<p>&#x8FD9;&#x4E2A;&#x90E8;&#x5206;&#x6211;&#x4EEC;&#x5B66;&#x4E60;&#x5230;&#x4E86;deferred&#x53EF;&#x4EE5;&#x5728;&#x8FD4;&#x56DE;&#x4E4B;&#x524D;&#x88AB;&#x6FC0;&#x6D3B;&#xFF0C;&#x8FD9;&#x6837;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x5C06;&#x5176;&#x7528;&#x4E8E;&#x540C;&#x6B65;&#x73AF;&#x5883;&#x4E2D;&#x3002;&#x5E76;&#x4E14;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x77E5;&#x9053;&#x4E86;&#x6709;&#x4E24;&#x79CD;&#x65B9;&#x6CD5;&#x6765;&#x5B9E;&#x73B0;&#xFF1A;</p>
+<ol>
+<li>&#x5F53;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x6709;&#x65F6;&#x8FD4;&#x56DE;Deferred&#xFF0C;&#x6709;&#x65F6;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x666E;&#x901A;&#x7684;&#x503C;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;maybeDeferred&#x51FD;&#x6570;</li>
+<li>&#x4F7F;&#x7528;succeed/fail&#x6765;&#x8FD4;&#x56DE;&#x5DF2;&#x7ECF;&#x6FC0;&#x6D3B;&#x7684;Deferred&#xFF0C; &#x5305;&#x88C5;&#x201C;&#x534A;&#x540C;&#x6B65;&#x201D;&#x65B9;&#x6CD5;&#x3002;</li>
+</ol>
+<p>&#x4E24;&#x8005;&#x8FD4;&#x56DE;&#x7684;&#x90FD;&#x662F;deferred, &#x9009;&#x62E9;&#x4F7F;&#x7528;&#x54EA;&#x4E00;&#x79CD;&#x4E3B;&#x8981;&#x770B;&#x4F60;&#x81EA;&#x5DF1;&#x3002;&#x524D;&#x9762;&#x4E8B;&#x5B9E;&#x5DF2;&#x7ECF;&#x8BC1;&#x660E;&#xFF0C;&#x6211;&#x4EEC;&#x7684;&#x51FD;&#x6570;&#x5E76;&#x4E0D;&#x662F;&#x4E00;&#x76F4;&#x90FD;&#x662F;&#x5F02;&#x6B65;&#x3002;&#x5982;&#x4F55;&#x9009;&#x62E9;&#x5E76;&#x6CA1;&#x6709;&#x4E00;&#x4E2A;&#x4E8B;&#x5B9E;&#x4E0A;&#x7684;&#x6807;&#x51C6;&#x3002;</p>
+<p>Deferred&#x53EF;&#x4EE5;&#x5728;&#x6FC0;&#x6D3B;&#x540E;&#x6DFB;&#x52A0;&#x65B0;&#x7684;&#x56DE;&#x8C03;&#x4E5F;&#x95F4;&#x63A5;&#x8BF4;&#x660E;&#x4E86;&#x6211;&#x4EEC;&#x5728;&#x7B2C;&#x4E5D;&#x90E8;&#x5206;<a href="http://github.com/jdavisp3/twisted-intro/blob/master/twisted-deferred/defer-unhandled.py" target="_blank">twisted-deferred/defer-unhandled.py</a>(&#x63D0;&#x5230;&#x7684;&#xFF0C;deferred&#x4E2D;&#x4F1A;&#x5728;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x56DE;&#x8C03;&#x4E2D;&#x9047;&#x5230;&#x672A;&#x5904;&#x7406;&#x5F02;&#x5E38;&#xFF0C;&#x5E76;&#x5728;&#x6B64;deferred&#x88AB;&#x5783;&#x573E;&#x56DE;&#x6536;&#xFF08;&#x5373;&#x5176;&#x5DF2;&#x7ECF;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x5916;&#x754C;&#x5F15;&#x7528;&#xFF09;&#x65F6;&#x624D;&#x5C06;&#x8BE5;&#x5F02;&#x5E38;&#x7684;&#x60C5;&#x51B5;&#x6253;&#x5370;&#x51FA;&#x6765;&#x3002;&#x5373;deferred&#x56DE;&#x5728;&#x5176;&#x9500;&#x6BC1;&#x524D;&#x4E00;&#x76F4;&#x6301;&#x6709;&#x5F02;&#x5E38;&#xFF0C;&#x7B49;&#x5F85;&#x53EF;&#x80FD;&#x8FD8;&#x4F1A;&#x6DFB;&#x52A0;&#x8FDB;&#x6765;&#x7684;&#x56DE;&#x8C03;&#x6765;&#x5904;&#x7406;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x5C06;deferred&#x4E2D;&#x7684;&#x5927;&#x90E8;&#x5206;&#x529F;&#x80FD;&#x90FD;&#x4ECB;&#x7ECD;&#x5B8C;&#x4E86;&#xFF0C;&#x5F53;&#x7136;Twisted&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x53EF;&#x80FD;&#x4E0D;&#x4F1A;&#x589E;&#x5F3A;deferred&#x7684;&#x529F;&#x80FD;&#x3002;&#x6211;&#x4EEC;&#x4E0B;&#x4E00;&#x90E8;&#x5206;&#x5C06;&#x8BB2;&#x8BB2;Twisted&#x7684;&#x5176;&#x5B83;&#x5185;&#x5BB9;&#x3002;</p>
+<h3 id="&#x53C2;&#x8003;">&#x53C2;&#x8003;</h3>
+<p>&#x672C;&#x90E8;&#x5206;&#x539F;&#x4F5C;&#x53C2;&#x89C1;: dave @ <a href="http://krondo.com/?p=2205" target="_blank">http://krondo.com/?p=2205</a></p>
+<p>&#x672C;&#x90E8;&#x5206;&#x7FFB;&#x8BD1;&#x5185;&#x5BB9;&#x53C2;&#x89C1;&#x6768;&#x6653;&#x4F1F;&#x7684;&#x535A;&#x5BA2; <a href="http://blog.sina.com.cn/s/blog_704b6af70100qcte.html" target="_blank">http://blog.sina.com.cn/s/blog_704b6af70100qcte.html</a></p>
+<footer class="page-footer"><span class="copyright">powered by Gitbook</span><span class="footer-modification">&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2021-12-19 11:14:28
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="p13.html" class="navigation navigation-prev " aria-label="Previous page: 使用Deferred新功能实现新客户端">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="p15.html" class="navigation navigation-next " aria-label="Next page: 测试诗歌">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Deferred用于同步环境","level":"1.15","depth":1,"next":{"title":"测试诗歌","level":"1.16","depth":1,"path":"p15.md","ref":"p15.md","articles":[]},"previous":{"title":"使用Deferred新功能实现新客户端","level":"1.14","depth":1,"path":"p13.md","ref":"p13.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-sharing-plus","-livereload","highlight","search-pro","github","back-to-top-button","code","splitter","tbfed-pagefooter","fontsettings"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"modify_label":"修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/likebeta"},"splitter":{},"search-pro":{"cutWordLib":"nodejieba"},"code":{"copyButtons":true},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"back-to-top-button":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"likebeta","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Twisted与异步编程入门","language":"zh","links":{"sidebar":{"代码仓库":"https://github.com/likebeta/twisted-intro-cn"}},"gitbook":"*","description":"Twisted与异步编程入门"},"file":{"path":"p14.md","mtime":"2021-12-19T11:14:28.520Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-12-19T11:17:49.681Z"},"basePath":".","book":{"language":"zh"}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

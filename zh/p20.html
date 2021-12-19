@@ -1,0 +1,717 @@
+
+<!DOCTYPE HTML>
+<html lang="zh" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>轮子内的轮子: Twisted和Erlang · Twisted与异步编程入门</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="likebeta">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="p21.html" />
+    
+    
+    <link rel="prev" href="p19.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="輸入並搜尋" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://github.com/likebeta/twisted-intro-cn" target="_blank" class="custom-link">代码仓库</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="p01.html">
+            
+                <a href="p01.html">
+            
+                    
+                    Twisted 理论基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="p02.html">
+            
+                <a href="p02.html">
+            
+                    
+                    异步编程模式与Reactor初探
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="p03.html">
+            
+                <a href="p03.html">
+            
+                    
+                    初识Twisted
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="p04.html">
+            
+                <a href="p04.html">
+            
+                    
+                    由twisted支持的客户端
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="p05.html">
+            
+                <a href="p05.html">
+            
+                    
+                    由Twisted扶持的客户端
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="p06.html">
+            
+                <a href="p06.html">
+            
+                    
+                    更加"抽象"的运用Twisted
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="p07.html">
+            
+                <a href="p07.html">
+            
+                    
+                    小插曲，Deferred
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="p08.html">
+            
+                <a href="p08.html">
+            
+                    
+                    使用Deferred的诗歌下载客户端
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="p09.html">
+            
+                <a href="p09.html">
+            
+                    
+                    第二个小插曲，deferred
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="p10.html">
+            
+                <a href="p10.html">
+            
+                    
+                    增强defer功能的客户端
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="p11.html">
+            
+                <a href="p11.html">
+            
+                    
+                    改进诗歌下载服务器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="p12.html">
+            
+                <a href="p12.html">
+            
+                    
+                    改进诗歌下载服务器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="p13.html">
+            
+                <a href="p13.html">
+            
+                    
+                    使用Deferred新功能实现新客户端
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="p14.html">
+            
+                <a href="p14.html">
+            
+                    
+                    Deferred用于同步环境
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="p15.html">
+            
+                <a href="p15.html">
+            
+                    
+                    测试诗歌
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="p16.html">
+            
+                <a href="p16.html">
+            
+                    
+                    Twisted 进程守护
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="p17.html">
+            
+                <a href="p17.html">
+            
+                    
+                    构造"回调"的另一种方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="p18.html">
+            
+                <a href="p18.html">
+            
+                    
+                    Deferreds 全貌
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" data-path="p19.html">
+            
+                <a href="p19.html">
+            
+                    
+                    取消之前的意图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.21" data-path="p20.html">
+            
+                <a href="p20.html">
+            
+                    
+                    轮子内的轮子: Twisted和Erlang
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22" data-path="p21.html">
+            
+                <a href="p21.html">
+            
+                    
+                    惰性不是迟缓: Twisted和Haskell
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.23" data-path="p22.html">
+            
+                <a href="p22.html">
+            
+                    
+                    结束
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本書使用 GitBook 釋出
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >轮子内的轮子: Twisted和Erlang</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h3 id="&#x7B80;&#x4ECB;">&#x7B80;&#x4ECB;</h3>
+<p>&#x5728;&#x8FD9;&#x4E2A;&#x7CFB;&#x5217;&#x4E2D;,&#x6709;&#x4E00;&#x4E2A;&#x4E8B;&#x5B9E;&#x6211;&#x4EEC;&#x8FD8;&#x6CA1;&#x6709;&#x4ECB;&#x7ECD;,&#x5373;&#x6DF7;&#x5408;&#x540C;&#x6B65;&#x7684;&quot;&#x666E;&#x901A;Python&quot;&#x4EE3;&#x7801;&#x4E0E;&#x5F02;&#x6B65;Twisted&#x4EE3;&#x7801;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x5DE5;&#x4F5C;,&#x56E0;&#x4E3A;&#x5728;Twisted&#x7A0B;&#x5E8F;&#x4E2D;&#x963B;&#x6EDE;&#x4E0D;&#x5B9A;&#x65F6;&#x95F4;&#x5C06;&#x4F7F;&#x5F02;&#x6B65;&#x6A21;&#x578B;&#x7684;&#x4F18;&#x52BF;&#x4E27;&#x5931;&#x6B86;&#x5C3D;.</p>
+<p>&#x5982;&#x679C;&#x4F60;&#x662F;&#x521D;&#x6B21;&#x63A5;&#x89E6;&#x5F02;&#x6B65;&#x7F16;&#x7A0B;,&#x90A3;&#x4E48;&#x4F60;&#x5F97;&#x5230;&#x7684;&#x77E5;&#x8BC6;&#x770B;&#x8D77;&#x6765;&#x6709;&#x4E00;&#x4E9B;&#x5C40;&#x9650;.&#x4F60;&#x53EF;&#x4EE5;&#x5728;Twisted&#x6846;&#x67B6;&#x5185;&#x4F7F;&#x7528;&#x8FD9;&#x4E9B;&#x65B0;&#x6280;&#x672F;,&#x800C;&#x4E0D;&#x662F;&#x5728;&#x66F4;&#x5E7F;&#x9614;&#x7684;&#x4E00;&#x822C;Python&#x4EE3;&#x7801;&#x4E16;&#x754C;&#x4E2D;.&#x540C;&#x65F6;,&#x5F53;&#x7528;Twisted&#x5DE5;&#x4F5C;&#x65F6;,&#x4F60;&#x4EC5;&#x4EC5;&#x5C40;&#x9650;&#x4E8E;&#x90A3;&#x4E9B;&#x4E13;&#x95E8;&#x4E3A;&#x4E86;&#x4F5C;&#x4E3A;Twisted&#x7A0B;&#x5E8F;&#x4E00;&#x90E8;&#x5206;&#x6240;&#x5199;&#x7684;&#x5E93;,&#x81F3;&#x5C11;&#x5982;&#x679C;&#x4F60;&#x60F3;&#x76F4;&#x63A5;&#x4ECE; <code>reactor</code> &#x7EBF;&#x7A0B;&#x8C03;&#x7528;&#x5B83;&#x4EEC;&#x7684;&#x65F6;&#x5019;.</p>
+<p>&#x4F46;&#x662F;&#x5F02;&#x6B65;&#x7F16;&#x7A0B;&#x6280;&#x672F;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x4E86;&#x5F88;&#x591A;&#x5E74;&#x5E76;&#x4E14;&#x51E0;&#x4E4E;&#x4E0D;&#x5C40;&#x9650;&#x4E8E;Twisted.&#x5176;&#x5B9E;&#x4EC5;&#x5728;Python&#x4E2D;&#x5C31;&#x6709;&#x4EE4;&#x4EBA;&#x5403;&#x60CA;&#x6570;&#x91CF;&#x7684;&#x5F02;&#x6B65;&#x7F16;&#x7A0B;&#x6A21;&#x578B;. <a href="http://www.google.com.hk/search?q=python+async+frameworks" target="_blank">&#x641C;&#x7D22;</a> &#x4E00;&#x4E0B;&#x5C31;&#x4F1A;&#x770B;&#x5230;&#x5F88;&#x591A;. &#x5B83;&#x4EEC;&#x5728;&#x7EC6;&#x8282;&#x65B9;&#x9762;&#x4E0D;&#x540C;&#x4E8E;Twisted,&#x4F46;&#x662F;&#x57FA;&#x672C;&#x7684;&#x601D;&#x60F3;(&#x5982;&#x5F02;&#x6B65;I/O,&#x5C06;&#x5927;&#x89C4;&#x6A21;&#x6570;&#x636E;&#x6D41;&#x5206;&#x5272;&#x4E3A;&#x5C0F;&#x5757;&#x5904;&#x7406;)&#x662F;&#x4E00;&#x6837;&#x7684;.&#x6240;&#x4EE5;&#x5982;&#x679C;&#x4F60;&#x9700;&#x8981;,&#x6216;&#x8005;&#x9009;&#x62E9;,&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x6846;&#x67B6;,&#x4F60;&#x5C06;&#x4F1A;&#x56E0;&#x4E3A;&#x5B66;&#x4E60;&#x4E86;Twisted&#x800C;&#x5177;&#x5907;&#x4E00;&#x4E2A;&#x5F88;&#x597D;&#x7684;&#x5F00;&#x7AEF;.</p>
+<p>&#x5F53;&#x6211;&#x4EEC;&#x79FB;&#x6B65;Python&#x4E4B;&#x5916;,&#x540C;&#x6837;&#x4F1A;&#x53D1;&#x73B0;&#x5F88;&#x591A;&#x8BED;&#x8A00;&#x548C;&#x7CFB;&#x7EDF;&#x57FA;&#x4E8E;&#x6216;&#x8005;&#x4F7F;&#x7528;&#x5F02;&#x6B65;&#x7F16;&#x7A0B;&#x6A21;&#x578B;.&#x4F60;&#x5728;Twisted&#x5B66;&#x4E60;&#x5230;&#x7684;&#x77E5;&#x8BC6;&#x5C06;&#x7EE7;&#x7EED;&#x4E3A;&#x4F60;&#x5728;&#x5F02;&#x6B65;&#x7F16;&#x7A0B;&#x65B9;&#x9762;&#x5F00;&#x62D3;&#x66F4;&#x5E7F;&#x9614;&#x7684;&#x9886;&#x57DF;&#x800C;&#x670D;&#x52A1;.</p>
+<p>&#x5728;&#x8FD9;&#x4E2A;&#x90E8;&#x5206;,&#x6211;&#x4EEC;&#x5C06;&#x7B80;&#x5355;&#x5730;&#x770B;&#x4E00;&#x770B; <a href="http://www.erlang.org/" target="_blank">Erlang</a>,&#x4E00;&#x79CD;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x548C;&#x8FD0;&#x884C;&#x65F6;&#x7CFB;&#x7EDF;,&#x5B83;&#x4EE5;&#x4E00;&#x79CD;&#x72EC;&#x7279;&#x7684;&#x65B9;&#x5F0F;&#x5E7F;&#x6CDB;&#x4F7F;&#x7528;&#x5F02;&#x6B65;&#x7F16;&#x7A0B;&#x6982;&#x5FF5;.&#x8BF7;&#x6CE8;&#x610F;&#x6211;&#x4EEC;&#x4E0D;&#x662F;&#x8981;&#x5F00;&#x59CB;&#x5199; <code>Erlang&#x5165;&#x95E8;</code>.&#x800C;&#x662F;&#x7A0D;&#x7A0D;&#x63A2;&#x7D22;&#x4E00;&#x4E0B;Erlang&#x4E2D;&#x5305;&#x542B;&#x7684;&#x4E00;&#x4E9B;&#x601D;&#x60F3;,&#x770B;&#x770B;&#x8FD9;&#x4E9B;&#x4E0E;Twisted&#x601D;&#x60F3;&#x7684;&#x8054;&#x7CFB;.&#x57FA;&#x672C;&#x4E3B;&#x9898;&#x5C31;&#x662F;&#x4F60;&#x901A;&#x8FC7;&#x5B66;&#x4E60;Twisted&#x5F97;&#x5230;&#x7684;&#x77E5;&#x8BC6;&#x53EF;&#x4EE5;&#x5E94;&#x7528;&#x5230;&#x5B66;&#x4E60;&#x5176;&#x4ED6;&#x6280;&#x672F;.</p>
+<h3 id="&#x56DE;&#x987E;&#x56DE;&#x8C03;">&#x56DE;&#x987E;&#x56DE;&#x8C03;</h3>
+<p>&#x8003;&#x8651; &#x56FE;6 ,&#x56DE;&#x8C03;&#x7684;&#x56FE;&#x5F62;&#x8868;&#x793A;. &#x662F; &#x7B2C;&#x516D;&#x90E8;&#x5206; &#x4E2D;&#x4ECB;&#x7ECD;&#x7684; <a href="https://github.com/jdavisp3/twisted-intro/blob/master/twisted-client-3/get-poetry.py#L1" target="_blank">&#x8BD7;&#x6B4C;&#x4EE3;&#x7406;3.0</a> &#x7684;&#x56DE;&#x8C03;&#x548C; <a href="https://github.com/jdavisp3/twisted-intro/blob/master/twisted-client-3/get-poetry.py#L56" target="_blank">dataReceived</a> &#x65B9;&#x6CD5;&#x4E2D;&#x7684;&#x987A;&#x5E8F;&#x8BD7;&#x6B4C;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x539F;&#x7406;. &#x6BCF;&#x6B21;&#x4ECE;&#x4E00;&#x4E2A;&#x76F8;&#x8FDE;&#x7684;&#x8BD7;&#x6B4C;&#x670D;&#x52A1;&#x5668;&#x4E0B;&#x8F7D;&#x4E00;&#x5C0F;&#x90E8;&#x5206;&#x8BD7;&#x6B4C;&#x65F6;&#x5C06;&#x6FC0;&#x53D1;&#x56DE;&#x8C03;. </p>
+<p>&#x5047;&#x8BBE;&#x6211;&#x4EEC;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x4ECE;3&#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x670D;&#x52A1;&#x5668;&#x4E0B;&#x8F7D;3&#x9996;&#x8BD7;.&#x4EE5; <code>reactor</code> &#x7684;&#x89D2;&#x5EA6;&#x770B;&#x95EE;&#x9898;(&#x8FD9;&#x662F;&#x5728;&#x8FD9;&#x4E2A;&#x7CFB;&#x5217;&#x4E2D;&#x4E00;&#x76F4;&#x4E3B;&#x5F20;&#x7684;),&#x6211;&#x4EEC;&#x5F97;&#x5230;&#x4E00;&#x4E2A;&#x5355;&#x4E00;&#x7684;&#x5927;&#x5FAA;&#x73AF;,&#x5F53;&#x6BCF;&#x6B21;&#x8F6E;&#x8BE2;&#x65F6;&#x6FC0;&#x53D1;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x56DE;&#x8C03;,&#x5982;&#x56FE;40:</p>
+<div style="text-align: center"><img src="_static/p20_reactor-2.png" title="&#x4EE5; reactor &#x89D2;&#x5EA6;&#x7684;&#x56DE;&#x8C03;" alt="&#x4EE5; reactor &#x89D2;&#x5EA6;&#x7684;&#x56DE;&#x8C03;"></div>
+<div style="text-align: center">&#x56FE;40 &#x4EE5; reactor &#x89D2;&#x5EA6;&#x7684;&#x56DE;&#x8C03;</div>
+
+<p>&#x6B64;&#x56FE;&#x663E;&#x793A;&#x4E86; <code>reactor</code> &#x6B22;&#x5FEB;&#x5730;&#x8FD0;&#x8F6C;,&#x6BCF;&#x6B21;&#x8BD7;&#x6B4C;&#x5230;&#x6765;&#x65F6;&#x5B83;&#x8C03;&#x7528; <code>dataReceived</code>. &#x6BCF;&#x6B21; <code>dataReceived</code> &#x8C03;&#x7528;&#x5E94;&#x7528;&#x4E8E;&#x4E00;&#x4E2A;&#x7279;&#x5B9A;&#x7684; <code>PoetryProtocal</code> &#x7C7B;&#x5B9E;&#x4F8B;. &#x6211;&#x4EEC;&#x77E5;&#x9053;&#x4E00;&#x5171;&#x6709;3&#x4E2A;&#x5B9E;&#x4F8B;&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x6B63;&#x5728;&#x4E0B;&#x8F7D;3&#x9996;&#x8BD7;(&#x6240;&#x4EE5;&#x5FC5;&#x987B;&#x6709;3&#x4E2A;&#x8FDE;&#x63A5;).</p>
+<p>&#x4EE5;&#x4E00;&#x4E2A;Protocol&#x5B9E;&#x4F8B;&#x7684;&#x89D2;&#x5EA6;&#x8003;&#x8651;&#x8FD9;&#x5F20;&#x56FE;.&#x8BB0;&#x4F4F;&#x6BCF;&#x4E2A;Protocol&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x8FDE;&#x63A5;(&#x4E00;&#x9996;&#x8BD7;). &#x8FD9;&#x4E2A;&#x5B9E;&#x4F8B;&#x53EF;&#x201C;&#x770B;&#x5230;&#x201D;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x6D41;,&#x6BCF;&#x4E2A;&#x65B9;&#x6CD5;&#x63A5;&#x6536;&#x7740;&#x8BD7;&#x6B4C;&#x7684;&#x4E0B;&#x4E00;&#x90E8;&#x5206;,&#x5982;&#x4E0B;:</p>
+<pre><code>dataReceived(self, &quot;When I have fears&quot;)
+dataReceived(self, &quot; that I may cease to be&quot;)
+dataReceived(self, &quot;Before my pen has glea&quot;)
+dataReceived(self, &quot;n&apos;d my teeming brain&quot;)
+...
+</code></pre><p>&#x7136;&#x800C;&#x8FD9;&#x4E0D;&#x662F;&#x4E25;&#x683C;&#x610F;&#x4E49;&#x4E0A;&#x7684;Python&#x5FAA;&#x73AF;,&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5C06;&#x5176;&#x6982;&#x5FF5;&#x5316;&#x4E3A;&#x4E00;&#x4E2A;&#x5FAA;&#x73AF;:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">for</span> data <span class="hljs-keyword">in</span> poetry_stream(): <span class="hljs-comment"># pseudo-code</span>
+    dataReceived(data)
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8BBE;&#x60F3;&quot;&#x56DE;&#x8C03;&#x5FAA;&#x73AF;&quot;,&#x5982;&#x56FE;41:</p>
+<div style="text-align: center"><img src="_static/p20_callback-loop.png" title="&#x4E00;&#x4E2A;&#x865A;&#x62DF;&#x56DE;&#x8C03;&#x5FAA;&#x73AF;" alt="&#x4E00;&#x4E2A;&#x865A;&#x62DF;&#x56DE;&#x8C03;&#x5FAA;&#x73AF;"></div>
+<div style="text-align: center">&#x56FE;41 &#x4E00;&#x4E2A;&#x865A;&#x62DF;&#x56DE;&#x8C03;&#x5FAA;&#x73AF;</div>
+
+<p>&#x5F53;&#x7136;&#x8FD9;&#x4E0D;&#x662F;&#x4E00;&#x4E2A; <code>for</code> &#x5FAA;&#x73AF;&#x6216; <code>while</code> &#x5FAA;&#x73AF;. &#x5728;&#x6211;&#x4EEC;&#x8BD7;&#x6B4C;&#x5BA2;&#x6237;&#x7AEF;&#x4E2D;&#x552F;&#x4E00;&#x91CD;&#x8981;&#x7684;Python&#x5FAA;&#x73AF;&#x662F; <code>reactor</code>. &#x4F46;&#x662F;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x628A;&#x6BCF;&#x4E2A;Protocol&#x89C6;&#x4F5C;&#x4E00;&#x4E2A;&#x865A;&#x62DF;&#x5FAA;&#x73AF;,&#x5F53;&#x6709;&#x8BD7;&#x6B4C;&#x5230;&#x6765;&#x65F6;&#x5B83;&#x4F1A;&#x542F;&#x52A8;&#x5FAA;&#x73AF;. &#x6839;&#x636E;&#x8FD9;&#x79CD;&#x60F3;&#x6CD5;, &#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7528;&#x56FE;42&#x91CD;&#x6784;&#x6574;&#x4E2A;&#x5BA2;&#x6237;&#x7AEF;:</p>
+<div style="text-align: center"><img src="_static/p20_reactor-3.png" title="reactor &#x8F6C;&#x52A8;&#x865A;&#x62DF;&#x5FAA;&#x73AF;" alt="reactor &#x8F6C;&#x52A8;&#x865A;&#x62DF;&#x5FAA;&#x73AF;"></div>
+<div style="text-align: center">&#x56FE;42 reactor &#x8F6C;&#x52A8;&#x865A;&#x62DF;&#x5FAA;&#x73AF;</div>
+
+<p>&#x5728;&#x8FD9;&#x5F20;&#x56FE;&#x4E2D;,&#x6709;&#x4E00;&#x4E2A;&#x5927;&#x5FAA;&#x73AF; &#x2014;&#x2014; <code>reactor</code> &#x548C;&#x4E09;&#x4E2A;&#x865A;&#x62DF;&#x5FAA;&#x73AF; &#x2014;&#x2014; &#x8BD7;&#x6B4C;&#x534F;&#x8BAE;&#x5B9E;&#x4F8B;&#x4E2A;&#x4F53;.&#x5927;&#x5FAA;&#x73AF;&#x8F6C;&#x8D77;&#x6765;,&#x5982;&#x6B64;,&#x4F7F;&#x5F97;&#x865A;&#x62DF;&#x5FAA;&#x73AF;&#x4E5F;&#x8F6C;&#x8D77;&#x6765;&#x4E86;,&#x5C31;&#x50CF;&#x4E00;&#x7EC4;&#x73AF;&#x73AF;&#x76F8;&#x6263;&#x7684;&#x9F7F;&#x8F6E;.</p>
+<h3 id="&#x8FDB;&#x5165;erlang">&#x8FDB;&#x5165;Erlang</h3>
+<p><a href="http://www.erlang.org/" target="_blank">Erlang</a>,&#x4E0E;Python&#x4E00;&#x6837;,&#x6E90;&#x81EA;&#x4E00;&#x79CD;&#x516B;&#x5341;&#x5E74;&#x4EE3;&#x521B;&#x5EFA;&#x7684;&#x4E00;&#x822C;&#x76EE;&#x7684;&#x52A8;&#x6001;&#x7C7B;&#x578B;&#x7684;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;.&#x4E0D;&#x50CF;Python,Erlang&#x662F;&#x51FD;&#x6570;&#x5F0F;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x800C;&#x4E0D;&#x662F;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7684;,&#x5E76;&#x4E14;&#x5728;&#x53E5;&#x6CD5;&#x4E0A;&#x7C7B;&#x4F3C;&#x6000;&#x65E7;&#x7684; <a href="http://en.wikipedia.org/wiki/Prolog" target="_blank">Prolog</a>, Erlang&#x6700;&#x521D;&#x5C31;&#x662F;&#x7531;&#x5176;&#x5B9E;&#x73B0;&#x7684;. Erlang&#x88AB;&#x8BBE;&#x8BA1;&#x4E3A;&#x5EFA;&#x7ACB;&#x9AD8;&#x5EA6;&#x53EF;&#x9760;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x7535;&#x8BDD;&#x7CFB;&#x7EDF;,&#x56E0;&#x6B64;Erlang&#x5305;&#x542B;&#x5E7F;&#x6CDB;&#x7684;&#x7F51;&#x7EDC;&#x652F;&#x6301;.</p>
+<p>Erlang&#x7684;&#x4E00;&#x4E2A;&#x6700;&#x72EC;&#x7279;&#x7684;&#x7279;&#x6027;&#x662F;&#x4E00;&#x4E2A;&#x6D89;&#x53CA;&#x8F7B;&#x91CF;&#x7EA7;&#x8FDB;&#x7A0B;&#x7684;&#x5E76;&#x53D1;&#x6A21;&#x578B;. &#x4E00;&#x4E2A;Erlang&#x8FDB;&#x7A0B;&#x65E2;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x8FDB;&#x7A0B;&#x4E5F;&#x4E0D;&#x662F;&#x7EBF;&#x7A0B;.&#x5B83;&#x662F;&#x5728;Erlang&#x8FD0;&#x884C;&#x73AF;&#x5883;&#x4E2D;&#x4E00;&#x4E2A;&#x72EC;&#x7ACB;&#x8FD0;&#x884C;&#x7684;&#x51FD;&#x6570;,&#x5B83;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x5806;&#x6808;.Erlang&#x8FDB;&#x7A0B;&#x4E0D;&#x662F;&#x8F7B;&#x91CF;&#x7EA7;&#x7684;&#x7EBF;&#x7A0B;,&#x56E0;&#x4E3A;Erlang&#x8FDB;&#x7A0B;&#x4E0D;&#x80FD;&#x5171;&#x4EAB;&#x72B6;&#x6001;(&#x8BB8;&#x591A;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x4E5F;&#x662F;&#x4E0D;&#x53EF;&#x53D8;&#x7684;,Erlang&#x662F;&#x4E00;&#x79CD;&#x51FD;&#x6570;&#x5F0F;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;).&#x4E00;&#x4E2A;Erlang&#x8FDB;&#x7A0B;&#x53EF;&#x4EE5;&#x4E0E;&#x5176;&#x4ED6;Erlang&#x8FDB;&#x7A0B;&#x4EA4;&#x4E92;,&#x4F46;&#x4EC5;&#x4EC5;&#x662F;&#x901A;&#x8FC7;&#x53D1;&#x9001;&#x6D88;&#x606F;,&#x6D88;&#x606F;&#x603B;&#x662F;(&#x81F3;&#x5C11;&#x6982;&#x5FF5;&#x4E0A;)&#x88AB;&#x590D;&#x5236;&#x7684;&#x800C;&#x4E0D;&#x662F;&#x5171;&#x4EAB;.</p>
+<p>&#x6240;&#x4EE5;&#x4E00;&#x4E2A;Erlang&#x7A0B;&#x5E8F;&#x770B;&#x8D77;&#x6765;&#x5982;&#x56FE;43:</p>
+<div style="text-align: center"><img src="_static/p20_erlang-11.png" title="&#x6709;3&#x4E2A;&#x8FDB;&#x7A0B;&#x7684;Erlang&#x7A0B;&#x5E8F;" alt="&#x6709;3&#x4E2A;&#x8FDB;&#x7A0B;&#x7684;Erlang&#x7A0B;&#x5E8F;"></div>
+<div style="text-align: center">&#x56FE;43 &#x6709;3&#x4E2A;&#x8FDB;&#x7A0B;&#x7684;Erlang&#x7A0B;&#x5E8F;</div>
+
+<p>&#x5728;&#x6B64;&#x56FE;&#x4E2D;,&#x4E2A;&#x4F53;&#x8FDB;&#x7A0B;&#x53D8;&#x6210;&#x4E86;&quot;&#x771F;&#x5B9E;&#x7684;&#x5B58;&#x5728;&quot;.&#x56E0;&#x4E3A;&#x8FDB;&#x7A0B;&#x5728;Erlang&#x4E2D;&#x662F;&#x7B2C;&#x4E00;&#x6784;&#x9020;,&#x5C31;&#x50CF;Python&#x4E2D;&#x7684;&#x5BF9;&#x8C61;.&#x4F46;&#x8FD0;&#x884C;&#x65F6;&#x53D8;&#x6210;&#x4E86;&quot;&#x865A;&#x62DF;&#x7684;&quot;,&#x4E0D;&#x662F;&#x7531;&#x4E8E;&#x5B83;&#x4E0D;&#x5B58;&#x5728;,&#x800C;&#x662F;&#x7531;&#x4E8E;&#x5B83;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x5FAA;&#x73AF;.Erlang&#x8FD0;&#x884C;&#x65F6;&#x53EF;&#x80FD;&#x662F;&#x591A;&#x7EBF;&#x7A0B;&#x7684;,&#x56E0;&#x4E3A;&#x5B83;&#x5FC5;&#x987B;&#x53BB;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x5168;&#x9762;&#x7684;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;,&#x8FD8;&#x8981;&#x8D1F;&#x8D23;&#x5F88;&#x591A;&#x9664;&#x5F02;&#x6B65;I/O&#x4E4B;&#x5916;&#x7684;&#x4E1C;&#x897F;.&#x8FDB;&#x4E00;&#x6B65;,&#x4E00;&#x4E2A;&#x8BED;&#x8A00;&#x8FD0;&#x884C;&#x65F6;&#x4E5F;&#x5C31;&#x662F;&#x5141;&#x8BB8;Erlang&#x8FDB;&#x7A0B;&#x548C;&#x4EE3;&#x7801;&#x6267;&#x884C;&#x7684;&#x5A92;&#x4ECB;,&#x800C;&#x4E0D;&#x662F;&#x50CF;Twisted&#x4E2D;&#x7684; <code>reactor</code> &#x90A3;&#x6837;&#x7684;&#x989D;&#x5916;&#x6784;&#x9020;.</p>
+<p>&#x6240;&#x4EE5;&#x4E00;&#x4E2A;Erlang&#x7A0B;&#x5E8F;&#x7684;&#x66F4;&#x597D;&#x8868;&#x793A;&#x5982;&#x4E0B;&#x56FE;44:</p>
+<div style="text-align: center"><img src="_static/p20_erlang-2.png" title="&#x6709;&#x82E5;&#x5E72;&#x8FDB;&#x7A0B;&#x7684;Erlang&#x7A0B;&#x5E8F;" alt="&#x6709;&#x82E5;&#x5E72;&#x8FDB;&#x7A0B;&#x7684;Erlang&#x7A0B;&#x5E8F;"></div>
+<div style="text-align: center">&#x56FE;44 &#x6709;&#x82E5;&#x5E72;&#x8FDB;&#x7A0B;&#x7684;Erlang&#x7A0B;&#x5E8F;</div>
+
+<p>&#x5F53;&#x7136;, Erlang&#x8FD0;&#x884C;&#x65F6;&#x786E;&#x5B9E;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x5F02;&#x6B65;I/O&#x4EE5;&#x53CA;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x9009;&#x62E9;&#x5FAA;&#x73AF;,&#x56E0;&#x4E3A;Erlang&#x5141;&#x8BB8;&#x4F60;&#x521B;&#x5EFA; <strong>&#x5927;&#x91CF;</strong> &#x8FDB;&#x7A0B;. &#x5927;&#x89C4;&#x6A21;Erlang&#x7A0B;&#x5E8F;&#x53EF;&#x4EE5;&#x542F;&#x52A8;&#x6210;&#x5343;&#x4E0A;&#x4E07;&#x7684;Erlang&#x8FDB;&#x7A0B;,&#x6240;&#x4EE5;&#x4E3A;&#x6BCF;&#x4E2A;&#x8FDB;&#x7A0B;&#x5206;&#x914D;&#x4E00;&#x4E2A;&#x5B9E;&#x9645;&#x5730;OS&#x7EBF;&#x7A0B;&#x662F;&#x95EE;&#x9898;&#x6240;&#x5728;.&#x5982;&#x679C;Erlang&#x5141;&#x8BB8;&#x591A;&#x8FDB;&#x7A0B;&#x6267;&#x884C;I/O,&#x540C;&#x65F6;&#x5141;&#x8BB8;&#x5176;&#x4ED6;&#x8FDB;&#x7A0B;&#x8FD0;&#x884C;&#x5373;&#x4FBF;&#x90A3;&#x4E2A;I/O&#x963B;&#x585E;&#x4E86;,&#x90A3;&#x4E48;&#x5F02;&#x6B65;I/O&#x5C31;&#x5FC5;&#x987B;&#x88AB;&#x5305;&#x542B;&#x8FDB;&#x6765;&#x4E86;.</p>
+<p>&#x6CE8;&#x610F;&#x6211;&#x4EEC;&#x5173;&#x4E8E;Erlang&#x7A0B;&#x5E8F;&#x7684;&#x56FE;&#x8BF4;&#x660E;&#x4E86;&#x6BCF;&#x4E2A;&#x8FDB;&#x7A0B;&#x662F;&quot;&#x9760;&#x5B83;&#x81EA;&#x5DF1;&#x7684;&#x529B;&#x91CF;&quot;&#x8FD0;&#x884C;,&#x800C;&#x4E0D;&#x662F;&#x88AB;&#x56DE;&#x8C03;&#x65CB;&#x8F6C;&#x7740;. &#x968F;&#x7740; <code>reactor</code> &#x7684;&#x5DE5;&#x4F5C;&#x88AB;&#x5F52;&#x7EB3;&#x6210;Erlang&#x8FD0;&#x884C;&#x65F6;&#x7684;&#x7ED3;&#x6784;,&#x56DE;&#x8C03;&#x4E0D;&#x518D;&#x626E;&#x6F14;&#x4E2D;&#x5FC3;&#x89D2;&#x8272;. &#x539F;&#x6765;&#x5728;Twisted&#x4E2D;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x56DE;&#x8C03;&#x89E3;&#x51B3;&#x7684;&#x95EE;&#x9898;,&#x5728;Erlang&#x4E2D;&#x5C06;&#x901A;&#x8FC7;&#x4ECE;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x5411;&#x53E6;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x53D1;&#x9001;&#x5F02;&#x6B65;&#x6D88;&#x606F;&#x6765;&#x89E3;&#x51B3;.</p>
+<h3 id="&#x4E00;&#x4E2A;erlang&#x8BD7;&#x6B4C;&#x4EE3;&#x7406;">&#x4E00;&#x4E2A;Erlang&#x8BD7;&#x6B4C;&#x4EE3;&#x7406;</h3>
+<p>&#x8BA9;&#x6211;&#x4EEC;&#x770B;&#x4E00;&#x4E0B;Erlang&#x8BD7;&#x6B4C;&#x5BA2;&#x6237;&#x7AEF;. &#x8FD9;&#x6B21;&#x6211;&#x4EEC;&#x76F4;&#x63A5;&#x8DF3;&#x5165;&#x5DE5;&#x4F5C;&#x7248;&#x672C;&#x800C;&#x4E0D;&#x662F;&#x50CF;&#x5728;Twisted&#x4E2D;&#x6162;&#x6162;&#x5730;&#x642D;&#x5EFA;&#x5B83;.&#x540C;&#x6837;,&#x8FD9;&#x610F;&#x5473;&#x7740;&#x4E0D;&#x662F;&#x5B8C;&#x6574;&#x7248;&#x672C;&#x7684;Erlang&#x4ECB;&#x7ECD;. &#x4F46;&#x5982;&#x679C;&#x6FC0;&#x8D77;&#x4E86;&#x4F60;&#x7684;&#x5174;&#x8DA3;,&#x6211;&#x4EEC;&#x5728;&#x672C;&#x90E8;&#x5206;&#x6700;&#x540E;&#x63A8;&#x8350;&#x4E86;&#x4E00;&#x4E9B;&#x6DF1;&#x5EA6;&#x9605;&#x8BFB;&#x8D44;&#x6599;.</p>
+<p>Erlang&#x5BA2;&#x6237;&#x7AEF;&#x4F4D;&#x4E8E; <a href="https://github.com/jdavisp3/twisted-intro/blob/master/erlang-client-1/get-poetry#L1" target="_blank">erlang-client-1/get-poetry</a>. &#x4E3A;&#x4E86;&#x8FD0;&#x884C;&#x5B83;,&#x4F60;&#x9700;&#x8981;&#x5B89;&#x88C5; <a href="http://www.erlang.org/" target="_blank">Erlang</a>. </p>
+<p>&#x4E0B;&#x9762;&#x4EE3;&#x7801;&#x662F; <code>main</code> &#x51FD;&#x6570;&#x4EE3;&#x7801;,&#x4E0E;Python&#x5BA2;&#x6237;&#x7AEF;&#x4E2D;&#x7684; <code>main</code> &#x51FD;&#x6570;&#x5177;&#x6709;&#x76F8;&#x540C;&#x7684;&#x76EE;&#x7684;:</p>
+<pre><code class="lang-Erlang"><span class="hljs-function"><span class="hljs-title">main</span><span class="hljs-params">([])</span> -&gt;</span>
+    usage();
+
+<span class="hljs-function"><span class="hljs-title">main</span><span class="hljs-params">(Args)</span> -&gt;</span>
+    Addresses = parse_args(Args),
+    Main = self(),
+    [erlang:spawn_monitor(<span class="hljs-keyword">fun</span> () -&gt; get_poetry(TaskNum, Addr, Main) <span class="hljs-keyword">end</span>)
+     || {TaskNum, Addr} &lt;- enumerate(Addresses)],
+    collect_poems(length(Addresses), []).
+</code></pre>
+<p>&#x5982;&#x679C;&#x4F60;&#x4ECE;&#x6765;&#x6CA1;&#x6709;&#x89C1;&#x8FC7;Prolog&#x6216;&#x8005;&#x76F8;&#x4F3C;&#x7684;&#x8BED;&#x8A00;,&#x90A3;&#x4E48;Erlang&#x7684;&#x53E5;&#x6CD5;&#x5C06;&#x663E;&#x5F97;&#x6709;&#x4E00;&#x70B9;&#x5947;&#x602A;.&#x4F46;&#x662F;&#x6709;&#x4E00;&#x4E9B;&#x4EBA;&#x4E5F;&#x8FD9;&#x6837;&#x8BA4;&#x4E3A;Python.<code>main</code> &#x51FD;&#x6570;&#x88AB;&#x4E24;&#x4E2A;&#x5206;&#x79BB;&#x7684;&#x53E5;&#x7FA4;&#x5B9A;&#x4E49;,&#x88AB;&#x5206;&#x53F7;&#x5206;&#x5272;. Erlang&#x6839;&#x636E;&#x53C2;&#x6570;&#x9009;&#x62E9;&#x8FD0;&#x884C;&#x54EA;&#x4E00;&#x4E2A;&#x53E5;&#x7FA4;,&#x6240;&#x4EE5;&#x7B2C;&#x4E00;&#x4E2A;&#x53E5;&#x7FA4;&#x53EA;&#x5728;&#x6211;&#x4EEC;&#x6267;&#x884C;&#x5BA2;&#x6237;&#x7AEF;&#x4E0D;&#x63D0;&#x4F9B;&#x4EFB;&#x4F55;&#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x8FD0;&#x884C;,&#x5B83;&#x53EA;&#x6253;&#x5370;&#x51FA;&#x5E2E;&#x52A9;&#x4FE1;&#x606F;.&#x7B2C;&#x4E8C;&#x4E2A;&#x53E5;&#x7FA4;&#x662F;&#x6240;&#x6709;&#x5B9E;&#x9645;&#x7684;&#x5904;&#x7406;.</p>
+<p>Erlang&#x51FD;&#x6570;&#x4E2D;&#x7684;&#x6BCF;&#x6761;&#x8BED;&#x53E5;&#x4EE5;&#x9017;&#x53F7;&#x5206;&#x9694;,&#x51FD;&#x6570;&#x4EE5;&#x53E5;&#x53F7;&#x7ED3;&#x5C3E;.&#x8BA9;&#x6211;&#x4EEC;&#x770B;&#x4E00;&#x770B;&#x7B2C;&#x4E8C;&#x4E2A;&#x53E5;&#x7FA4;,&#x7B2C;&#x4E00;&#x884C;&#x4EC5;&#x4EC5;&#x5206;&#x6790;&#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570;&#x5E76;&#x4E14;&#x5C06;&#x5B83;&#x4EEC;&#x7ED1;&#x5B9A;&#x5230;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;(Erlang&#x4E2D;&#x6240;&#x6709;&#x53D8;&#x91CF;&#x5FC5;&#x987B;&#x5927;&#x5199;).&#x7B2C;&#x4E8C;&#x884C;&#x4F7F;&#x7528; <code>self</code> &#x51FD;&#x6570;&#x6765;&#x83B7;&#x53D6;&#x5F53;&#x4E0B;&#x6B63;&#x5728;&#x8FD0;&#x884C;&#x7684;Erlang&#x8FDB;&#x7A0B;(&#x800C;&#x975E;OS&#x8FDB;&#x7A0B;)&#x7684;ID.&#x7531;&#x4E8E;&#x8FD9;&#x662F;&#x4E3B;&#x51FD;&#x6570;,&#x4F60;&#x53EF;&#x4EE5;&#x8BA4;&#x4E3A;&#x5B83;&#x7B49;&#x4EF7;&#x4E8E;Python&#x4E2D;&#x7684; <code>__main__</code> &#x6A21;&#x5757;. &#x7B2C;&#x4E09;&#x884C;&#x662F;&#x6700;&#x6709;&#x8DA3;&#x7684;:</p>
+<pre><code class="lang-Erlang">[erlang:spawn_monitor(<span class="hljs-keyword">fun</span> () -&gt; get_poetry(TaskNum, Addr, Main) <span class="hljs-keyword">end</span>)
+     || {TaskNum, Addr} &lt;- enumerate(Addresses)],
+</code></pre>
+<p>&#x8FD9;&#x4E2A;&#x8BED;&#x53E5;&#x662F;&#x5BF9;Erlang&#x5217;&#x8868;&#x7684;&#x7406;&#x89E3;,&#x4E0E;Python&#x6709;&#x76F8;&#x4F3C;&#x7684;&#x53E5;&#x6CD5;.&#x5B83;&#x5BF9;&#x6BCF;&#x4E2A;&#x9700;&#x8981;&#x8FDE;&#x63A5;&#x7684;&#x670D;&#x52A1;&#x5668;&#x4EA7;&#x751F;&#x65B0;&#x7684;Erlang&#x8FDB;&#x7A0B;. &#x540C;&#x65F6;&#x6BCF;&#x4E2A;&#x8FDB;&#x7A0B;&#x5C06;&#x8FD0;&#x884C;&#x76F8;&#x540C;&#x7684; <code>get_poetry</code> &#x51FD;&#x6570;, &#x4F46;&#x662F;&#x6839;&#x636E;&#x7279;&#x5B9A;&#x7684;&#x670D;&#x52A1;&#x5668;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x53C2;&#x6570;.&#x6211;&#x4EEC;&#x540C;&#x65F6;&#x4F20;&#x9012;&#x4E3B;&#x8FDB;&#x7A0B;&#x7684;PID&#x4EE5;&#x4FBF;&#x65B0;&#x7684;&#x8FDB;&#x7A0B;&#x53EF;&#x4EE5;&#x628A;&#x8BD7;&#x6B4C;&#x53D1;&#x9001;&#x56DE;&#x6765;(&#x4F60;&#x901A;&#x5E38;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x7684;PID&#x6765;&#x5411;&#x5B83;&#x53D1;&#x9001;&#x6D88;&#x606F;)</p>
+<p><code>main</code> &#x51FD;&#x6570;&#x4E2D;&#x7684;&#x6700;&#x540E;&#x4E00;&#x6761;&#x8BED;&#x53E5;&#x8C03;&#x7528; <code>collect_poems</code> &#x51FD;&#x6570;,&#x5B83;&#x7B49;&#x5F85;&#x8BD7;&#x6B4C;&#x4F20;&#x56DE;&#x6765;&#x548C; <code>get_poetry</code> &#x8FDB;&#x7A0B;&#x7ED3;&#x675F;.&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x4E00;&#x4E0B;&#x5176;&#x4ED6;&#x51FD;&#x6570;,&#x4F46;&#x9996;&#x5148;&#x4F60;&#x53EF;&#x80FD;&#x4F1A;&#x5BF9;&#x6BD4;&#x4E00;&#x4E0B;Erlang&#x7684; <a href="https://github.com/jdavisp3/twisted-intro/blob/master/erlang-client-1/get-poetry#L96" target="_blank">main</a> &#x51FD;&#x6570;&#x4E0E;&#x7B49;&#x4EF7;&#x5730;Twisted&#x5BA2;&#x6237;&#x7AEF;&#x4E2D;&#x7684; <a href="https://github.com/jdavisp3/twisted-intro/blob/master/twisted-client-4/get-poetry.py#L96" target="_blank">main</a> &#x51FD;&#x6570;.</p>
+<p>&#x73B0;&#x5728;&#x8BA9;&#x6211;&#x4EEC;&#x770B;&#x4E00;&#x4E0B;Erlang&#x4E2D;&#x7684; <code>get_poetry</code> &#x51FD;&#x6570;.&#x4E8B;&#x5B9E;&#x4E0A;&#x5728;&#x6211;&#x4EEC;&#x7684;&#x811A;&#x672C;&#x4E2D;&#x6709;&#x4E24;&#x4E2A;&#x51FD;&#x6570;&#x53EB; <code>get_poetry</code>.&#x5728;Erlang&#x4E2D;,&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x88AB;&#x540D;&#x5B57;&#x548C;&#x5143;&#x6570;&#x540C;&#x65F6;&#x786E;&#x5B9A;,&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x7684;&#x811A;&#x672C;&#x5305;&#x542B;&#x4E24;&#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x51FD;&#x6570;, <code>get_poetry/3</code> &#x548C; <code>get_poetry/4</code>,&#x5B83;&#x4EEC;&#x5206;&#x522B;&#x63A5;&#x6536;3&#x4E2A;&#x6216;4&#x4E2A;&#x53C2;&#x6570;.&#x8FD9;&#x91CC;&#x662F; <a href="https://github.com/jdavisp3/twisted-intro/blob/master/erlang-client-1/get-poetry#L79" target="_blank">get_poetry/3</a>,&#x5B83;&#x662F;&#x88AB; <code>main</code> &#x751F;&#x6210;&#x7684;:</p>
+<pre><code class="lang-Erlang"><span class="hljs-function"><span class="hljs-title">get_poetry</span><span class="hljs-params">(Tasknum, Addr, Main)</span> -&gt;</span>
+    {Host, Port} = Addr,
+    {ok, Socket} = gen_tcp:connect(Host, Port,
+                                   [binary, {active, false}, {packet, <span class="hljs-number">0</span>}]),
+    get_poetry(Tasknum, Socket, Main, []).
+</code></pre>
+<p>&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x9996;&#x5148;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;TCP&#x8FDE;&#x63A5;,&#x5C31;&#x50CF;Twisted&#x5BA2;&#x6237;&#x7AEF;&#x4E2D;&#x7684; <code>get_poetry</code>.&#x4F46;&#x4E4B;&#x540E;,&#x4E0D;&#x662F;&#x8FD4;&#x56DE;,&#x800C;&#x662F;&#x7EE7;&#x7EED;&#x4F7F;&#x7528;&#x90A3;&#x4E2A;TCP&#x8FDE;&#x63A5;,&#x901A;&#x8FC7;&#x8C03;&#x7528; <a href="https://github.com/jdavisp3/twisted-intro/blob/master/erlang-client-1/get-poetry#L85" target="_blank">get_poetry/4</a>,&#x5982;&#x4E0B;:</p>
+<pre><code class="lang-Erlang"><span class="hljs-function"><span class="hljs-title">get_poetry</span><span class="hljs-params">(Tasknum, Socket, Main, Packets)</span> -&gt;</span>
+    <span class="hljs-keyword">case</span> gen_tcp:recv(Socket, <span class="hljs-number">0</span>) <span class="hljs-keyword">of</span>
+        {ok, Packet} -&gt;
+            io:format(<span class="hljs-string">&quot;Task ~w: got ~w bytes of poetry from ~s\n&quot;</span>,
+                      [Tasknum, size(Packet), peername(Socket)]),
+            get_poetry(Tasknum, Socket, Main, [Packet|Packets]);
+        {error, _} -&gt;
+            Main ! {poem, list_to_binary(lists:reverse(Packets))}
+    <span class="hljs-keyword">end</span>.
+</code></pre>
+<p>&#x8FD9;&#x4E2A;Erlang&#x51FD;&#x6570;&#x6B63;&#x5728;&#x505A;Twisted&#x5BA2;&#x6237;&#x7AEF;&#x4E2D; <code>PoetryProtocol</code> &#x7684;&#x5DE5;&#x4F5C;,&#x4E0D;&#x540C;&#x7684;&#x662F;&#x5B83;&#x4F7F;&#x7528;&#x963B;&#x585E;&#x51FD;&#x6570;&#x8C03;&#x7528;. <code>gen_tcp:recv</code> &#x51FD;&#x6570;&#x7B49;&#x5F85;&#x5728;&#x5957;&#x63A5;&#x5B57;&#x4E0A;&#x4E00;&#x4E9B;&#x6570;&#x636E;&#x7684;&#x5230;&#x6765;(&#x6216;&#x8005;&#x5957;&#x63A5;&#x5B57;&#x5173;&#x95ED;),&#x65E0;&#x8BBA;&#x8981;&#x7B49;&#x591A;&#x957F;&#x65F6;&#x95F4;.&#x4F46;Erlang&#x4E2D;&#x7684;&quot;&#x963B;&#x585E;&quot;&#x51FD;&#x6570;&#x4EC5;&#x963B;&#x585E;&#x6B63;&#x5728;&#x8FD0;&#x884C;&#x51FD;&#x6570;&#x7684;&#x8FDB;&#x7A0B;,&#x800C;&#x4E0D;&#x662F;&#x6574;&#x4E2A;Erlang&#x8FD0;&#x884C;&#x65F6;.&#x90A3;&#x4E2A;TCP&#x5957;&#x63A5;&#x5B57;&#x5E76;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x771F;&#x6B63;&#x7684;&#x963B;&#x585E;&#x5957;&#x63A5;&#x5B57;(&#x4F60;&#x4E0D;&#x80FD;&#x5728;&#x7EAF;Erlang&#x4EE3;&#x7801;&#x4E2D;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x771F;&#x6B63;&#x7684;&#x963B;&#x585E;&#x5957;&#x63A5;&#x5B57;).&#x5BF9;&#x4E8E;Erlang&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x5957;&#x63A5;&#x5B57;,&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x7684;&#x67D0;&#x5904;,&#x4E00;&#x4E2A;&quot;&#x771F;&#x6B63;&#x7684;&quot;TCP&#x5957;&#x63A5;&#x5B57;&#x88AB;&#x8BBE;&#x7F6E;&#x4E3A;&#x975E;&#x963B;&#x585E;&#x6A21;&#x578B;&#x5E76;&#x4E14;&#x7528;&#x4F5C;&#x9009;&#x62E9;&#x5FAA;&#x73AF;&#x7684;&#x4E00;&#x90E8;&#x5206;.</p>
+<p>&#x4F46;&#x662F;Erlang&#x8FDB;&#x7A0B;&#x5E76;&#x4E0D;&#x77E5;&#x9053;&#x8FD9;&#x4E9B;.&#x5B83;&#x4EC5;&#x4EC5;&#x7B49;&#x5F85;&#x4E00;&#x4E9B;&#x6570;&#x636E;&#x7684;&#x5230;&#x6765;,&#x5982;&#x679C;&#x963B;&#x585E;&#x4E86;,&#x5176;&#x4ED6;Erlang&#x8FDB;&#x7A0B;&#x4F1A;&#x4EE3;&#x66FF;&#x8FD0;&#x884C;.&#x751A;&#x81F3;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x4ECE;&#x4E0D;&#x963B;&#x585E;,Erlang&#x8FD0;&#x884C;&#x65F6;&#x53EF;&#x4EE5;&#x5728;&#x4EFB;&#x4F55;&#x65F6;&#x523B;&#x81EA;&#x7531;&#x5730;&#x5728;&#x8FDB;&#x7A0B;&#x95F4;&#x5207;&#x6362;.&#x6362;&#x53E5;&#x8BDD;&#x8BF4;,Erlang&#x5177;&#x6709;&#x4E00;&#x4E2A;&#x975E;&#x534F;&#x540C;&#x5E76;&#x53D1;&#x673A;&#x5236;.</p>
+<p>&#x6CE8;&#x610F; <code>get_poetry/4</code>,&#x5728;&#x6536;&#x5230;&#x4E00;&#x5C0F;&#x90E8;&#x5206;&#x8BD7;&#x6B4C;&#x540E;,&#x7EE7;&#x7EED;&#x9012;&#x5F52;&#x5730;&#x8C03;&#x7528;&#x5B83;&#x81EA;&#x5DF1;.&#x5BF9;&#x4E8E;&#x4E00;&#x4E2A;&#x6025;&#x8FEB;&#x7684;&#x8BED;&#x8A00;&#x7A0B;&#x5E8F;&#x5458;&#x8FD9;&#x770B;&#x8D77;&#x6765;&#x50CF;&#x8017;&#x5C3D;&#x5185;&#x5B58;&#x7684;&#x826F;&#x65B9;,&#x4F46;Erlang&#x7F16;&#x8BD1;&#x5668;&#x5374;&#x53EF;&#x4EE5;&#x4F18;&#x5316;&quot;&#x5C3E;&quot;&#x8C03;&#x7528;(&#x51FD;&#x6570;&#x8C03;&#x7528;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x4E2D;&#x7684;&#x6700;&#x540E;&#x4E00;&#x6761;&#x8BED;&#x53E5;)&#x4E3A;&#x5FAA;&#x73AF;.&#x8FD9;&#x7167;&#x4EAE;&#x4E86;&#x53C8;&#x4E00;&#x4E2A;&#x6709;&#x8DA3;&#x7684;Erlang&#x5BA2;&#x6237;&#x7AEF;&#x548C;Twisted&#x5BA2;&#x6237;&#x7AEF;&#x4E4B;&#x95F4;&#x7684;&#x5E73;&#x884C;&#x5BF9;&#x6BD4;.&#x5728;Twisted&#x5BA2;&#x6237;&#x7AEF;&#x4E2D;,&quot;&#x865A;&#x62DF;&quot;&#x5FAA;&#x73AF;&#x662F;&#x88AB; <code>reaactor</code> &#x521B;&#x5EFA;&#x7684;,&#x5B83;&#x4E00;&#x6B21;&#x53C8;&#x4E00;&#x6B21;&#x5730;&#x8C03;&#x7528;&#x76F8;&#x540C;&#x7684;&#x51FD;&#x6570;(<code>dataReceived</code>).&#x540C;&#x65F6;&#x5728;Erlang&#x5BA2;&#x6237;&#x7AEF;&#x4E2D;,&quot;&#x771F;&#x6B63;&quot;&#x7684;&#x8FD0;&#x884C;&#x8FDB;&#x7A0B;(<code>get_poetry/4</code>)&#x5F62;&#x6210;&#x901A;&#x8FC7;&quot;<a href="http://stackoverflow.com/questions/310974/what-is-tail-call-optimization" target="_blank">&#x5C3E;&#x8C03;&#x4F18;&#x5316;</a>&quot;&#x4E00;&#x6B21;&#x53C8;&#x4E00;&#x6B21;&#x8C03;&#x7528;&#x5B83;&#x4EEC;&#x81EA;&#x5DF1;&#x7684;&#x5FAA;&#x73AF;.</p>
+<p>&#x5982;&#x679C;&#x8FDE;&#x63A5;&#x5173;&#x95ED;&#x4E86;, <code>get_poetry</code> &#x505A;&#x7684;&#x6700;&#x540E;&#x4E00;&#x4EF6;&#x4E8B;&#x60C5;&#x662F;&#x628A;&#x8BD7;&#x6B4C;&#x53D1;&#x9001;&#x5230;&#x4E3B;&#x8FDB;&#x7A0B;.&#x540C;&#x65F6;&#x7ED3;&#x675F; <code>get_poetry</code> &#x6B63;&#x5728;&#x8FD0;&#x884C;&#x7684;&#x8FDB;&#x7A0B;,&#x56E0;&#x4E3A;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x53EF;&#x505A;&#x7684;&#x4E86;.</p>
+<p>&#x6211;&#x4EEC;Erlang&#x5BA2;&#x6237;&#x7AEF;&#x4E2D;&#x5269;&#x4E0B;&#x7684;&#x5173;&#x952E;&#x51FD;&#x6570;&#x662F; <a href="https://github.com/jdavisp3/twisted-intro/blob/master/erlang-client-1/get-poetry#L58" target="_blank">collect_poems</a>:</p>
+<pre><code class="lang-Erlang"><span class="hljs-function"><span class="hljs-title">collect_poems</span><span class="hljs-params">(<span class="hljs-number">0</span>, Poems)</span> -&gt;</span>
+    [io:format(<span class="hljs-string">&quot;~s\n&quot;</span>, [P]) || P &lt;- Poems];
+<span class="hljs-function"><span class="hljs-title">collect_poems</span><span class="hljs-params">(N, Poems)</span> -&gt;</span>
+    <span class="hljs-keyword">receive</span>
+        {&apos;DOWN&apos;, _, _, _, _} -&gt;
+            collect_poems(N-<span class="hljs-number">1</span>, Poems);
+        {poem, Poem} -&gt;
+            collect_poems(N, [Poem|Poems])
+    <span class="hljs-keyword">end</span>.
+</code></pre>
+<p>&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x88AB;&#x4E3B;&#x8FDB;&#x7A0B;&#x8FD0;&#x884C;,&#x5C31;&#x50CF; <code>get_poetry</code>,&#x5B83;&#x5BF9;&#x81EA;&#x8EAB;&#x9012;&#x5F52;&#x5FAA;&#x73AF;.&#x5B83;&#x540C;&#x6837;&#x963B;&#x585E;. <code>receive</code> &#x544A;&#x8BC9;&#x8FDB;&#x7A0B;&#x7B49;&#x5F85;&#x7B26;&#x5408;&#x7ED9;&#x5B9A;&#x6A21;&#x5F0F;&#x7684;&#x6D88;&#x606F;&#x5230;&#x6765;,&#x5E76;&#x4E14;&#x4ECE;&quot;&#x4FE1;&#x7BB1;&quot;&#x4E2D;&#x63D0;&#x53D6;&#x6D88;&#x606F;.</p>
+<p><code>collect_poems</code> &#x51FD;&#x6570;&#x7B49;&#x5F85;&#x4E24;&#x79CD;&#x6D88;&#x606F;: &#x8BD7;&#x6B4C;&#x548C;&quot;DOWN&quot;&#x901A;&#x77E5;.&#x540E;&#x8005;&#x662F;&#x53D1;&#x9001;&#x7ED9;&#x4E3B;&#x8FDB;&#x7A0B;&#x7684;, &#x5F53; <code>get_poetry</code> &#x8FDB;&#x7A0B;&#x4E4B;&#x4E00;&#x7531;&#x4E8E;&#x67D0;&#x79CD;&#x539F;&#x56E0;&#x6B7B;&#x4E86;&#x7684;&#x60C5;&#x51B5;&#x53D1;&#x9001;(&#x8FD9;&#x662F; <code>spawn_monitor</code> &#x7684;&#x76D1;&#x63A7;&#x90E8;&#x5206;).&#x901A;&#x8FC7;&#x6570; DOWN &#x6D88;&#x606F;,&#x6211;&#x4EEC;&#x77E5;&#x9053;&#x4F55;&#x65F6;&#x6240;&#x6709;&#x7684;&#x8BD7;&#x6B4C;&#x90FD;&#x7ED3;&#x675F;&#x4E86;. &#x524D;&#x8005;&#x662F;&#x6765;&#x81EA; <code>get_poetry</code> &#x8FDB;&#x7A0B;&#x7684;&#x5305;&#x542B;&#x5B8C;&#x6574;&#x8BD7;&#x6B4C;&#x7684;&#x6D88;&#x606F;.</p>
+<p>OK,&#x8BA9;&#x6211;&#x4EEC;&#x8FD0;&#x884C;&#x4E00;&#x4E0B;Erlang&#x5BA2;&#x6237;&#x7AEF;.&#x9996;&#x5148;&#x542F;&#x52A8;3&#x4E2A;&#x6162;&#x901F;&#x670D;&#x52A1;&#x5668;:</p>
+<pre><code>python blocking-server/slowpoetry.py --port 10001 poetry/fascination.txt
+python blocking-server/slowpoetry.py --port 10002 poetry/science.txt
+python blocking-server/slowpoetry.py --port 10003 poetry/ecstasy.txt --num-bytes 30
+</code></pre><p>&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8FD0;&#x884C;Erlang&#x5BA2;&#x6237;&#x7AEF;&#x4E86;,&#x4E0E;Python&#x5BA2;&#x6237;&#x7AEF;&#x6709;&#x76F8;&#x4F3C;&#x7684;&#x547D;&#x4EE4;&#x884C;&#x8BED;&#x6CD5;.&#x5982;&#x679C;&#x4F60;&#x5728;Linux&#x6216;&#x5176;&#x4ED6;UNIX-&#x6837;&#x7684;&#x7CFB;&#x7EDF;,&#x4F60;&#x5E94;&#x8BE5;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8FD0;&#x884C;&#x5BA2;&#x6237;&#x7AEF;(&#x5047;&#x8BBE;&#x4F60;&#x5B89;&#x88C5;&#x4E86;Erlang&#x5E76;&#x4F7F;&#x5F97;&#x5B83;&#x5728;&#x4F60;&#x7684;PATH&#x4E0A;).&#x5728;Windows&#x4E2D;,&#x4F60;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x8FD0;&#x884C; <code>escript</code> &#x7A0B;&#x5E8F;,&#x5C06;&#x6307;&#x5411;Erlang&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x8DEF;&#x5F84;&#x4F5C;&#x4E3A;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;(&#x5176;&#x4ED6;&#x53C2;&#x6570;&#x7559;&#x7ED9;Erlang&#x5BA2;&#x6237;&#x7AEF;&#x81EA;&#x8EAB;&#x7684;&#x53C2;&#x6570;).</p>
+<pre><code>./erlang-client-1/get-poetry 10001 10002 10003
+</code></pre><p>&#x4E4B;&#x540E;,&#x4F60;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x5982;&#x4E0B;&#x8F93;&#x51FA;:</p>
+<pre><code>Task 3: got 30 bytes of poetry from 127:0:0:1:10003
+Task 2: got 10 bytes of poetry from 127:0:0:1:10002
+Task 1: got 10 bytes of poetry from 127:0:0:1:10001
+...
+</code></pre><p>&#x8FD9;&#x5C31;&#x50CF;&#x4E4B;&#x524D;&#x7684;Python&#x5BA2;&#x6237;&#x7AEF;&#x4E4B;&#x4E00;,&#x6253;&#x5370;&#x6211;&#x4EEC;&#x5F97;&#x5230;&#x7684;&#x6BCF;&#x4E00;&#x5C0F;&#x90E8;&#x5206;&#x8BD7;&#x6B4C;&#x7684;&#x4FE1;&#x606F;.&#x5F53;&#x6240;&#x6709;&#x8BD7;&#x6B4C;&#x90FD;&#x7ED3;&#x675F;&#x540E;,&#x5BA2;&#x6237;&#x7AEF;&#x5E94;&#x8BE5;&#x6253;&#x5370;&#x6BCF;&#x9996;&#x8BD7;&#x7684;&#x5B8C;&#x6574;&#x5185;&#x5BB9;.&#x6CE8;&#x610F;&#x5BA2;&#x6237;&#x7AEF;&#x5728;&#x6240;&#x6709;&#x670D;&#x52A1;&#x5668;&#x4E4B;&#x95F4;&#x5207;&#x6362;,&#x8FD9;&#x53D6;&#x51B3;&#x4E8E;&#x54EA;&#x4E2A;&#x670D;&#x52A1;&#x5668;&#x53EF;&#x4EE5;&#x53D1;&#x9001;&#x8BD7;&#x6B4C;.</p>
+<p>&#x56FE;45&#x5C55;&#x793A;&#x4E86;Erlang&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x8FDB;&#x7A0B;&#x7ED3;&#x6784;:</p>
+<div style="text-align: center"><img src="_static/p20_erlang-3.png" title="Erlang&#x8BD7;&#x6B4C;&#x5BA2;&#x6237;&#x7AEF;" alt="Erlang&#x8BD7;&#x6B4C;&#x5BA2;&#x6237;&#x7AEF;"></div>
+<div style="text-align: center">&#x56FE;45 Erlang&#x8BD7;&#x6B4C;&#x5BA2;&#x6237;&#x7AEF;</div>
+
+<p>&#x8FD9;&#x5F20;&#x56FE;&#x663E;&#x793A;&#x4E86;3&#x4E2A; <code>get_poetry</code> &#x8FDB;&#x7A0B;(&#x6BCF;&#x4E2A;&#x670D;&#x52A1;&#x5668;&#x4E00;&#x4E2A;)&#x548C;&#x4E00;&#x4E2A;&#x4E3B;&#x8FDB;&#x7A0B;.&#x4F60;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x6D88;&#x606F;&#x4ECE;&#x8BD7;&#x6B4C;&#x8FDB;&#x7A0B;&#x6D41;&#x5411;&#x4E3B;&#x8FDB;&#x7A0B;.</p>
+<p>&#x90A3;&#x4E48;&#x5F53;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#x5668;&#x5931;&#x8D25;&#x4E86;&#x4F1A;&#x53D1;&#x751F;&#x4EC0;&#x4E48;&#x5462;? &#x8BA9;&#x6211;&#x4EEC;&#x8BD5;&#x8BD5;:</p>
+<pre><code>./erlang-client-1/get-poetry 10001 10005
+</code></pre><p>&#x4E0A;&#x9762;&#x547D;&#x4EE4;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x6D3B;&#x52A8;&#x7684;&#x7AEF;&#x53E3;(&#x5047;&#x8BBE;&#x4F60;&#x6CA1;&#x6709;&#x7EC8;&#x6B62;&#x4E4B;&#x524D;&#x7684;&#x8BD7;&#x6B4C;&#x670D;&#x52A1;&#x5668;)&#x548C;&#x4E00;&#x4E2A;&#x672A;&#x6FC0;&#x6D3B;&#x7684;&#x7AEF;&#x53E3;(&#x5047;&#x8BBE;&#x4F60;&#x6CA1;&#x6709;&#x5728;10005&#x7AEF;&#x53E3;&#x8FD0;&#x884C;&#x4EFB;&#x4E00;&#x670D;&#x52A1;&#x5668;). &#x6211;&#x4EEC;&#x5F97;&#x5230;&#x5982;&#x4E0B;&#x8F93;&#x51FA;:</p>
+<pre><code>Task 1: got 10 bytes of poetry from 127:0:0:1:10001
+
+=ERROR REPORT==== 25-Sep-2010::21:02:10 ===
+Error in process &lt;0.33.0&gt; with exit value: {{badmatch,{error,econnrefused}},[{erl_eval,expr,3}]}
+
+Task 1: got 10 bytes of poetry from 127:0:0:1:10001
+Task 1: got 10 bytes of poetry from 127:0:0:1:10001
+...
+</code></pre><p>&#x6700;&#x7EC8;&#x5BA2;&#x6237;&#x7AEF;&#x4ECE;&#x6D3B;&#x52A8;&#x7684;&#x670D;&#x52A1;&#x5668;&#x5B8C;&#x6210;&#x8BD7;&#x6B4C;&#x4E0B;&#x8F7D;,&#x6253;&#x5370;&#x51FA;&#x8BD7;&#x6B4C;&#x5E76;&#x9000;&#x51FA;.&#x90A3;&#x4E48; <code>main</code> &#x51FD;&#x6570;&#x662F;&#x600E;&#x6837;&#x5F97;&#x77E5;&#x90A3;&#x4E24;&#x4E2A;&#x8FDB;&#x7A0B;&#x5B8C;&#x6210;&#x5DE5;&#x4F5C;&#x4E86;? &#x90A3;&#x4E2A;&#x9519;&#x8BEF;&#x6D88;&#x606F;&#x5C31;&#x662F;&#x7EBF;&#x7D22;. &#x8FD9;&#x4E2A;&#x9519;&#x8BEF;&#x6765;&#x81EA;&#x5F53; <code>get_poetry</code> &#x5C1D;&#x8BD5;&#x8FDE;&#x63A5;&#x5230;&#x670D;&#x52A1;&#x5668;&#x65F6;&#x6CA1;&#x6709;&#x5F97;&#x5230;&#x671F;&#x671B;&#x7684;&#x503C;({ok, Socket}),&#x800C;&#x662F;&#x5F97;&#x5230;&#x4E00;&#x4E2A;&#x8FDE;&#x63A5;&#x88AB;&#x62D2;&#x7EDD;&#x7684;&#x9519;&#x8BEF;.</p>
+<p>Erlang&#x8FDB;&#x7A0B;&#x4E2D;&#x4E00;&#x4E2A;&#x672A;&#x5904;&#x7406;&#x7684;&#x5F02;&#x5E38;&#x5C06;&#x4F7F;&#x5176;&quot;&#x5D29;&#x6E83;&quot;,&#x8FD9;&#x610F;&#x5473;&#x7740;&#x8FDB;&#x7A0B;&#x505C;&#x6B62;&#x8FD0;&#x884C;&#x5E76;&#x4E14;&#x5B83;&#x4EEC;&#x6240;&#x6709;&#x8D44;&#x6E90;&#x88AB;&#x56DE;&#x6536;&#x4E86;.&#x4F46;&#x4E3B;&#x8FDB;&#x7A0B;,&#x5B83;&#x76D1;&#x89C6;&#x6240;&#x6709; <code>get_poetry</code> &#x8FDB;&#x7A0B;,&#x5F53;&#x4EFB;&#x4F55;&#x8FDB;&#x7A0B;&#x65E0;&#x8BBA;&#x56E0;&#x4E3A;&#x4F55;&#x79CD;&#x539F;&#x56E0;&#x505C;&#x6B62;&#x8FD0;&#x884C;&#x65F6;&#x5C06;&#x6536;&#x5230;&#x4E00;&#x4E2A;DOWN&#x6D88;&#x606F;.&#x8FD9;&#x6837;,&#x6211;&#x4EEC;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x5C31;&#x9000;&#x51FA;&#x4E86;&#x800C;&#x4E0D;&#x662F;&#x4E00;&#x76F4;&#x8FD0;&#x884C;&#x4E0B;&#x53BB;.</p>
+<h3 id="&#x8BA8;&#x8BBA;">&#x8BA8;&#x8BBA;</h3>
+<p>&#x8BA9;&#x6211;&#x4EEC;&#x603B;&#x7ED3;&#x4E00;&#x4E0B;Twisted&#x548C;Erlang&#x5BA2;&#x6237;&#x7AEF;&#x5173;&#x4E8E;&#x5E76;&#x884C;&#x5316;&#x7684;&#x7279;&#x70B9;:</p>
+<ol>
+<li>&#x5B83;&#x4EEC;&#x90FD;&#x662F;&#x540C;&#x65F6;&#x8FDE;&#x63A5;&#x5230;&#x6240;&#x6709;&#x8BD7;&#x6B4C;&#x670D;&#x52A1;&#x5668;(&#x6216;&#x5C1D;&#x8BD5;&#x8FDE;&#x63A5;).</li>
+<li>&#x5B83;&#x4EEC;&#x90FD;&#x662F;&#x4ECE;&#x670D;&#x52A1;&#x5668;&#x7ACB;&#x523B;&#x63A5;&#x6536;&#x8BD7;&#x6B4C;,&#x65E0;&#x8BBA;&#x662F;&#x54EA;&#x4E2A;&#x670D;&#x52A1;&#x5668;&#x53D1;&#x9001;&#x7684;.</li>
+<li>&#x5B83;&#x4EEC;&#x90FD;&#x662F;&#x4EE5;&#x5C0F;&#x6BB5;&#x65B9;&#x5F0F;&#x5904;&#x7406;&#x8BD7;&#x6B4C;,&#x56E0;&#x6B64;&#x5FC5;&#x987B;&#x4FDD;&#x5B58;&#x8FC4;&#x4ECA;&#x4E3A;&#x6B62;&#x6536;&#x5230;&#x7684;&#x8BD7;&#x6B4C;&#x7684;&#x4E00;&#x90E8;&#x5206;.</li>
+<li>&#x5B83;&#x4EEC;&#x90FD;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&quot;&#x5BF9;&#x8C61;&quot;(&#x6216;&#x8005;Python&#x5BF9;&#x8C61;&#x6216;&#x8005;Erlang&#x8FDB;&#x7A0B;)&#x6765;&#x4E3A;&#x4E00;&#x4E2A;&#x7279;&#x5B9A;&#x670D;&#x52A1;&#x5668;&#x5904;&#x7406;&#x6240;&#x6709;&#x5DE5;&#x4F5C;.</li>
+<li>&#x5B83;&#x4EEC;&#x90FD;&#x9700;&#x8981;&#x5C0F;&#x5FC3;&#x5730;&#x786E;&#x5B9A;&#x8BD7;&#x6B4C;&#x4F55;&#x65F6;&#x7ED3;&#x675F;,&#x65E0;&#x8BBA;&#x4E00;&#x4E2A;&#x7279;&#x5B9A;&#x7684;&#x4E0B;&#x8F7D;&#x6210;&#x529F;&#x4E0E;&#x5426;.</li>
+</ol>
+<p>&#x5728;&#x6700;&#x540E;, &#x4E24;&#x4E2A;&#x5BA2;&#x6237;&#x7AEF;&#x4E2D;&#x7684; <code>main</code> &#x51FD;&#x6570;&#x5F02;&#x6B65;&#x5730;&#x63A5;&#x6536;&#x8BD7;&#x6B4C;&#x548C;&quot;&#x4EFB;&#x52A1;&#x5B8C;&#x6210;&quot;&#x901A;&#x77E5;.&#x5728;Twisted&#x5BA2;&#x6237;&#x7AEF;&#x4E2D;&#x8FD9;&#x4E2A;&#x4FE1;&#x606F;&#x662F;&#x901A;&#x8FC7; <code>Deferred</code> &#x53D1;&#x9001;&#x7684;,&#x800C;&#x5728;Erlang&#x4E2D;&#x5BA2;&#x6237;&#x7AEF;&#x63A5;&#x6536;&#x6765;&#x81EA;&#x5185;&#x90E8;&#x8FDB;&#x7A0B;&#x6D88;&#x606F;.</p>
+<p>&#x6CE8;&#x610F;&#x5230;&#x4E24;&#x4E2A;&#x5BA2;&#x6237;&#x7AEF;&#x975E;&#x5E38;&#x50CF;,&#x65E0;&#x8BBA;&#x5B83;&#x4EEC;&#x7684;&#x6574;&#x4F53;&#x7B56;&#x7565;&#x8FD8;&#x662F;&#x4EE3;&#x7801;&#x67B6;&#x6784;.&#x4F46;&#x673A;&#x7406;&#x6709;&#x4E00;&#x70B9;&#x70B9;&#x4E0D;&#x540C;,&#x4E00;&#x4E2A;&#x662F;&#x4F7F;&#x7528;&#x5BF9;&#x8C61;, <code>deferreds</code> &#x548C;&#x56DE;&#x8C03;,&#x53E6;&#x4E00;&#x4E2A;&#x662F;&#x4F7F;&#x7528;&#x8FDB;&#x7A0B;&#x548C;&#x6D88;&#x606F;.&#x7136;&#x800C;&#x5728;&#x9AD8;&#x5C42;&#x7684;&#x601D;&#x60F3;&#x6A21;&#x578B;&#x65B9;&#x9762;,&#x4E24;&#x4E2A;&#x5BA2;&#x6237;&#x7AEF;&#x662F;&#x5341;&#x5206;&#x76F8;&#x4F3C;&#x7684;,&#x5982;&#x679C;&#x4F60;&#x719F;&#x6089;&#x4E24;&#x79CD;&#x8BED;&#x8A00;&#x53EF;&#x4EE5;&#x5F88;&#x65B9;&#x4FBF;&#x5730;&#x628A;&#x4E00;&#x79CD;&#x8F6C;&#x5316;&#x4E3A;&#x53E6;&#x4E00;&#x79CD;.</p>
+<p>&#x751A;&#x81F3; <code>reactor</code> &#x6A21;&#x5F0F;&#x5728;Erlang&#x5BA2;&#x6237;&#x7AEF;&#x4E2D;&#x4EE5;&#x5C0F;&#x578B;&#x5316;&#x5F62;&#x5F0F;&#x91CD;&#x73B0;.&#x6211;&#x4EEC;&#x8BD7;&#x6B4C;&#x5BA2;&#x6237;&#x7AEF;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;Erlang&#x8FDB;&#x7A0B;&#x7EC8;&#x7A76;&#x8F6C;&#x53D8;&#x4E3A;&#x4E00;&#x4E2A;&#x9012;&#x5F52;&#x5FAA;&#x73AF;:</p>
+<ol>
+<li>&#x7B49;&#x5F85;&#x4E00;&#x4E9B;&#x4E8B;&#x60C5;&#x53D1;&#x751F;(&#x4E00;&#x5C0F;&#x90E8;&#x5206;&#x8BD7;&#x6B4C;&#x5230;&#x6765;,&#x4E00;&#x9996;&#x8BD7;&#x4F20;&#x9012;&#x5B8C;&#x6BD5;,&#x53E6;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x7ED3;&#x675F;),&#x4EE5;&#x53CA;</li>
+<li>&#x91C7;&#x53D6;&#x76F8;&#x5E94;&#x7684;&#x884C;&#x52A8;.</li>
+</ol>
+<p>&#x4F60;&#x53EF;&#x4EE5;&#x628A; Erlang &#x7A0B;&#x5E8F;&#x89C6;&#x4F5C;&#x4E00;&#x7CFB;&#x5217;&#x5C0F; <code>reactor</code> &#x7684;&#x5927;&#x96C6;&#x5408;,&#x6BCF;&#x4E2A;&#x90FD;&#x81EA;&#x5DF1;&#x65CB;&#x8F6C;&#x7740;&#x5E76;&#x4E14;&#x5076;&#x5C14;&#x5411;&#x53E6;&#x4E00;&#x4E2A;&#x5C0F; <code>reactor</code> &#x53D1;&#x9001;&#x4E00;&#x4E2A;&#x4FE1;&#x606F;(&#x5B83;&#x5C06;&#x4EE5;&#x53E6;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;&#x6765;&#x5904;&#x7406;&#x8FD9;&#x4E2A;&#x4FE1;&#x606F;).</p>
+<p>&#x53E6;&#x5916;&#x5982;&#x679C;&#x4F60;&#x66F4;&#x52A0;&#x6DF1;&#x5165;Erlang,&#x4F60;&#x5C06;&#x53D1;&#x73B0;&#x56DE;&#x8C03;&#x9732;&#x9762;&#x4E86;. Erlang&#x7684; <a href="http://www.erlang.org/doc/man/gen_server.html" target="_blank">gen_server</a> &#x8FDB;&#x7A0B;&#x662F;&#x4E00;&#x4E2A;&#x901A;&#x7528;&#x7684; <code>reactor</code> &#x5FAA;&#x73AF;,&#x4F60;&#x53EF;&#x4EE5;&#x7528;&#x4E00;&#x7CFB;&#x5217;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x6765;&quot;&#x5B9E;&#x4F8B;&#x5316;&quot;&#x5B83;,&#x8FD9;&#x662F;&#x4E00;&#x79CD;&#x5728;Erlang&#x7CFB;&#x7EDF;&#x4E2D;&#x91CD;&#x590D;&#x51FA;&#x73B0;&#x7684;&#x6A21;&#x5F0F;.</p>
+<h3 id="&#x8FDB;&#x4E00;&#x6B65;&#x9605;&#x8BFB;">&#x8FDB;&#x4E00;&#x6B65;&#x9605;&#x8BFB;</h3>
+<p>&#x5728;&#x8FD9;&#x4E2A;&#x90E8;&#x5206;&#x6211;&#x4EEC;&#x5173;&#x6CE8;Twisted&#x4E0E;Erlang&#x7684;&#x76F8;&#x4F3C;&#x6027;,&#x4F46;&#x5B83;&#x4EEC;&#x6BD5;&#x7ADF;&#x6709;&#x5F88;&#x591A;&#x4E0D;&#x540C;.Erlang&#x7684;&#x4E00;&#x4E2A;&#x72EC;&#x7279;&#x7279;&#x6027;&#x4E4B;&#x4E00;&#x662F;&#x5B83;&#x5904;&#x7406;&#x9519;&#x8BEF;&#x7684;&#x65B9;&#x5F0F;.&#x4E00;&#x4E2A;&#x5927;&#x7684;Erlang&#x7A0B;&#x5E8F;&#x88AB;&#x7ED3;&#x6784;&#x5316;&#x4E3A;&#x4E00;&#x4E2A;&#x6811;&#x5F62;&#x7ED3;&#x6784;&#x7684;&#x8FDB;&#x7A0B;&#x7EC4;,&#x5728;&#x9AD8;&#x4E00;&#x5C42;&#x6709;&quot;&#x76D1;&#x7BA1;&#x8005;&quot;,&#x5728;&#x53F6;&#x5B50;&#x4E0A;&#x6709;&quot;&#x5DE5;&#x4F5C;&#x8005;&quot;.&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x5D29;&#x6E83;&#x4E86;,&#x76D1;&#x7BA1;&#x8FDB;&#x7A0B;&#x4F1A;&#x6CE8;&#x610F;&#x5230;&#x5E76;&#x91C7;&#x53D6;&#x76F8;&#x5E94;&#x884C;&#x52A8;(&#x901A;&#x5E38;&#x91CD;&#x542F;&#x5931;&#x8D25;&#x7684;&#x8FDB;&#x7A0B;).</p>
+<p>&#x5982;&#x679C;&#x4F60;&#x6709;&#x5174;&#x8DA3;&#x5B66;&#x4E60;Erlang,&#x90A3;&#x4E48;&#x5F88;&#x5E78;&#x8FD0;.&#x8BB8;&#x591A;&#x5173;&#x4E8E;Erlang&#x7684;&#x4E66;&#x5DF2;&#x7ECF;&#x51FA;&#x7248;&#x6216;&#x5C06;&#x8981;&#x51FA;&#x7248;:</p>
+<ul>
+<li><a href="http://www.amazon.com/exec/obidos/ASIN/193435600X/krondonet-20" target="_blank">Programming Erlang</a> &#x2014;&#x2014; &#x4F5C;&#x8005;&#x662F;Erlang&#x7684;&#x53D1;&#x660E;&#x8005;&#x4E4B;&#x4E00;.&#x8FD9;&#x4E2A;&#x8BED;&#x8A00;&#x7684;&#x7CBE;&#x5F69;&#x5165;&#x95E8;.</li>
+<li><a href="http://www.amazon.com/exec/obidos/ASIN/0596518188/krondonet-20" target="_blank">Erlang Programming</a> &#x2014;&#x2014; &#x6B64;&#x4E66;&#x8865;&#x5145;&#x4E86; <code>Armstrong</code> &#x7684;&#x4E66;,&#x5E76;&#x4E14;&#x5728;&#x8BB8;&#x591A;&#x5173;&#x952E;&#x90E8;&#x5206;&#x6DF1;&#x5165;&#x66F4;&#x591A;&#x7EC6;&#x8282;.</li>
+<li><a href="http://www.amazon.com/exec/obidos/ASIN/1933988789/krondonet-20" target="_blank">Erlang and OTP in Action</a> &#x2014;&#x2014; &#x6B64;&#x4E66;&#x5C1A;&#x672A;&#x51FA;&#x7248;,&#x4F46;&#x6211;&#x6B63;&#x5728;&#x7B49;&#x5F85;.&#x524D;&#x4E24;&#x672C;&#x4E66;&#x90FD;&#x6CA1;&#x6709;&#x4ECB;&#x7ECD;OTP,&#x6784;&#x9020;&#x5927;&#x578B;&#x5E94;&#x7528;&#x7684;Erlang&#x6846;&#x67B6;.&#x5B8C;&#x5168;&#x62AB;&#x9732;:&#x8FD9;&#x672C;&#x4E66;&#x7684;&#x4E24;&#x4E2A;&#x4F5C;&#x8005;&#x662F;&#x6211;&#x7684;&#x670B;&#x53CB;.</li>
+</ul>
+<p>&#x5173;&#x4E8E;Erlang&#x5148;&#x5C31;&#x8FD9;&#x4E48;&#x591A;.&#x5728; &#x4E0B;&#x4E00;&#x90E8;&#x5206; &#x6211;&#x4EEC;&#x4F1A;&#x770B;&#x4E00;&#x770B;Haskell,&#x53E6;&#x4E00;&#x79CD;&#x51FD;&#x6570;&#x5F0F;&#x8BED;&#x8A00;,&#x4E0E;Python&#x548C;Erlang&#x7684;&#x611F;&#x89C9;&#x90FD;&#x4E0D;&#x540C;.&#x4F46;&#x6211;&#x4EEC;&#x5C06;&#x52AA;&#x529B;&#x53BB;&#x53D1;&#x73B0;&#x4E00;&#x4E9B;&#x5171;&#x540C;&#x70B9;.</p>
+<h3 id="&#x5EFA;&#x8BAE;&#x7EC3;&#x4E60;&#x4E3A;&#x9AD8;&#x5EA6;&#x70ED;&#x60C5;&#x7684;&#x4EBA;">&#x5EFA;&#x8BAE;&#x7EC3;&#x4E60;(&#x4E3A;&#x9AD8;&#x5EA6;&#x70ED;&#x60C5;&#x7684;&#x4EBA;)</h3>
+<ol>
+<li>&#x6D4F;&#x89C8;Erlang&#x548C;Python&#x5BA2;&#x6237;&#x7AEF;,&#x5E76;&#x4E14;&#x786E;&#x5B9A;&#x5B83;&#x4EEC;&#x5728;&#x54EA;&#x91CC;&#x76F8;&#x540C;&#x54EA;&#x91CC;&#x4E0D;&#x540C;.&#x5B83;&#x4EEC;&#x662F;&#x600E;&#x6837;&#x5904;&#x7406;&#x9519;&#x8BEF;&#x7684;(&#x6BD4;&#x5982;&#x8FDE;&#x63A5;&#x5230;&#x8BD7;&#x6B4C;&#x670D;&#x52A1;&#x5668;&#x7684;&#x4E00;&#x4E2A;&#x9519;&#x8BEF;)?</li>
+<li>&#x7B80;&#x5316;Erlang&#x5BA2;&#x6237;&#x7AEF;&#x4EE5;&#x4FBF;&#x5B83;&#x4E0D;&#x518D;&#x6253;&#x5370;&#x5230;&#x6765;&#x7684;&#x8BD7;&#x6B4C;&#x7247;&#x6BB5;(&#x6545;&#x800C;&#x4F60;&#x4E5F;&#x4E0D;&#x9700;&#x8981;&#x8DDF;&#x8E2A;&#x4EFB;&#x52A1;&#x53F7;).</li>
+<li>&#x4FEE;&#x6539;Erlang&#x5BA2;&#x6237;&#x7AEF;&#x6765;&#x8BA1;&#x91CF;&#x4E0B;&#x8F7D;&#x6BCF;&#x4E2A;&#x8BD7;&#x6B4C;&#x6240;&#x7528;&#x7684;&#x65F6;&#x95F4;.</li>
+<li>&#x4FEE;&#x6539;Erlang&#x5BA2;&#x6237;&#x7AEF;&#x6253;&#x5370;&#x8BD7;&#x6B4C;,&#x5E76;&#x4F7F;&#x8BD7;&#x6B4C;&#x7684;&#x987A;&#x5E8F;&#x4E0E;&#x5B83;&#x4EEC;&#x5728;&#x547D;&#x4EE4;&#x884C;&#x7ED9;&#x5B9A;&#x7684;&#x76F8;&#x540C;.</li>
+<li>&#x4FEE;&#x6539;Erlang&#x5BA2;&#x6237;&#x7AEF;&#x6765;&#x6253;&#x5370;&#x4E00;&#x4E2A;&#x66F4;&#x52A0;&#x53EF;&#x8BFB;&#x7684;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x5F53;&#x6211;&#x4EEC;&#x4E0D;&#x80FD;&#x8FDE;&#x63A5;&#x5230;&#x8BD7;&#x6B4C;&#x670D;&#x52A1;&#x5668;&#x65F6;.</li>
+<li>&#x5199;&#x4E00;&#x4E2A;Erlang&#x7248;&#x672C;&#x7684;&#x8BD7;&#x6B4C;&#x670D;&#x52A1;&#x5668;&#x6B63;&#x5982;&#x6211;&#x4EEC;&#x5728;Twisted&#x4E2D;&#x5199;&#x7684;.</li>
+</ol>
+<h3 id="&#x53C2;&#x8003;">&#x53C2;&#x8003;</h3>
+<p>&#x672C;&#x90E8;&#x5206;&#x539F;&#x4F5C;&#x53C2;&#x89C1;: dave @ <a href="http://krondo.com/blog/?p=2692" target="_blank">http://krondo.com/blog/?p=2692</a></p>
+<p>&#x672C;&#x90E8;&#x5206;&#x7FFB;&#x8BD1;&#x5185;&#x5BB9;&#x53C2;&#x89C1;luocheng @ <a href="https://github.com/luocheng/twisted-intro-cn/blob/master/p20.rst" target="_blank">https://github.com/luocheng/twisted-intro-cn/blob/master/p20.rst</a></p>
+<footer class="page-footer"><span class="copyright">powered by Gitbook</span><span class="footer-modification">&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2021-12-19 11:14:28
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="p19.html" class="navigation navigation-prev " aria-label="Previous page: 取消之前的意图">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="p21.html" class="navigation navigation-next " aria-label="Next page: 惰性不是迟缓: Twisted和Haskell">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"轮子内的轮子: Twisted和Erlang","level":"1.21","depth":1,"next":{"title":"惰性不是迟缓: Twisted和Haskell","level":"1.22","depth":1,"path":"p21.md","ref":"p21.md","articles":[]},"previous":{"title":"取消之前的意图","level":"1.20","depth":1,"path":"p19.md","ref":"p19.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-sharing-plus","-livereload","highlight","search-pro","github","back-to-top-button","code","splitter","tbfed-pagefooter","fontsettings"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"modify_label":"修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/likebeta"},"splitter":{},"search-pro":{"cutWordLib":"nodejieba"},"code":{"copyButtons":true},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"back-to-top-button":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"likebeta","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Twisted与异步编程入门","language":"zh","links":{"sidebar":{"代码仓库":"https://github.com/likebeta/twisted-intro-cn"}},"gitbook":"*","description":"Twisted与异步编程入门"},"file":{"path":"p20.md","mtime":"2021-12-19T11:14:28.520Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-12-19T11:17:49.681Z"},"basePath":".","book":{"language":"zh"}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
