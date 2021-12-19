@@ -15,7 +15,8 @@
         "back-to-top-button",
         "code",
         "splitter",
-        "tbfed-pagefooter"
+        "tbfed-pagefooter",
+        "fontsettings"
     ],
     "pluginsConfig": {
         "tbfed-pagefooter": {

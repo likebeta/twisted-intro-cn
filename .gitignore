@@ -1,2 +1,4 @@
 /_book/
 /.idea/
+/.vscode/
+/node_modules/
