@@ -1,0 +1,22 @@
+name: gitbook-to-github-pages
+on:
+  push:
+    branches: [master]
+jobs:
+  build-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build
+        run: |
+          docker pull hkccr.ccs.tencentyun.com/likebeta/gitbook
+          docker tag hkccr.ccs.tencentyun.com/likebeta/gitbook likebeta/gitbook
+          docker run -v ${PWD}:/gitbook likebeta/gitbook gitbook install
+          docker run -v ${PWD}:/gitbook likebeta/gitbook gitbook build
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@4.1.8
+        with:
+          branch: gh-pages
+          folder: _book
+          ssh-key: ${{ secrets.DEPLOY_KEY }}
