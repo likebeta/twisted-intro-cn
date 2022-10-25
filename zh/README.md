@@ -25,7 +25,7 @@
 [Dave]: http://krondo.com/blog/?page_id=1327
 [杨晓伟]: http://blog.sina.com.cn/s/blog_704b6af70100py9n.html
 [luocheng]: https://github.com/luocheng/twisted-intro-cn
-[likebeta]: https://www.ixxoo.me
+[likebeta]: https://9527.eu.org
 [gitbook]: https://www.gitbook.com/book/likebeta/twisted-intro-cn
 [github]: https://github.com/likebeta/twisted-intro-cn/blob/gh-pages/zh/SUMMARY.md
 [twistedmatrix]: http://twistedmatrix.com/documents/current/core/howto/index.html
